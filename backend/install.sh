@@ -1,3 +1,3 @@
 python3 -m venv backend
-source backend/bin/activate
+source bin/activate
 pip3 install -r requirements.txt
