@@ -17,15 +17,14 @@ def create_app():
 
     #cargar a la API el recurso Animales y especificar la ruta 
     #es para que la aplicacion de flask funcione como API
-    api.add_resource(resources.AnimalesResources, '/animales')
-    api.add_resource(resources.AnimalResources, '/animal/<id>')
+
     #libros 
     api.add_resource(resources.LibrosResources, '/libros')
     api.add_resource(resources.LibroResources, '/libro/<id>')
 
     #prestamos
-    api.add_resource(resources.PrestamoResources, '/presatmos')
-    api.add_resource(resources.PrestamoResources, '/presatmo/<id>')
+    api.add_resource(resources.PrestamosResources, '/prestamos')
+    api.add_resource(resources.PrestamoResources, '/prestamo/<id>')
         #login
     api.add_resource(resources.LoginResources, '/login')
     #usuarios
@@ -37,5 +36,6 @@ def create_app():
     api.add_resource(resources.ComentariosResources, '/comentarios')
     #valoracion
     api.add_resource(resources.ValoracionResources, '/Valoracion')
+    api.init_app(app)
     #Por ultimo retornamos la aplicacion inicializada
     return app

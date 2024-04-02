@@ -1,5 +1,4 @@
-from .animal import Animal as AnimalResources
-from .animal import Animales as AnimalesResources
+
 from .libros import Libro as LibroResources
 from .libros import Libros as LibrosResources
 from .prestamo import Prestamo as PrestamoResources
