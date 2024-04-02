@@ -9,6 +9,7 @@ LIBROS = {
 }
 
 class Libro(Resource):
+
     def get(self,id):
         if int(id) in LIBROS:
             return LIBROS[int(id)]
