@@ -25,14 +25,11 @@ class Signin(Resource):
         # Obtener datos del formulario
         username = request.form['username']
         password = request.form['password']
-
         # Verificar si el nombre de usuario ya existe
         for usuario in USUARIOS.values():
             if usuario['usuario'] == username:
                 return {'message': 'El nombre de usuario ya existe'}, 400
-        
         # Si el nombre de usuario es único, añadir nuevo usuario al diccionario
         user_id = len(USUARIOS) + 1
         USUARIOS[user_id] = {'usuario': username, 'contraseña': password}
-        
         return {'message': 'Usuario creado correctamente'}, 201
