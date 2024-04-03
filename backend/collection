@@ -632,6 +632,66 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "configuracion",
+			"item": [
+				{
+					"name": "http://127.0.0.1:5000/configuracion/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/configuracion/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"configuracion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/configuracion/1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"visualizacion\": \"Noche\",\n    \"idioma\": \"Español\",\n    \"pais\": \"Argentina\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/configuracion/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"configuracion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

@@ -39,7 +39,6 @@ class Libro(Resource):
         LIBROS.clear()
         LIBROS.update(coleccion)
 
-    
 class Libros(Resource):
     def get(self):
         return LIBROS
