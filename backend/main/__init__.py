@@ -35,7 +35,7 @@ def create_app():
     #comentarios
     api.add_resource(resources.ComentariosResources, '/comentarios')
     #valoracion
-    api.add_resource(resources.ValoracionResources, '/Valoracion')
+    api.add_resource(resources.ValoracionResources, '/valoracion/<id>')
     api.init_app(app)
     #Por ultimo retornamos la aplicacion inicializada
     return app
