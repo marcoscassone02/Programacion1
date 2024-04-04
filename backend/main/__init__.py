@@ -15,8 +15,9 @@ def create_app():
     #prestamos
     api.add_resource(resources.PrestamosResources, '/prestamos')
     api.add_resource(resources.PrestamoResources, '/prestamo/<id>')
-        #login
+    #login
     api.add_resource(resources.LoginResources, '/login')
+    api.add_resource(resources.SignupResources, '/signup')
     #usuarios
     api.add_resource(resources.UsuariosResource, '/usuarios')
     api.add_resource(resources.UsuarioResource, '/usuario/<id>')

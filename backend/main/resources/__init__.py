@@ -3,6 +3,7 @@ from .libros import Libros as LibrosResources
 from .prestamo import Prestamo as PrestamoResources
 from .prestamo import Prestamos as PrestamosResources
 from .login import Login as LoginResources
+from .login import Signup as SignupResources
 from .usuarios import Usuario as UsuarioResource
 from .usuarios import Usuarios as UsuariosResource
 from .notificacion import Notificacion as NotificacionResources

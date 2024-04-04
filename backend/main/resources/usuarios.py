@@ -1,22 +1,11 @@
 from flask_restful import Resource
 from flask import request
 
+
+
 USUARIOS = {
-    1:{'nombre':'Carlos','apellido':'Lopez'},
-    2:{'nombre':'Lionel','apellido':'Messi'},
-    3:{'nombre':'Fideo','apellido':'Di Maria'}
-}
-
-USUARIOS_ADMIN = {
-    1:{'nombre':'Rosa','apellido':'Grande'},
-    2:{'nombre':'Tuli','apellido':'Pan'},
-    3:{'nombre':'Tuma','apellido':'Chito'}
-}
-
-USUARIOS_BIBLIOTECARIOS = {
-    1:{'nombre':'Mica','apellido':'Sita'},
-    2:{'nombre':'Tuca','apellido':'Sita'},
-    3:{'nombre':'Pia','apellido':'Mor'}
+     1:{'Nombre':'Ramiro', 'Apellido':'Perez', 'Correo':'RamiPe15@outlook.com.ar', 'Telefono':'2613485490'},
+     2:{'Nombre':'Sofia', 'Apellido':'Dalmante', 'Correo':'sofi_dalmante02@gmail.com', 'Telefono':'2613846570'},
 }
 
 #Defino el recurso usuario

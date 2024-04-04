@@ -29,15 +29,6 @@ class Libro(Resource):
             self.ordenar_coleccion()
             return 'el libro ha sido eliminado' , 204
         return 'no existe el libro' , 404
-    
-    def ordenar_coleccion(self):
-        coleccion = {}
-        nuevo_id = 1
-        for libro_id, libro in LIBROS.items():
-            coleccion[nuevo_id] = libro
-            nuevo_id += 1
-        LIBROS.clear()
-        LIBROS.update(coleccion)
 
 class Libros(Resource):
     def get(self):
