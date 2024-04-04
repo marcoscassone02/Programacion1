@@ -7,6 +7,6 @@ from .login import Signup as SignupResources
 from .usuarios import Usuario as UsuarioResource
 from .usuarios import Usuarios as UsuariosResource
 from .notificacion import Notificacion as NotificacionResources
-from .comentario import Comentarios as ComentariosResources
 from .valoracion import Valoracion as ValoracionResources
+from .valoracion import Valoraciones as ValoracionesResources
 from .configuracion import Configuracion as ConfiguracionResources

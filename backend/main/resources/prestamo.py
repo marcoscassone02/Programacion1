@@ -24,7 +24,6 @@ class Prestamo(Resource):
     def delete(self,id):
         if int(id) in PRESTAMOS:
             del PRESTAMOS[int(id)]
-            self.ordenar_coleccion()
             return 'el prestamo ha sido eliminado' , 204
         return 'no existe el prestamo' , 404
 

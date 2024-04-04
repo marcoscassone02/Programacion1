@@ -2,10 +2,9 @@ from flask_restful import Resource
 from flask import request
 
 LIBROS = {
-    1:{'nombre':'Game of thrones', 'ISBN':1234567890 ,'stock': 3},
-    2:{'nombre':'Lord of the rings', 'ISBN':8364228104 ,'stock': 5},
-    3:{'nombre':'Maze runner', 'ISBN':24462834651 ,'stock': 0},
-    4:{'nombre':'Manso libreto', 'ISBN':6420094771 ,'stock': 8}
+    1:{'Nombre':'El resplandor', 'Autor':'Stephen King', 'Publicacion':'1977', 'genero': 'Terror', 'editorial':'Debolsillo'},
+    2:{'Nombre':'Inteligencia Emocional', 'Autor':'Daniel Golleman', 'Publicacion':'1995', 'genero': 'Autoayuda', 'editorial':'Kairos'},
+    3:{'Nombre':'Einstein', 'Autor':'Barry Parker', 'Publicacion':'2016', 'genero': 'Biografia', 'editorial':'Ateneo'},
 }
 
 class Libro(Resource):
@@ -26,7 +25,6 @@ class Libro(Resource):
     def delete(self,id):
         if int(id) in LIBROS:
             del LIBROS[int(id)]
-            self.ordenar_coleccion()
             return 'el libro ha sido eliminado' , 204
         return 'no existe el libro' , 404
 
@@ -38,3 +36,5 @@ class Libros(Resource):
         id = int(max(LIBROS.keys()))+1
         LIBROS[id] = libro
         return LIBROS[id], 201
+        return 'Libro creado correctamente', 201
+    

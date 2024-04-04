@@ -2,24 +2,33 @@ from flask_restful import Resource
 from flask import request
 
 VALORACIONES = {
-    1: {'nombre': 'Game of thrones', 'ISBN': 1234567890, 'valoraciones': [1,10]},
-    2: {'nombre': 'Lord of the rings', 'ISBN': 8364228104, 'valoraciones': [2,3]},
-    3: {'nombre': 'Maze runner', 'ISBN': 24462834651, 'valoraciones': [5,6]},
-    4: {'nombre': 'Manso libreto', 'ISBN': 6420094771, 'valoraciones': [2,7]}
+    1:{'libro_id': 2, 'usuario_id':2, 'valoracion':4.5, 'comentario':'Muy buen libro, lo recomiendo', 'fecha':'15/04/2024'},
+    2:{'libro_id': 3, 'usuario_id':1, 'valoracion':4.8, 'comentario':'Excelente libro, muy interesante', 'fecha':'29/04/2024'},
+    3:{'libro_id': 2, 'usuario_id':2, 'valoracion':3.5, 'comentario':'no era lo que esperaba pero me gusto', 'fecha':'15/05/2024'},
 }
 
-class Valoracion(Resource):
-    def post(self, id):
-        if int(id) in VALORACIONES:
-            data = request.get_json()
-            if 'valoracion' in data:
-                VALORACIONES[int(id)]['valoraciones'].append(data['valoracion'])
-                return 'Valoración agregada al libro', 201
-            else:
-                return 'Falta el campo "valoracion"', 400
-        return 'No existe ese libro', 404
+class Valoraciones(Resource):
+    def get(self):
+        return VALORACIONES, 200
+    
+    def post(self):
+        usuario = request.get_json()
+        id = int(max(VALORACIONES.keys()))+1
+        VALORACIONES[id] = usuario
+        return VALORACIONES[id], 201
 
-    def get(self, id):
+class Valoracion(Resource):
+    def get(self,id):
         if int(id) in VALORACIONES:
             return VALORACIONES[int(id)]
-        return 'No existe ese libro', 404
+        
+        #En caso de que no exista
+        return 'No existe el id', 404
+    
+    def delete(self,id):
+        if int(id) in VALORACIONES:  # Verifica que exista el id de usuario recibido en la tabla de Usuarios
+            del VALORACIONES[int(id)]
+            return 'Valoracion eliminada exitosamente',204
+        #Si no existe
+        return 'No existe el id', 404
+    
