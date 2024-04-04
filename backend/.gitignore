@@ -5,3 +5,5 @@
 /lib64
 pyvenv.cfg
 .env
+__pycache__/
+*/__pycache__/*x
