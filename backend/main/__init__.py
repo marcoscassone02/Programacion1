@@ -1,13 +1,27 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_restful import Api
-import main.resources as resources
+from flask_sqlalchemy import SQLAlchemy
+import os
+
+# inicializar SQLAlchemy
+db = SQLAlchemy()
 # iniciamos restful
 api = Api()
 # este metodo inicializa la app y todos sus modulos
 def create_app():
     app = Flask(__name__)
     load_dotenv()
+    #Si no existe el archivo de base de datos crearlo (solo valido si se utiliza SQLite)
+    if not os.path.exists(os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')):
+        os.mknod(os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME'))
+        
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    #Url de configuracion de base de datos
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
+    db.init_app(app)
+    
+    import main.resources as resources
     #libros 
     api.add_resource(resources.LibrosResources, '/libros')
     api.add_resource(resources.LibroResources, '/libro/<id>')
@@ -29,4 +43,16 @@ def create_app():
     api.add_resource(resources.ConfiguracionResources, '/configuracion/<id>')
     #Por ultimo retornamos la aplicacion inicializada
     api.init_app(app)
+
+    from backend/main/models import Usuario  # Asegurate de importar tu modelo de Usuario
+
+    # Crear una sesion de SQLAlchemy
+    session = db.session()
+    
+    # Consultar todos los usuarios
+    usuarios = session.query(Usuario).all()
+    
+    # Imprimir cada usuario
+    for usuario in usuarios:
+        print(usuario.to_json())
     return app
