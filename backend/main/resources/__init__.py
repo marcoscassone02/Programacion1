@@ -10,3 +10,5 @@ from .notificacion import Notificacion as NotificacionResources
 from .valoracion import Valoracion as ValoracionResources
 from .valoracion import Valoraciones as ValoracionesResources
 from .configuracion import Configuracion as ConfiguracionResources
+from .autores import Autor as AutorResources
+from .autores import Autores as AutoresResources
