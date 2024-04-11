@@ -35,7 +35,7 @@ def create_app():
     api.add_resource(resources.UsuariosResource, '/usuarios')
     api.add_resource(resources.UsuarioResource, '/usuario/<id>')
     #autores
-    api.add_resource(resources.AutoresResourcesResources, '/autores')
+    api.add_resource(resources.AutoresResources, '/autores')
     api.add_resource(resources.AutorResources, '/autor/<id>')
     #notificacion
     api.add_resource(resources.NotificacionResources, '/notificacion')
