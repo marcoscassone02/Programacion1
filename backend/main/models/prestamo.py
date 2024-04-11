@@ -9,7 +9,7 @@ class Prestamo(db.Model):
     estado = db.Column(db.String(100),nullable=False)
 #Convertir objeto en JSON
     def to_json(self):
-        usuario_json = {
+        prestamo_json = {
             'id': self.id,
             'libro_id': self.libro_id,
             'usuario_id': self.usuario_id,
@@ -17,4 +17,4 @@ class Prestamo(db.Model):
             'fecha_devolucion': self.fecha_devolucion,
             'estado': str(self.estado)
         }
-        return usuario_json
+        return prestamo_json

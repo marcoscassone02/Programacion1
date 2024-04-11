@@ -5,8 +5,8 @@ class Notificacion(db.Model):
     mensaje = db.Column(db.String(100),nullable=False)
     #Convertir objeto en JSON
     def to_json(self):
-        usuario_json = {
+        notificacion_json = {
             'id': self.id,
             'mensaje': str(self.mensaje),
         }
-        return usuario_json
+        return notificacion_json

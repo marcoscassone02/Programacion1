@@ -11,7 +11,7 @@ class Libro(db.Model):
 
     #Convertir objeto en JSON
     def to_json(self):
-        usuario_json = {
+        libros_json = {
             'id': self.id,
             'nombre': str(self.nombre),
             'autor':str(self.autor),
@@ -19,4 +19,4 @@ class Libro(db.Model):
             'genero': str(self.genero),
             'editorial': str(self.editorial)
         }
-        return usuario_json
+        return libros_json
