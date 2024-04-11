@@ -43,16 +43,4 @@ def create_app():
     api.add_resource(resources.ConfiguracionResources, '/configuracion/<id>')
     #Por ultimo retornamos la aplicacion inicializada
     api.init_app(app)
-
-    from backend/main/models import Usuario  # Asegurate de importar tu modelo de Usuario
-
-    # Crear una sesion de SQLAlchemy
-    session = db.session()
-    
-    # Consultar todos los usuarios
-    usuarios = session.query(Usuario).all()
-    
-    # Imprimir cada usuario
-    for usuario in usuarios:
-        print(usuario.to_json())
     return app

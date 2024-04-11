@@ -1,5 +1,7 @@
 from flask_restful import Resource
 from flask import request
+from .. import db
+from main.models import PrestamoModel
 
 PRESTAMOS = {
     1: {'libro_id': 1, 'usuario_id': 1, 'fecha_prestamo': '2024-03-25', 'fecha_devolucion': '2024-04-25', 'estado':'en prestamo'},
@@ -9,9 +11,11 @@ PRESTAMOS = {
 
 class Prestamo(Resource):
     def get(self,id):
-        if int(id) in PRESTAMOS:
-            return PRESTAMOS[int(id)]
-        return 'no existe el prestamo' , 404
+        #if int(id) in PRESTAMOS:
+        #    return PRESTAMOS[int(id)]
+        #return 'no existe el prestamo' , 404
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        return prestamo.to_json()
 
     def put(self,id):
         if int(id) in PRESTAMOS:

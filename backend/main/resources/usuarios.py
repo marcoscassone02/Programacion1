@@ -1,6 +1,7 @@
 from flask_restful import Resource
 from flask import request
-
+from .. import db
+from main.models import UsuarioModel
 USUARIOS = {
     1:{'Nombre':'Ramiro', 'Apellido':'Perez', 'Correo':'RamiPe15@outlook.com.ar', 'Telefono':'2613485490'},
     2:{'Nombre':'Sofia', 'Apellido':'Dalmante', 'Correo':'sofi_dalmante02@gmail.com', 'Telefono':'2613846570'},
@@ -9,6 +10,7 @@ USUARIOS = {
 class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
     #obtener recurso
     def get(self):
+
         #obtener todos los usuarios
         return USUARIOS
     
@@ -21,11 +23,13 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
 class Usuario(Resource):
     def get(self,id):
         #Verifico que exista el usuario
-        if int(id) in USUARIOS:
-            #retorno usuario
-            return USUARIOS[int(id)] 
-        #si no existe
-        return 'el usuario no existe' , 404
+        usuario = db.session.query(UsuarioModel).get_or_404(id)
+        return usuario.to_json()
+        #if int(id) in USUARIOS:
+        #    #retorno usuario
+        #    return USUARIOS[int(id)] 
+        ##si no existe
+        #return 'el usuario no existe' , 404
     
     def put(self,id):
         if int(id) in USUARIOS:

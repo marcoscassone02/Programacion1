@@ -1,5 +1,7 @@
 from flask_restful import Resource
 from flask import request
+from .. import db
+from main.models import ValoracionModel
 
 VALORACIONES = {
     1:{'libro_id': 2, 'usuario_id':2, 'valoracion':4.5, 'comentario':'Muy buen libro, lo recomiendo', 'fecha':'15/04/2024'},
@@ -19,11 +21,13 @@ class Valoraciones(Resource):
 
 class Valoracion(Resource):
     def get(self,id):
-        if int(id) in VALORACIONES:
-            return VALORACIONES[int(id)]
+        valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        return valoracion.to_json()
+        #if int(id) in VALORACIONES:
+        #    return VALORACIONES[int(id)]
         
         #En caso de que no exista
-        return 'No existe el id', 404
+        #return 'No existe el id', 404
     
     def delete(self,id):
         if int(id) in VALORACIONES:  # Verifica que exista el id de usuario recibido en la tabla de Usuarios
