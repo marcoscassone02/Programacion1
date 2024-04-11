@@ -5,3 +5,4 @@ from .login import Signup as SignupModel
 from .notificacion import Notificacion as NotificacionModel
 from .valoracion import Valoracion as ValoracionModel
 from .configuracion import Configuracion as ConfiguracionModel
+from .autores import Autor as AutorModel
