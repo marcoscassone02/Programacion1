@@ -1,46 +1,36 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, jsonify
 from .. import db
 from main.models import UsuarioModel
-USUARIOS = {
-    1:{'Nombre':'Ramiro', 'Apellido':'Perez', 'Correo':'RamiPe15@outlook.com.ar', 'Telefono':'2613485490'},
-    2:{'Nombre':'Sofia', 'Apellido':'Dalmante', 'Correo':'sofi_dalmante02@gmail.com', 'Telefono':'2613846570'},
-}
-#Defino el recurso usuario
-class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
-    #obtener recurso
-    def get(self):
 
-        #obtener todos los usuarios
-        return USUARIOS
-    
+class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
+    #obtener todos los usuarios
+    def get(self):
+        usuarios = db.session.query(UsuarioModel).all()
+        return jsonify([usuario.to_json() for usuario in usuarios])
+    #insertar recurso
     def post(self):
-        usuario = request.get_json()
-        id = int(max(USUARIOS.keys())) + 1
-        USUARIOS[id] = usuario
-        return USUARIOS[id], 201
+        usuario = UsuarioModel.from_json(request.get_json())
+        db.session.add(usuario)
+        db.session.commit()
+        return usuario.to_json(), 201
         
 class Usuario(Resource):
     def get(self,id):
-        #Verifico que exista el usuario
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         return usuario.to_json()
-        #if int(id) in USUARIOS:
-        #    #retorno usuario
-        #    return USUARIOS[int(id)] 
-        ##si no existe
-        #return 'el usuario no existe' , 404
-    
-    def put(self,id):
-        if int(id) in USUARIOS:
-            client = USUARIOS[int(id)]
-            data = request.get_json()
-            client.update(data)
-            return 'actualizamos el usuario', 201
-        return 'el usuario no existe', 404
-    
-    def delete(self,id):
-        if int(id) in USUARIOS:
-            del USUARIOS[int(id)]
-            return 'usuario eliminado', 204
-        return 'usuario no existente', 404
+    #Modificar el recurso
+    def put(self, id):
+        usuario = db.session.query(UsuarioModel).get_or_404(id)
+        data = request.get_json().items()
+        for key, value in data:
+            setattr(usuario, key, value)
+        db.session.add(usuario)
+        db.session.commit()
+        return usuario.to_json() , 201
+    #Eliminar recurso
+    def delete(self, id):
+        usuario = db.session.query(UsuarioModel).get_or_404(id)
+        db.session.delete(usuario)
+        db.session.commit()
+        return usuario.to_json(), 204
