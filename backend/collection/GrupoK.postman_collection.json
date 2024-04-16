@@ -3,8 +3,8 @@
 		"_postman_id": "477d48d1-1f28-4d2b-a35e-630dd876779b",
 		"name": "GrupoK",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34070862",
-		"_collection_link": "https://winter-capsule-328300.postman.co/workspace/My-Workspace~ee9bb140-6267-4209-808a-7a7d58532e9b/collection/34070862-477d48d1-1f28-4d2b-a35e-630dd876779b?action=share&source=collection_link&creator=34070862"
+		"_exporter_id": "34024076",
+		"_collection_link": "https://winter-capsule-328300.postman.co/workspace/My-Workspace~ee9bb140-6267-4209-808a-7a7d58532e9b/collection/34070862-477d48d1-1f28-4d2b-a35e-630dd876779b?action=share&source=collection_link&creator=34024076"
 	},
 	"item": [
 		{
@@ -42,7 +42,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Gabi\",\n    \"apellido\": \"Gomez\",\n    \"correo\": \"correo123@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"261\"\n}",
+									"raw": "{\n    \"Nombre\": \"Gabi\",\n    \"Apellido\": \"Gomez\",\n    \"Correo\": \"correo123@gmail.com\",\n    \"Telefono\": \"12345678910\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -101,7 +101,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"correo\": \"cambiodecorreo@gmail.com\",\n    \"telefono\":123\n}",
+									"raw": "{\n    \"Correo\": \"cambiodecorreo@gmail.com\",\n    \"Telefono\": \"9876543210\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -221,152 +221,6 @@
 			]
 		},
 		{
-			"name": "autores",
-			"item": [
-				{
-					"name": "autores",
-					"item": [
-						{
-							"name": "Lista de autores",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/autores",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autores"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Agregar un autor",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Daniel\",\n    \"apellido\": \"Golleman\",\n    \"biografia\": \"Psicologo\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/autores",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autores"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "autor",
-					"item": [
-						{
-							"name": "Obtener un autor",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/autor/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autor",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Editar un autor",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"biografia\": \"Escritor de exitosas novelas, algunas de ellas han sido exitos cinematograficos\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/autor/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autor",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Eliminar un autor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/autor/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autor",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
 			"name": "libros",
 			"item": [
 				{
@@ -401,7 +255,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\"\n}",
+									"raw": "{\n    \"Nombre\":\"El austronaita\", \"Autor\":[\"hector g. oesterheld\",\"Francisco Solano López\"], \"Año\":\"1957\", \"genero\": \"Ciencia Ficción\", \"editorial\":\"Doedytores\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -460,7 +314,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"publicacion\":\"1999\", \"editorial\":\"miedo\"\n}",
+									"raw": "{\n    \"Año\":\"1999\", \"editorial\":\"miedo\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -491,7 +345,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/libro/1",
+									"raw": "http://127.0.0.1:5000/libro/3",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -502,7 +356,7 @@
 									"port": "5000",
 									"path": [
 										"libro",
-										"1"
+										"3"
 									]
 								}
 							},

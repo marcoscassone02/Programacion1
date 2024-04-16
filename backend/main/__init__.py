@@ -30,7 +30,7 @@ def create_app():
     api.add_resource(resources.PrestamoResources, '/prestamo/<id>')
     #login
     api.add_resource(resources.LoginResources, '/login')
-    api.add_resource(resources.SignupResources, '/signup')
+    # api.add_resource(resources.SignupResources, '/signup')
     #usuarios
     api.add_resource(resources.UsuariosResource, '/usuarios')
     api.add_resource(resources.UsuarioResource, '/usuario/<id>')
