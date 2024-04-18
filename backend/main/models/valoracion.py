@@ -9,7 +9,7 @@ class Valoracion(db.Model):
     fecha= db.Column(db.Integer,nullable=False)
     #Convertir objeto en JSON
     def to_json(self):
-        usuario_json = {
+        valoracion_json = {
             'id': self.id,
             'libro_id': self.libro_id,
             'usuario_id': self.usuario_id,
@@ -17,4 +17,20 @@ class Valoracion(db.Model):
             'comentario': str(self.comentario),
             'fecha': self.fecha
         }
-        return usuario_json
+        return valoracion_json 
+    
+    def from_json(valoracion_json):
+        id = valoracion_json.get('id')
+        libro_id = valoracion_json.get('libro_id')
+        usuario_id = valoracion_json.get('usuario_id')
+        valoracion = valoracion_json.get('valoracion')
+        comentario = valoracion_json.get('comentario')
+        fecha = valoracion_json.get('fecha')
+        
+        return Valoracion(id=id,
+                libro_id=libro_id,
+                usuario_id=usuario_id,
+                comentario=comentario,
+                valoracion=valoracion,
+                fecha=fecha
+                )
