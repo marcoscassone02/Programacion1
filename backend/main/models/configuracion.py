@@ -20,7 +20,7 @@ class Configuracion(db.Model):
         visualizacion = configuracion_json.get('visualizacion')
         idioma = configuracion_json.get('idioma')
         pais = configuracion_json.get('pais')
-         
+        
         return Configuracion(id=id,
                     visualizacion=visualizacion,
                     idioma=idioma,

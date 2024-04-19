@@ -3,12 +3,6 @@ from flask import request , jsonify
 from .. import db
 from main.models import ValoracionModel
 
-VALORACIONES = {
-    1:{'libro_id': 2, 'usuario_id':2, 'valoracion':4.5, 'comentario':'Muy buen libro, lo recomiendo', 'fecha':'15/04/2024'},
-    2:{'libro_id': 3, 'usuario_id':1, 'valoracion':4.8, 'comentario':'Excelente libro, muy interesante', 'fecha':'29/04/2024'},
-    3:{'libro_id': 2, 'usuario_id':2, 'valoracion':3.5, 'comentario':'no era lo que esperaba pero me gusto', 'fecha':'15/05/2024'},
-}
-
 class Valoraciones(Resource):
     def get(self):
         #return VALORACIONES, 200
@@ -17,11 +11,6 @@ class Valoraciones(Resource):
         return valoraciones
     
     def post(self):
-        # usuario = request.get_json()
-        # id = int(max(VALORACIONES.keys()))+1
-        # VALORACIONES[id] = usuario
-        # return VALORACIONES[id], 201
-
         valoracion = request.get_json()
         nuevo_valoracion = ValoracionModel.from_json(valoracion)
         db.session.add(nuevo_valoracion)
@@ -31,20 +20,8 @@ class Valoraciones(Resource):
 class Valoracion(Resource):
     def get(self,id):
         valoracion = db.session.query(ValoracionModel).get_or_404(id)
-        return valoracion.to_json()
-        
-        #if int(id) in VALORACIONES:
-        #    return VALORACIONES[int(id)]
-        
-        #En caso de que no exista
-        #return 'No existe el id', 404
-    
+        return valoracion.to_json()    
     def delete(self,id):
-        # if int(id) in VALORACIONES:  # Verifica que exista el id de usuario recibido en la tabla de Usuarios
-        #     del VALORACIONES[int(id)]
-        #     return 'Valoracion eliminada exitosamente',204
-        # #Si no existe
-        # return 'No existe el id', 404 
         valoracion = db.session.query(ValoracionModel).get_or_404(id)
         db.session.delete(valoracion)
         db.session.commit()

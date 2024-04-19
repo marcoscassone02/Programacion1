@@ -42,7 +42,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"Nombre\": \"Gabi\",\n    \"Apellido\": \"Gomez\",\n    \"Correo\": \"correo123@gmail.com\",\n    \"Telefono\": \"12345678910\"\n}",
+									"raw": "{\n    \"nombre\": \"Gabi\",\n    \"apellido\": \"Gomez\",\n    \"correo\": \"correo123@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"261\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -101,7 +101,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"Correo\": \"cambiodecorreo@gmail.com\",\n    \"Telefono\": \"9876543210\"\n}",
+									"raw": "{\n    \"correo\": \"cambiodecorreo@gmail.com\",\n    \"telefono\":123\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -132,7 +132,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/usuario/2",
+									"raw": "http://127.0.0.1:5000/usuario/1",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -143,7 +143,7 @@
 									"port": "5000",
 									"path": [
 										"usuario",
-										"2"
+										"1"
 									]
 								}
 							},
@@ -154,37 +154,6 @@
 				{
 					"name": "cuenta",
 					"item": [
-						{
-							"name": "Signup",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/signup",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"signup"
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "Login",
 							"request": {
@@ -211,6 +180,152 @@
 									"port": "5000",
 									"path": [
 										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "autores",
+			"item": [
+				{
+					"name": "autores",
+					"item": [
+						{
+							"name": "Lista de autores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/autores",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"autores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Agregar un autor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Daniel\",\n    \"apellido\": \"Golleman\",\n    \"biografia\": \"Psicologo\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/autores",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"autores"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "autor",
+					"item": [
+						{
+							"name": "Obtener un autor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/autor/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"autor",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar un autor",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"biografia\": \"Escritor de exitosas novelas, algunas de ellas han sido exitos cinematograficos\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/autor/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"autor",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar un autor",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/autor/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"autor",
+										"1"
 									]
 								}
 							},
@@ -255,7 +370,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"Nombre\":\"El austronaita\", \"Autor\":[\"hector g. oesterheld\",\"Francisco Solano López\"], \"Año\":\"1957\", \"genero\": \"Ciencia Ficción\", \"editorial\":\"Doedytores\"\n}",
+									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -314,7 +429,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"Año\":\"1999\", \"editorial\":\"miedo\"\n}",
+									"raw": "{\n    \"publicacion\":\"1999\", \"editorial\":\"miedo\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -345,7 +460,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/libro/3",
+									"raw": "http://127.0.0.1:5000/libro/1",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -356,7 +471,7 @@
 									"port": "5000",
 									"path": [
 										"libro",
-										"3"
+										"1"
 									]
 								}
 							},
@@ -401,7 +516,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"libro_id\": 1, \"usuario_id\":1, \"fecha_prestamo\":\"03/04/2024\", \"fecha_devolucion\":\"03/05/2024\", \"estado\":\"en prestamo\"\n}",
+									"raw": "{\n   \"fecha_prestamo\":\"03-04-2025\", \"fecha_devolucion\": \"03-05-2028\", \"estado\":\"en prestamo\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
