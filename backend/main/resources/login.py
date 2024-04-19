@@ -1,43 +1,23 @@
 from flask_restful import Resource
 from flask import request
-
-USUARIOS = {
-    1: {'usuario':'Maxxo', 'contraseña':'Maxxo20'},
-    2: {'usuario':'Emi', 'contraseña':'lia_no@'},
-    3: {'usuario':'Marca', 'contraseña':'Akme3'},
-    4: {'usuario':'Steffan0', 'contraseña':'Fano20'}
-}
+from .. import db
+from main.models import UsuarioModel
 
 class Login(Resource):
     def put(self):
         logdata = request.get_json()
         # Obtener datos del formulario
-        username = logdata.get('username')
-        password = logdata.get('password')
+        correo = logdata.get('correo')
+        contraseña = logdata.get('contraseña')
 
-        # Validar usuario y contraseña
-        for usuario in USUARIOS.values():
-            if "admin" == username and "admin" == password:
-                return {'message': 'Inicio de sesion como administrador exitoso'}, 200
-            elif usuario['usuario'] == username and usuario['contraseña'] == password:
-                return {'message': 'Inicio de sesion exitoso'}, 200
+        # Realizar la consulta para obtener el usuario correspondiente al correo
+        usuario = UsuarioModel.query.filter_by(correo=correo).first()
+
+        # Verificar si el usuario existe y la contraseña es correcta
+        if usuario and usuario.contraseña == contraseña:
+            if usuario.rol == "admin":
+                return {'message': 'Inicio de sesión como administrador exitoso'}, 200
+            else:
+                return {'message': 'Inicio de sesión exitoso'}, 200
         else:
-            print (username,password)
-            print (usuario['usuario'])
-            return {'message': 'Credenciales invalidas'}, 401
-        
-class Signup(Resource):
-    def post(self):
-        logdata = request.get_json()
-        # Obtener datos del formulario
-        username = logdata.get('username')
-        password = logdata.get('password')
-
-        # Verificar si el nombre de usuario ya existe
-        for usuario in USUARIOS.values():
-            if usuario['usuario'] == username:
-                return {'message': 'El nombre de usuario ya existe'}, 400
-        # Si el nombre de usuario es único, añadir nuevo usuario al diccionario
-        id = int(max(USUARIOS.keys()))+1
-        USUARIOS[id] = {'usuario': username, 'contraseña': password}
-        return {'message': 'Usuario creado correctamente'}, 201
+            return {'message': 'Credenciales inválidas'}, 401

@@ -1,38 +1,39 @@
 from flask_restful import Resource
-from flask import request
-
-PRESTAMOS = {
-    1: {'libro_id': 1, 'usuario_id': 1, 'fecha_prestamo': '2024-03-25', 'fecha_devolucion': '2024-04-25', 'estado':'en prestamo'},
-    2: {'libro_id': 2, 'usuario_id': 1, 'fecha_prestamo': '2024-03-23', 'fecha_devolucion': '2024-04-23', 'estado':'en prestamo'},
-    3: {'libro_id': 3, 'usuario_id': 2, 'fecha_prestamo': '2024-03-20', 'fecha_devolucion': '2024-04-20', 'estado':'en prestamo'}
-}
+from flask import request, jsonify
+from .. import db
+from main.models import PrestamoModel
 
 class Prestamo(Resource):
     def get(self,id):
-        if int(id) in PRESTAMOS:
-            return PRESTAMOS[int(id)]
-        return 'no existe el prestamo' , 404
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        return prestamo.to_json()
 
-    def put(self,id):
-        if int(id) in PRESTAMOS:
-            prestamo = PRESTAMOS[int(id)]
-            data = request.get_json()
-            prestamo.update(data)
-            return 'Actualizamos el prestamo' , 201
-        return 'no existe el prestamo' , 404
+    #Modificar el recurso
+    def put(self, id):
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        data = request.get_json().items()
+        for key, value in data:
+            setattr(prestamo, key, value)
+        db.session.add(prestamo)
+        db.session.commit()
+        return prestamo.to_json() , 201
     
-    def delete(self,id):
-        if int(id) in PRESTAMOS:
-            del PRESTAMOS[int(id)]
-            return 'el prestamo ha sido eliminado' , 204
-        return 'no existe el prestamo' , 404
+    #Eliminar recurso
+    def delete(self, id):
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        db.session.delete(prestamo)
+        db.session.commit()
+        return prestamo.to_json(), 204
 
 class Prestamos(Resource):
+    #obtener todos los usuarios
     def get(self):
-        return PRESTAMOS
-
+        prestamos = db.session.query(PrestamoModel).all()
+        return jsonify([prestamo.to_json() for prestamo in prestamos])
+    #insertar recurso
     def post(self):
-        prestamo = request.get_json()
-        id = int(max(PRESTAMOS.keys()))+1
-        PRESTAMOS[id] = prestamo
-        return PRESTAMOS[id], 201 
+        prestamo = PrestamoModel.from_json(request.get_json())
+        db.session.add(prestamo)
+        db.session.commit()
+        return prestamo.to_json(), 201
+        
