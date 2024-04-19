@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request , jsonify
 from .. import db
 from main.models import ValoracionModel
 
@@ -11,18 +11,28 @@ VALORACIONES = {
 
 class Valoraciones(Resource):
     def get(self):
-        return VALORACIONES, 200
+        #return VALORACIONES, 200
+        listado_valoraciones = db.session.query(ValoracionModel).all()
+        valoraciones = jsonify([valoracion.to_json() for valoracion in listado_valoraciones])
+        return valoraciones
     
     def post(self):
-        usuario = request.get_json()
-        id = int(max(VALORACIONES.keys()))+1
-        VALORACIONES[id] = usuario
-        return VALORACIONES[id], 201
+        # usuario = request.get_json()
+        # id = int(max(VALORACIONES.keys()))+1
+        # VALORACIONES[id] = usuario
+        # return VALORACIONES[id], 201
+
+        valoracion = request.get_json()
+        nuevo_valoracion = ValoracionModel.from_json(valoracion)
+        db.session.add(nuevo_valoracion)
+        db.session.commit()
+        return nuevo_valoracion.to_json(), 201
 
 class Valoracion(Resource):
     def get(self,id):
         valoracion = db.session.query(ValoracionModel).get_or_404(id)
         return valoracion.to_json()
+        
         #if int(id) in VALORACIONES:
         #    return VALORACIONES[int(id)]
         
@@ -30,9 +40,12 @@ class Valoracion(Resource):
         #return 'No existe el id', 404
     
     def delete(self,id):
-        if int(id) in VALORACIONES:  # Verifica que exista el id de usuario recibido en la tabla de Usuarios
-            del VALORACIONES[int(id)]
-            return 'Valoracion eliminada exitosamente',204
-        #Si no existe
-        return 'No existe el id', 404
-    
+        # if int(id) in VALORACIONES:  # Verifica que exista el id de usuario recibido en la tabla de Usuarios
+        #     del VALORACIONES[int(id)]
+        #     return 'Valoracion eliminada exitosamente',204
+        # #Si no existe
+        # return 'No existe el id', 404 
+        valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        db.session.delete(valoracion)
+        db.session.commit()
+        return 'Autor eliminado'

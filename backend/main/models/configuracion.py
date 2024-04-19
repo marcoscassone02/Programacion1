@@ -13,4 +13,16 @@ class Configuracion(db.Model):
             'idioma':str(self.idioma),
             'pais': str(self.pais),
         }
-        return configuracion_json
+        return configuracion_json 
+    
+    def from_json(configuracion_json):
+        id = configuracion_json.get('id')
+        visualizacion = configuracion_json.get('visualizacion')
+        idioma = configuracion_json.get('idioma')
+        pais = configuracion_json.get('pais')
+         
+        return Configuracion(id=id,
+                    visualizacion=visualizacion,
+                    idioma=idioma,
+                    pais=pais
+                    )

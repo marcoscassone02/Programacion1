@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request , jsonify
 from.. import db
 from main.models import ConfiguracionModel
 
@@ -13,12 +13,21 @@ class Configuracion(Resource):
         #if int(id) in CONFIGURACION:
         #    return CONFIGURACION[int(id)]
         #return 'no existe la configuracion' , 404
-        configuracion = db.session.query(ConfiguracionModel).get_or_404(id)
-        return configuracion.to_json()
+        configuaracion = db.session.query(ConfiguracionModel).get_or_404(id)
+        return configuaracion.to_json()
+    
     def put(self,id):
-        if int(id) in CONFIGURACION:
-            configuracion = CONFIGURACION[int(id)]
-            data = request.get_json()
-            configuracion.update(data)
-            return 'Actualizamos la configuracion' , 201
-        return 'no existe la configuracion' , 404
+        # if int(id) in CONFIGURACION:
+        #     configuracion = CONFIGURACION[int(id)]
+        #     data = request.get_json()
+        #     configuracion.update(data)
+        #     return 'Actualizamos la configuracion' , 201
+        # return 'no existe la configuracion' , 404
+        data = request.get_json()
+        configuracion = db.session.query(ConfiguracionModel).get_or_404(id)
+        for key, value in data.items():
+            setattr(configuracion, key, value)
+        db.session.add(configuracion)
+        db.session.commit()
+        return configuracion.to_json(), 201
+   
