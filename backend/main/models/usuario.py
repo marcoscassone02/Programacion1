@@ -8,6 +8,7 @@ class Usuario(db.Model):
     correo = db.Column(db.String(100),nullable=False)
     telefono = db.Column(db.Integer, nullable=False)
     contraseña = db.Column(db.String(100),nullable=False)
+    rol = db.Column(db.String(100),nullable=False)
     #Convertir objeto en JSON
     def to_json(self):
         usuario_json = {
@@ -17,6 +18,7 @@ class Usuario(db.Model):
             'correo': str(self.correo),
             'telefono': self.telefono,
             'contraseña': str(self.contraseña),
+            'rol': str(self.rol),
         }
         return usuario_json
     def to_json_short(self):
@@ -26,7 +28,8 @@ class Usuario(db.Model):
             'apellido':str(self.apellido),
             'correo': str(self.correo),
             'telefono': self.telefono,
-            'contraseña': str(self.contraseña)
+            'contraseña': str(self.contraseña),
+            'rol': str(self.rol)
         }
         return usuario_json
 
@@ -39,11 +42,13 @@ class Usuario(db.Model):
         correo = usuario_json.get('correo')
         telefono = usuario_json.get('telefono')
         contraseña = usuario_json.get('contraseña')
+        rol = usuario_json.get('rol')
 
         return Usuario(id=id,
                     nombre=nombre,
                     apellido=apellido,
                     correo=correo,
-                    telefono=telefono
-                    ,contraseña=contraseña
+                    telefono=telefono,
+                    contraseña=contraseña,
+                    rol=rol
                     )

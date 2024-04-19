@@ -7,10 +7,10 @@ class Configuracion(db.Model):
     pais = db.Column(db.String(100),nullable=False)
     #Convertir objeto en JSON
     def to_json(self):
-        usuario_json = {
+        configuracion_json = {
             'id': self.id,
             'visualizacion': str(self.visualizacion),
             'idioma':str(self.idioma),
             'pais': str(self.pais),
         }
-        return usuario_json
+        return configuracion_json
