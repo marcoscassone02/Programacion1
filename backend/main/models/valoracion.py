@@ -11,7 +11,7 @@ class Valoracion(db.Model):
             'id': self.id,
             'valoracion':self.valoracion,
             'comentario': str(self.comentario),
-            'fecha': str(self.fecha.strftime("%d-%m-%Y"))
+            'fecha': str(self.fecha.strftime("%Y-%m-%d"))
         }
         return valoracion_json 
     
@@ -19,7 +19,7 @@ class Valoracion(db.Model):
         id = valoracion_json.get('id')
         valoracion = valoracion_json.get('valoracion')
         comentario = valoracion_json.get('comentario')
-        fecha = datetime.strptime(valoracion_json.get('fecha'), '%d-%m-%Y')
+        fecha = datetime.strptime(valoracion_json.get('fecha'), '%Y-%m-%d')
         return Valoracion(id=id,
                 comentario=comentario,
                 valoracion=valoracion,
