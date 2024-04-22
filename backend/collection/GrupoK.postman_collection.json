@@ -42,7 +42,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Gabi\",\n    \"apellido\": \"Gomez\",\n    \"correo\": \"correo123@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"261\"\n}",
+									"raw": "{\n    \"nombre\": \"Gabi\",\n    \"apellido\": \"Gomez\",\n    \"correo\": \"correo123@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"261\",\n    \"rol\":\"admin\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -161,7 +161,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n\n}",
+									"raw": "{\n    \"correo\":\"mar@\",\n    \"contraseña\":\"231\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -516,7 +516,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n   \"fecha_prestamo\":\"03-04-2025\", \"fecha_devolucion\": \"03-05-2028\", \"estado\":\"en prestamo\"\n}",
+									"raw": "{\n   \"fecha_prestamo\":\"2025-04-20\", \"fecha_devolucion\": \"2026-05-20\", \"estado\":\"en prestamo\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -635,7 +635,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2024-04-01\"\n\n}",
+									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2001-04-20\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -756,7 +756,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"libro_id\": 2, \"usuario_id\":1, \"valoracion\":2.0, \"comentario\":\"No me gusto, senti que no terminaba de sumergirme en ese mundo\", \"fecha\":\"17/05/2024\"\n}",
+											"raw": "{\n       \"comentario\": \"muy bueno\",\n        \"fecha\": \"2012-11-20\",\n        \"valoracion\": 10\n}",
 											"options": {
 												"raw": {
 													"language": "json"

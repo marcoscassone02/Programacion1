@@ -10,7 +10,7 @@ class Notificacion(db.Model):
         notificacion_json = {
             'id': self.id,
             'mensaje': str(self.mensaje),
-            'fecha': datetime.strftime(self.fecha, '%d-%m-%Y')
+            'fecha': datetime.strftime(self.fecha, '%Y-%m-%d')
         }
         return notificacion_json
     
@@ -21,7 +21,7 @@ class Notificacion(db.Model):
         fecha_str = notificacion_json.get('fecha')
         
     # Convertir el string de fecha a objeto datetime
-        fecha = datetime.strptime(fecha_str, '%d-%m-%Y').date()
+        fecha = datetime.strptime(fecha_str, '%Y-%m-%d').date()
         return Notificacion(id=id,
                     mensaje=mensaje,
                     fecha=fecha,
