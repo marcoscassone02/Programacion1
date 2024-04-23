@@ -10,10 +10,10 @@ class Libro(db.Model):
     idioma = db.Column(db.String(100),nullable=False)
     #relacion 
     valoraciones=db.relationship('Valoracion', back_populates='libro',cascade="all, delete-orphan")
-
     #Convertir objeto en JSON
     def to_json(self):
-        valoraciones=[valoracion.to_json() for valoracion in self.valoraciones]
+        valoraciones=[valoracion.to_json_sin_libro_id() for valoracion in self.valoraciones]
+
         libro_json = {
             'id': self.id,
             'nombre': str(self.nombre),
@@ -25,7 +25,7 @@ class Libro(db.Model):
         }
         return libro_json
     
-    #Convertir JSON a objeto
+    #Convertir JSON a objeto (post)
     def from_json(libro_json):
         id = libro_json.get('id')
         nombre = libro_json.get('nombre')

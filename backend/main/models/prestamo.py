@@ -13,7 +13,7 @@ class Prestamo(db.Model):
 
 #Convertir objeto en JSON
     def to_json(self):
-        # self.usuario=db.session.query(UsuarioModel).get_or_404(self.usuario_id)
+        self.usuario=db.session.query(UsuarioModel).get_or_404(self.usuario_id)
         prestamo_json = {
             'id': self.id,
             'fecha_prestamo':str(self.fecha_prestamo.strftime("%Y-%m-%d")),
@@ -21,14 +21,6 @@ class Prestamo(db.Model):
             'estado': str(self.estado),
             'usuario_id': self.usuario_id
             
-        }
-        return prestamo_json
-    def to_json_short(self):
-        prestamo_json = {
-            'id': self.id,
-            'fecha_prestamo':str(self.fecha_prestamo.strptime("%Y-%m-%d")),
-            'fecha_devolucion': str(self.fecha_devolucion.strptime("%Y-%m-%d")),
-            'estado': str(self.estado)
         }
         return prestamo_json
 

@@ -25,18 +25,6 @@ class Usuario(db.Model):
             'rol': str(self.rol),
         }
         return usuario_json
-    def to_json_short(self):
-        usuario_json = {
-            'id': self.id,
-            'nombre': str(self.nombre),
-            'apellido':str(self.apellido),
-            'correo': str(self.correo),
-            'telefono': self.telefono,
-            'contraseña': str(self.contraseña),
-            'rol': str(self.rol)
-        }
-        return usuario_json
-
     @staticmethod
     #Convertir JSON a objeto
     def from_json(usuario_json):

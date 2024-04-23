@@ -18,7 +18,20 @@ class Valoracion(db.Model):
             'valoracion':self.valoracion,
             'comentario': str(self.comentario),
             'fecha': str(self.fecha.strftime("%Y-%m-%d")),
-            'libro_id': self.libro_id
+            'libro_id': self.libro_id,
+            'usuario_id': self.usuario_id
+
+        }
+        return valoracion_json 
+    
+    def to_json_sin_libro_id(self):
+        valoracion_json = {
+            'id': self.id,
+            'valoracion':self.valoracion,
+            'comentario': str(self.comentario),
+            'fecha': str(self.fecha.strftime("%Y-%m-%d")),
+            'usuario_id': self.usuario_id
+
         }
         return valoracion_json 
     
@@ -28,9 +41,11 @@ class Valoracion(db.Model):
         comentario = valoracion_json.get('comentario')
         fecha = datetime.strptime(valoracion_json.get('fecha'), '%Y-%m-%d')
         libro_id = valoracion_json.get('libro_id')
+        usuario_id = valoracion_json.get('usuario_id')
         return Valoracion(id=id,
                 comentario=comentario,
                 valoracion=valoracion,
                 fecha=fecha,
-                libro_id=libro_id
+                libro_id=libro_id,
+                usuario_id=usuario_id
                 )

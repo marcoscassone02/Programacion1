@@ -6,7 +6,7 @@ class Configuracion(db.Model):
     idioma = db.Column(db.String(100),nullable=False)
     pais = db.Column(db.String(100),nullable=False)
     #relacion
-    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
     usuario=db.relationship('Usuario',uselist=False, back_populates='configuracion',cascade="all, delete-orphan",single_parent=True)
     #Convertir objeto en JSON
     def to_json(self):
@@ -15,6 +15,7 @@ class Configuracion(db.Model):
             'visualizacion': str(self.visualizacion),
             'idioma':str(self.idioma),
             'pais': str(self.pais),
+            'usuario_id': self.usuario_id
         }
         return configuracion_json 
     
@@ -23,9 +24,10 @@ class Configuracion(db.Model):
         visualizacion = configuracion_json.get('visualizacion')
         idioma = configuracion_json.get('idioma')
         pais = configuracion_json.get('pais')
-        
+        usuario_id = configuracion_json.get('usuario_id')
         return Configuracion(id=id,
                     visualizacion=visualizacion,
                     idioma=idioma,
-                    pais=pais
+                    pais=pais,
+                    usuario_id=usuario_id
                     )
