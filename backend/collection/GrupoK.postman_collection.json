@@ -516,7 +516,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n   \"fecha_prestamo\":\"2025-04-20\", \"fecha_devolucion\": \"2026-05-20\", \"estado\":\"en prestamo\"\n}",
+									"raw": "{\n   \"fecha_prestamo\":\"2025-04-20\", \"fecha_devolucion\": \"2026-05-20\", \"estado\":\"en prestamo\",\"usuario_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"

@@ -9,6 +9,10 @@ class Usuario(db.Model):
     telefono = db.Column(db.Integer, nullable=False)
     contraseña = db.Column(db.String(100),nullable=False)
     rol = db.Column(db.String(100),nullable=False)
+    #relacion
+    prestamo = db.relationship('Prestamo', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
+    valoracion = db.relationship('Valoracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
+    configuracion = db.relationship('Configuracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
     #Convertir objeto en JSON
     def to_json(self):
         usuario_json = {
