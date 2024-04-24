@@ -9,6 +9,10 @@ class Usuario(db.Model):
     telefono = db.Column(db.Integer, nullable=False)
     contraseña = db.Column(db.String(100),nullable=False)
     rol = db.Column(db.String(100),nullable=False)
+    #relacion
+    prestamo = db.relationship('Prestamo', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
+    valoracion = db.relationship('Valoracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
+    configuracion = db.relationship('Configuracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
     #Convertir objeto en JSON
     def to_json(self):
         usuario_json = {
@@ -21,18 +25,6 @@ class Usuario(db.Model):
             'rol': str(self.rol),
         }
         return usuario_json
-    def to_json_short(self):
-        usuario_json = {
-            'id': self.id,
-            'nombre': str(self.nombre),
-            'apellido':str(self.apellido),
-            'correo': str(self.correo),
-            'telefono': self.telefono,
-            'contraseña': str(self.contraseña),
-            'rol': str(self.rol)
-        }
-        return usuario_json
-
     @staticmethod
     #Convertir JSON a objeto
     def from_json(usuario_json):
