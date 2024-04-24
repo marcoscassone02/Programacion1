@@ -161,7 +161,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"correo\":\"mar@\",\n    \"contraseña\":\"231\"\n\n}",
+									"raw": "{\n    \"correo\":\"st@\",\n    \"contraseña\":\"123\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -370,7 +370,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\"\n}",
+									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autores\":[1],\n    \"prestamo_id\":1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -635,7 +635,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2001-04-20\"\n\n}",
+									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2001-04-20\",\"usuarios\":[1,2]\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -694,7 +694,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"visualizacion\": \"Claro\",\n    \"Idioma/s\":  \"Portugués\"\n}\n\n",
+									"raw": "{\n    \"visualizacion\": \"Claro\",\n    \"idioma\":  \"Portugués\"\n}\n\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -756,7 +756,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n       \"comentario\": \"muy bueno\",\n        \"fecha\": \"2012-11-20\",\n        \"valoracion\": 10\n}",
+											"raw": "{\n       \"comentario\": \"muy bueno\",\n        \"fecha\": \"2012-11-20\",\n        \"valoracion\": 10,\n        \"usuario_id\":1,\n        \"libro_id\":1\n}",
 											"options": {
 												"raw": {
 													"language": "json"
