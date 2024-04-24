@@ -1,12 +1,16 @@
 from flask_restful import Resource
 from flask import request
 from .. import db
-from main.models import NotificacionModel
+from main.models import NotificacionModel,UsuarioModel
 
 class Notificacion(Resource):
     def post(self):
-        notificacion = request.get_json()
-        nueva_notificacion = NotificacionModel.from_json(notificacion)
-        db.session.add(nueva_notificacion)
+        usuarios_ids = request.get_json().get('usuarios')
+        notificacion = NotificacionModel.from_json(request.get_json())
+        
+        if usuarios_ids:
+            usuarios = UsuarioModel.query.filter(UsuarioModel.id.in_(usuarios_ids)).all()
+            notificacion.usuarios.extend(usuarios)
+        db.session.add(notificacion)
         db.session.commit()
-        return nueva_notificacion.to_json(), 201
+        return notificacion.to_json(),      

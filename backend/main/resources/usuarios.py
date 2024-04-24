@@ -1,19 +1,20 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import UsuarioModel
+from main.models import UsuarioModel,NotificacionModel
 
 class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
     #obtener todos los usuarios
     def get(self):
         usuarios = db.session.query(UsuarioModel).all()
         return jsonify([usuario.to_json() for usuario in usuarios])
-    #insertar recurso
+    #insertar recurso 
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())
         db.session.add(usuario)
         db.session.commit()
         return usuario.to_json(), 201
+
         
 class Usuario(Resource):
     def get(self,id):

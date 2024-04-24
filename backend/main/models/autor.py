@@ -1,10 +1,9 @@
 from .. import db
-
-
+#tabla intermedia
 autor_libro = db.Table('autor_libro',
-   db.Column("autor_id",db.Integer, db.ForeignKey('autor.id'), primary_key=True),
-   db.Column("libro_id",db.Integer, db.ForeignKey('libro.id'), primary_key=True)
-   )
+db.Column("autor_id",db.Integer, db.ForeignKey('autor.id'), primary_key=True),
+db.Column("libro_id",db.Integer, db.ForeignKey('libro.id'), primary_key=True)
+)
 
 class Autor(db.Model):
     # Crea un usuario con un usuario con un id, un nombre, un apellido, un correo y un telefono

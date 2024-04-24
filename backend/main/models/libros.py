@@ -10,6 +10,8 @@ class Libro(db.Model):
     idioma = db.Column(db.String(100),nullable=False)
     #relacion 
     valoraciones=db.relationship('Valoracion', back_populates='libro',cascade="all, delete-orphan")
+    prestamo_id = db.Column(db.Integer, db.ForeignKey('prestamo.id'),nullable=False)
+    prestamo= db.relationship('Prestamo',uselist=False, back_populates='libros',single_parent=True)
     #Convertir objeto en JSON
     def to_json(self):
         valoraciones=[valoracion.to_json_sin_libro_id() for valoracion in self.valoraciones]
@@ -21,7 +23,8 @@ class Libro(db.Model):
             'genero': str(self.genero),
             'editorial': str(self.editorial),
             'idioma' : str(self.idioma),
-            'valoraciones':valoraciones
+            'valoraciones':valoraciones,
+            "prestamo_id":self.prestamo_id  
         }
         return libro_json
     
@@ -33,10 +36,12 @@ class Libro(db.Model):
         genero = libro_json.get('genero')
         editorial = libro_json.get('editorial')
         idioma = libro_json.get('idioma')
+        prestamo_id = libro_json.get('prestamo_id')
         return Libro(id=id,
                     nombre=nombre,
                     publicacion=publicacion,
                     genero=genero,
                     editorial=editorial,
+                    prestamo_id=prestamo_id,
                     idioma=idioma)
     
