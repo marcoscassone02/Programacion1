@@ -1,15 +1,16 @@
 from .. import db
 from datetime import datetime
 #tabla intermedia
-notificacion_usuario = db.Table('notificacion_usuario',
-db.Column("notificacion_id",db.Integer, db.ForeignKey('notificacion.id'), primary_key=True),
-db.Column("usuario_id",db.Integer, db.ForeignKey('usuario.id'), primary_key=True)
+Notificaciones_Usuarios = db.Table('Notificaciones_Usuarios',
+db.Column("notificacion_id",db.Integer, db.ForeignKey('Notificaciones.id'), primary_key=True),
+db.Column("usuario_id",db.Integer, db.ForeignKey('Usuarios.id'), primary_key=True)
 )
 class Notificacion(db.Model):
+    __tablename__ = "Notificaciones"
     id = db.Column(db.Integer, primary_key=True)
     mensaje = db.Column(db.String(100),nullable=False)
     fecha = db.Column(db.Date,nullable=False)
-    usuarios = db.relationship('Usuario', secondary=notificacion_usuario, backref=db.backref('notificaciones', lazy='dynamic'))
+    usuarios = db.relationship('Usuario', secondary=Notificaciones_Usuarios, backref=db.backref('notificaciones', lazy='dynamic'))
     #Convertir objeto en JSON
     def to_json(self):
         notificacion_json = {

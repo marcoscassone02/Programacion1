@@ -370,7 +370,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autores\":[1],\n    \"prestamo_id\":1\n}",
+									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autores\":[1],\n    \"prestamo_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -635,7 +635,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2001-04-20\",\"usuarios\":[1,2]\n\n}",
+									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2001-04-20\",\"usuarios\":[1]\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
