@@ -1,5 +1,5 @@
 from .usuario import Usuario as UsuarioModel
-from .libros import Libro as LibroModel
+from .libro import Libro as LibroModel
 from .prestamo import Prestamo as PrestamoModel
 from .notificacion import Notificacion as NotificacionModel
 from .valoracion import Valoracion as ValoracionModel

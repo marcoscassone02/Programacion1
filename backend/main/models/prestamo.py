@@ -3,12 +3,13 @@ from datetime import datetime
 from main.models import UsuarioModel
 
 class Prestamo(db.Model):
+    __tablename__ = "Prestamos"
     id = db.Column(db.Integer, primary_key=True)
     fecha_prestamo = db.Column(db.DateTime,nullable=False)
     fecha_devolucion = db.Column(db.DateTime,nullable=False)
     estado = db.Column(db.String(100),nullable=False)
     #relacion
-    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('Usuarios.id'), nullable=False)
     usuario = db.relationship('Usuario',uselist=False, back_populates='prestamo',cascade="all, delete-orphan",single_parent=True)
     libros=db.relationship('Libro', back_populates='prestamo',cascade="all, delete-orphan")
 
