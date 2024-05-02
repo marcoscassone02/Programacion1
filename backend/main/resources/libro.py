@@ -32,27 +32,24 @@ class Libros(Resource):
         if request.args.get("genero"):
             listado_libros=listado_libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%")) 
         if request.args.get("nombre"):
-            listado_libros=listado_libros.filter(LibroModel.nombre.like("%"+request.args.get('nombre')+"%"))  
+            listado_libros=listado_libros.filter(LibroModel.nombre.like("%"+request.args.get('nombre')+"%"))
         if request.args.get("idioma"):
             listado_libros=listado_libros.filter(LibroModel.idioma.like("%"+request.args.get('idioma')+"%"))
         if request.args.get("editorial"):
             listado_libros=listado_libros.filter(LibroModel.editorial.like("%"+request.args.get('editorial')+"%"))
         if request.args.get("publicacion"):
-            listado_libros=listado_libros.filter(LibroModel.publicacion==request.args.get('publicacion'))   
+            listado_libros=listado_libros.filter(LibroModel.publicacion==request.args.get('publicacion'))
         if request.args.get("prestamo_id"):
             listado_libros=listado_libros.filter(LibroModel.prestamo_id==request.args.get('prestamo_id'))
         if request.args.get('nombre_orderby') == 'asc':
             listado_libros =listado_libros.order_by(LibroModel.nombre.asc())
         if request.args.get('nombre_orderby') == 'desc':
-            listado_libros=listado_libros.order_by(LibroModel.nombre.desc())    
-        #joins  
+            listado_libros=listado_libros.order_by(LibroModel.nombre.desc())
+        #joins
         #fijarse de hacer un promedio para hacer la busqueda por valoracion sino no tiene sentido buscar por valoracion individual 
         #if request.args.get("valoracion"):
         #    listado_libros=listado_libros.join(ValoracionModel).filter(ValoracionModel.valoracion==request.args.get('valoracion')) 
         libros = jsonify([libro.to_json() for libro in listado_libros])
-
-        if request.args.get('nombres_asc'):
-            libros = libros.order_by(LibroModel.nombre.asc())
         return libros
 
 

@@ -13,15 +13,10 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
         #Filtros
         if request.args.get('nombre'):
             usuarios=usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
-
         if request.args.get('apellido'):
             usuarios=usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('apellido')+"%"))
-        
-
         if request.args.get('telefono'):
             usuarios=usuarios.filter(UsuarioModel.telefono.like(request.args.get('telefono')+"%"))
-
-        
         if request.args.get('nombre_orderby') == 'asc':
             usuarios = usuarios.order_by(UsuarioModel.nombre.asc())
         if request.args.get('nombre_orderby') == 'desc':
@@ -30,11 +25,7 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
             usuarios = usuarios.order_by(UsuarioModel.apellido.asc())
         if request.args.get('apellido_orderby') == 'desc':
             usuarios = usuarios.order_by(UsuarioModel.apellido.desc())
-
-            print(usuarios)
-
-
-
+        
         return jsonify([usuario.to_json() for usuario in usuarios])
 
     #insertar recurso 
