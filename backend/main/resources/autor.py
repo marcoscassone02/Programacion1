@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db   
 from main.models import AutorModel
+from sqlalchemy import asc,desc
 
 class Autor(Resource):
     def get(self,id):
@@ -26,7 +27,19 @@ class Autor(Resource):
 class Autores(Resource):
     def get(self):
         # return AUTORES
-        listado_autores = db.session.query(AutorModel).all()
+        listado_autores = db.session.query(AutorModel)
+        if request.args.get("nombre"):
+            listado_autores=listado_autores.filter(AutorModel.nombre.like("%"+request.args.get("nombre")+"%"))
+        if request.args.get("apellido"):
+            listado_autores=listado_autores.filter(AutorModel.apellido.like("%"+request.args.get("apellido")+"%"))
+        if request.args.get('nombre_orderby') == 'asc':
+            listado_autores =listado_autores.order_by(AutorModel.nombre.asc())
+        if request.args.get('nombre_orderby') == 'desc':
+            listado_autores=listado_autores.order_by(AutorModel.nombre.desc())
+        if request.args.get('apellido_orderby') == 'asc':
+            listado_autores =listado_autores.order_by(AutorModel.apellido.asc())
+        if request.args.get('apellido_orderby') == 'desc':
+            listado_autores=listado_autores.order_by(AutorModel.apellido.desc())
         autores = jsonify([autor.to_json() for autor in listado_autores])
         return autores
     
