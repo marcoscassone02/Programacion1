@@ -7,6 +7,7 @@ class Prestamo(Resource):
     def get(self,id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()
+        
 
     #Modificar el recurso
     def put(self, id):
@@ -28,8 +29,20 @@ class Prestamo(Resource):
 class Prestamos(Resource):
     #obtener todos los usuarios
     def get(self):
-        prestamos = db.session.query(PrestamoModel).all()
-        return jsonify([prestamo.to_json() for prestamo in prestamos])
+        prestamos = db.session.query(PrestamoModel)
+        #filtro
+        if request.args.get('usuario_id'):
+            prestamos =  prestamos.filter(PrestamoModel.usuario_id.like(request.args.get('usuario_id')))
+        if request.args.get('estado'):
+            prestamos =  prestamos.filter(PrestamoModel.estado.like("%"+request.args.get('estado')+"%"))
+        if request.args.get('fecha_prestamo'):
+            prestamos = prestamos.filter(PrestamoModel.fecha_prestamo.like('%'+request.args.get('fecha_prestamo')+ '%'))
+        if request.args.get('fecha_devolucion'):
+            prestamos = prestamos.filter(PrestamoModel.fecha_devolucion.like('%'+request.args.get('fecha_devolucion')+ '%'))
+        prestamos = jsonify([prestamo.to_json() for prestamo in prestamos])
+        return prestamos
+        
+
     #insertar recurso
     def post(self):
         prestamo = PrestamoModel.from_json(request.get_json())
