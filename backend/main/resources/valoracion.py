@@ -6,7 +6,9 @@ from main.models import ValoracionModel
 class Valoraciones(Resource):
     def get(self):
         #return VALORACIONES, 200
-        listado_valoraciones = db.session.query(ValoracionModel).all()
+        listado_valoraciones = db.session.query(ValoracionModel)
+        if request.args.get("valoracion"):
+            listado_valoraciones=listado_valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('valoracion')+"%"))
         valoraciones = jsonify([valoracion.to_json() for valoracion in listado_valoraciones])
         return valoraciones
     
