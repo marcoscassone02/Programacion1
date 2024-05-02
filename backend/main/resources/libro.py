@@ -28,6 +28,9 @@ class Libros(Resource):
     def get(self):
         listado_libros = db.session.query(LibroModel).all()
         libros = jsonify([libro.to_json() for libro in listado_libros])
+
+        if request.args.get('nombres_asc'):
+            libros = libros.order_by(LibroModel.nombre.asc())
         return libros
 
 
