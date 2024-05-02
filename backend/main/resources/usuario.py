@@ -1,13 +1,42 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import UsuarioModel,NotificacionModel
+from main.models import UsuarioModel, NotificacionModel
+from sqlalchemy import func, desc , asc
 
 class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
     #obtener todos los usuarios
     def get(self):
-        usuarios = db.session.query(UsuarioModel).all()
+        usuarios = db.session.query(UsuarioModel)
+
+    
+        #Filtros
+        if request.args.get('nombre'):
+            usuarios=usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
+
+        if request.args.get('apellido'):
+            usuarios=usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('apellido')+"%"))
+        
+
+        if request.args.get('telefono'):
+            usuarios=usuarios.filter(UsuarioModel.telefono.like(request.args.get('telefono')+"%"))
+
+        
+        if request.args.get('nombre_orderby') == 'asc':
+            usuarios = usuarios.order_by(UsuarioModel.nombre.asc())
+        if request.args.get('nombre_orderby') == 'desc':
+            usuarios = usuarios.order_by(UsuarioModel.nombre.desc())
+        if request.args.get('apellido_orderby') == 'asc':
+            usuarios = usuarios.order_by(UsuarioModel.apellido.asc())
+        if request.args.get('apellido_orderby') == 'desc':
+            usuarios = usuarios.order_by(UsuarioModel.apellido.desc())
+
+            print(usuarios)
+
+
+
         return jsonify([usuario.to_json() for usuario in usuarios])
+
     #insertar recurso 
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())
