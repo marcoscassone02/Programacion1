@@ -7,7 +7,16 @@ from sqlalchemy import func, desc , asc
 class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
     #obtener todos los usuarios
     def get(self):
+        page = 1        
+        
+        per_page = 5
+        
         usuarios = db.session.query(UsuarioModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
 
     
         #Filtros
@@ -25,8 +34,10 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
             usuarios = usuarios.order_by(UsuarioModel.apellido.asc())
         if request.args.get('apellido_orderby') == 'desc':
             usuarios = usuarios.order_by(UsuarioModel.apellido.desc())
+
+        usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
         
-        return jsonify([usuario.to_json() for usuario in usuarios])
+        return jsonify({'usuarios':[usuario.to_json() for usuario in usuarios],'total':usuarios.total, 'page': page, 'per_page': per_page})
 
     #insertar recurso 
     def post(self):

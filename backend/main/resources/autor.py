@@ -25,9 +25,21 @@ class Autor(Resource):
         return 'Autor eliminado'
 
 class Autores(Resource):
+    
+
     def get(self):
-        # return AUTORES
+        # Pagina inicial
+        page = 1
+        # Cantidad de elementos por pagina
+        per_page = 10
+
+        # PAGINACIONES
         listado_autores = db.session.query(AutorModel)
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
         if request.args.get("nombre"):
             listado_autores=listado_autores.filter(AutorModel.nombre.like("%"+request.args.get("nombre")+"%"))
         if request.args.get("apellido"):
@@ -40,8 +52,10 @@ class Autores(Resource):
             listado_autores =listado_autores.order_by(AutorModel.apellido.asc())
         if request.args.get('apellido_orderby') == 'desc':
             listado_autores=listado_autores.order_by(AutorModel.apellido.desc())
-        autores = jsonify([autor.to_json() for autor in listado_autores])
-        return autores
+            
+        listado_autores = listado_autores.paginate(page=page, per_page=per_page, error_out=True)
+        
+        return jsonify({'autores':[autor.to_json() for autor in listado_autores],'total':listado_autores.total, 'page': page, 'per_page': per_page})
     
     def post(self):
         autor = request.get_json()

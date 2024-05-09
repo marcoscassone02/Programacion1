@@ -5,13 +5,18 @@ from main.models import ValoracionModel
 
 class Valoraciones(Resource):
     def get(self):
+        page = 1
+        per_page = 10
+
         #return VALORACIONES, 200
         listado_valoraciones = db.session.query(ValoracionModel)
         if request.args.get("valoracion"):
-            listado_valoraciones=listado_valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('valoracion')+"%"))
-        valoraciones = jsonify([valoracion.to_json() for valoracion in listado_valoraciones])
-        return valoraciones
-    
+            listado_valoraciones=listado_valoraciones.filter(ValoracionModel.valoracion.like(request.args.get('valoracion')))
+        
+        listado_valoraciones = listado_valoraciones.paginate(page=page, per_page=per_page, error_out=True)
+        return jsonify({'listado_valoraciones':[valoracion.to_json() for valoracion in listado_valoraciones],'total':listado_valoraciones.total, 'page': page, 'per_page': per_page})
+
+
     def post(self):
         valoracion = request.get_json()
         nuevo_valoracion = ValoracionModel.from_json(valoracion)
