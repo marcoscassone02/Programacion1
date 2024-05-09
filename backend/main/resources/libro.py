@@ -1,7 +1,8 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db   
-from main.models import LibroModel,AutorModel
+from main.models import LibroModel,AutorModel,ValoracionModel
+from sqlalchemy import asc,desc,func
 
 class Libro(Resource):
 
@@ -26,9 +27,31 @@ class Libro(Resource):
 
 class Libros(Resource):
     def get(self):
-        listado_libros = db.session.query(LibroModel).all()
+        listado_libros = db.session.query(LibroModel)
+        #filtros
+        if request.args.get("genero"):
+            listado_libros=listado_libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%")) 
+        if request.args.get("nombre"):
+            listado_libros=listado_libros.filter(LibroModel.nombre.like("%"+request.args.get('nombre')+"%"))
+        if request.args.get("idioma"):
+            listado_libros=listado_libros.filter(LibroModel.idioma.like("%"+request.args.get('idioma')+"%"))
+        if request.args.get("editorial"):
+            listado_libros=listado_libros.filter(LibroModel.editorial.like("%"+request.args.get('editorial')+"%"))
+        if request.args.get("publicacion"):
+            listado_libros=listado_libros.filter(LibroModel.publicacion==request.args.get('publicacion'))
+        if request.args.get("prestamo_id"):
+            listado_libros=listado_libros.filter(LibroModel.prestamo_id==request.args.get('prestamo_id'))
+        if request.args.get('nombre_orderby') == 'asc':
+            listado_libros =listado_libros.order_by(LibroModel.nombre.asc())
+        if request.args.get('nombre_orderby') == 'desc':
+            listado_libros=listado_libros.order_by(LibroModel.nombre.desc())
+        #joins
+        #fijarse de hacer un promedio para hacer la busqueda por valoracion sino no tiene sentido buscar por valoracion individual 
+        #if request.args.get("valoracion"):
+        #    listado_libros=listado_libros.join(ValoracionModel).filter(ValoracionModel.valoracion==request.args.get('valoracion')) 
         libros = jsonify([libro.to_json() for libro in listado_libros])
         return libros
+
 
 
     def post(self):
