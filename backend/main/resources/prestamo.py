@@ -29,7 +29,19 @@ class Prestamo(Resource):
 class Prestamos(Resource):
     #obtener todos los usuarios
     def get(self):
+        # Pagina inicial
+        page = 1
+        # Cantidad de elementos por pagina
+        per_page = 10
+
         prestamos = db.session.query(PrestamoModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+
         #filtro
         if request.args.get('usuario_id'):
             prestamos =  prestamos.filter(PrestamoModel.usuario_id.like(request.args.get('usuario_id')))
@@ -39,8 +51,12 @@ class Prestamos(Resource):
             prestamos = prestamos.filter(PrestamoModel.fecha_prestamo.like('%'+request.args.get('fecha_prestamo')+ '%'))
         if request.args.get('fecha_devolucion'):
             prestamos = prestamos.filter(PrestamoModel.fecha_devolucion.like('%'+request.args.get('fecha_devolucion')+ '%'))
-        prestamos = jsonify([prestamo.to_json() for prestamo in prestamos])
-        return prestamos
+        
+        prestamos = prestamos.paginate(page=page, per_page=per_page, error_out=True)
+        
+        return jsonify({'prestamos':[prestamo.to_json() for prestamo in prestamos],'total':prestamos.total, 'page': page, 'per_page': per_page})
+        
+        
         
 
     #insertar recurso
@@ -49,5 +65,4 @@ class Prestamos(Resource):
         db.session.add(prestamo)
         db.session.commit()
         return prestamo.to_json(), 201
-        
-        
+                

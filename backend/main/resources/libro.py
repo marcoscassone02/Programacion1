@@ -27,7 +27,18 @@ class Libro(Resource):
 
 class Libros(Resource):
     def get(self):
+        # Pagina inicial
+        page = 1
+        # Cantidad de elementos por pagina
+        per_page = 10
+
         listado_libros = db.session.query(LibroModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
         #filtros
         if request.args.get("genero"):
             listado_libros=listado_libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%")) 
@@ -45,13 +56,14 @@ class Libros(Resource):
             listado_libros =listado_libros.order_by(LibroModel.nombre.asc())
         if request.args.get('nombre_orderby') == 'desc':
             listado_libros=listado_libros.order_by(LibroModel.nombre.desc())
+        #Obtener valor paginado
+        listado_libros = listado_libros.paginate(page=page, per_page=per_page, error_out=True)
         #joins
         #fijarse de hacer un promedio para hacer la busqueda por valoracion sino no tiene sentido buscar por valoracion individual 
         #if request.args.get("valoracion"):
         #    listado_libros=listado_libros.join(ValoracionModel).filter(ValoracionModel.valoracion==request.args.get('valoracion')) 
-        libros = jsonify([libro.to_json() for libro in listado_libros])
-        return libros
-
+        return jsonify({'libros':[libro.to_json() for libro in listado_libros],'total':listado_libros.total, 'page': page, 'per_page': per_page})
+       
 
 
     def post(self):
@@ -66,4 +78,4 @@ class Libros(Resource):
             
         db.session.add(libro)
         db.session.commit()
-        return libro.to_json(),    
+        return libro.to_json()
