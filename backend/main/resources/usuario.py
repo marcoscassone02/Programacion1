@@ -3,9 +3,12 @@ from flask import request, jsonify
 from .. import db
 from main.models import UsuarioModel, NotificacionModel
 from sqlalchemy import func, desc , asc
-
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo recurso(Resource)
     #obtener todos los usuarios
+    #jwt_required() es un decorador que verifica que el token sea válido
+    @role_required(roles = ["admin"])
     def get(self):
         page = 1        
         
@@ -48,10 +51,14 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
 
         
 class Usuario(Resource):
+    #jwt_required() es un decorador que verifica que el token sea válido
+    @jwt_required(optional=True)
     def get(self,id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         return usuario.to_json()
+    
     #Modificar el recurso
+    @jwt_required()
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
@@ -60,7 +67,10 @@ class Usuario(Resource):
         db.session.add(usuario)
         db.session.commit()
         return usuario.to_json() , 201
+    
     #Eliminar recurso
+    
+    @role_required(roles = ["admin","users"])
     def delete(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
