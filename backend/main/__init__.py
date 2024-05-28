@@ -4,6 +4,7 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_jwt_extended import JWTManager
+from flask_migrate import Migrate
 import main.auth
 
 # inicializar SQLAlchemy
@@ -11,6 +12,9 @@ db = SQLAlchemy()
 # iniciamos restful
 api = Api()
 # este metodo inicializa la app y todos sus modulos
+
+#Inicializar Migrate
+migrate = Migrate()
 #inicializar JWT
 jwt = JWTManager()
 def create_app():
