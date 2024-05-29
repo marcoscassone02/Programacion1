@@ -1,9 +1,4 @@
 from .. import db
-from datetime import datetime
-
-#Importamos de python 2 funciones
-from werkzeug.security import generate_password_hash, check_password_hash
-
 
 class Usuario(db.Model):
     __tablename__ = "Usuarios"
@@ -19,21 +14,6 @@ class Usuario(db.Model):
     prestamo = db.relationship('Prestamo', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
     valoracion = db.relationship('Valoracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
     configuracion = db.relationship('Configuracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
-    
-    #Getter de la contraseña plana no permite leerla
-    @property
-    def plain_password(self):
-        raise AttributeError('No se puede leer la contraseña')
-    #Setter de la contraseña plana
-    # calcula el hash y lo guarda en el atributo password
-    @plain_password.setter
-    def plain_password(self, password):
-        self.contraseña = generate_password_hash(password)
-    #Validar contraseña
-    def validate_pass(self, password):
-        return check_password_hash(self.contraseña, password)
-    
-    
     #Convertir objeto en JSON
     def to_json(self):
         usuario_json = {

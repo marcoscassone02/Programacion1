@@ -3,16 +3,12 @@ from dotenv import load_dotenv
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 import os
-from flask_jwt_extended import JWTManager
-import main.auth
 
 # inicializar SQLAlchemy
 db = SQLAlchemy()
 # iniciamos restful
 api = Api()
 # este metodo inicializa la app y todos sus modulos
-#inicializar JWT
-jwt = JWTManager()
 def create_app():
     app = Flask(__name__)
     load_dotenv()
@@ -50,15 +46,5 @@ def create_app():
     api.add_resource(resources.ConfiguracionResources, '/configuracion/<id>')
     #Por ultimo retornamos la aplicacion inicializada
     api.init_app(app)
-
-    #Cargar clave secreta
-    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
-    #Cargar tiempo de expiración de los tokens
-    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = int(os.getenv('JWT_ACCESS_TOKEN_EXPIRES'))
-    jwt.init_app(app)
-
-    from main.auth import routes
-    #Importar blueprint
-    app.register_blueprint(routes.auth)
     
     return app
