@@ -27,11 +27,11 @@ class Usuario(db.Model):
     #Setter de la contraseña plana
     # calcula el hash y lo guarda en el atributo password
     @plain_password.setter
-    def plain_password(self, contraseña):
-        self.contraseña = generate_password_hash(contraseña)
+    def plain_password(self, password):
+        self.contraseña = generate_password_hash(password)
     #Validar contraseña
-    def validate_pass(self, contraseña):
-        return check_password_hash(self.contraseña, contraseña)
+    def validate_pass(self, password):
+        return check_password_hash(self.contraseña, password)
     
     
     #Convertir objeto en JSON
@@ -62,6 +62,6 @@ class Usuario(db.Model):
                     apellido=apellido,
                     correo=correo,
                     telefono=telefono,
-                    plain_contraseña=contraseña,
+                    contraseña=contraseña,
                     rol=rol
                     )
