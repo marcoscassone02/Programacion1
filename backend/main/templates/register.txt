@@ -1,0 +1,9 @@
+Bienvenido {{usuario.nombre}} {{usuario.apellido}}!
+
+Gracias por registrarte en nuestro sistema.
+
+Con nuestro servicio podras:
+
+- Realizar prestamos de libros
+- Crear tus propias reseñas
+- Valorar libros
