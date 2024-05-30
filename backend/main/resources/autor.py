@@ -3,12 +3,13 @@ from flask import request, jsonify
 from .. import db   
 from main.models import AutorModel
 from sqlalchemy import asc,desc
-
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 class Autor(Resource):
     def get(self,id):
         autor = db.session.query(AutorModel).get_or_404(id)
         return autor.to_json()
-        
+    @role_required(['admin'])   
     def put(self,id):
         data = request.get_json()
         autor = db.session.query(AutorModel).get_or_404(id)
@@ -17,7 +18,7 @@ class Autor(Resource):
         db.session.add(autor)
         db.session.commit()
         return autor.to_json(), 201
-
+    @role_required(['admin'])
     def delete(self,id):
         autor = db.session.query(AutorModel).get_or_404(id)
         db.session.delete(autor)
@@ -25,9 +26,21 @@ class Autor(Resource):
         return 'Autor eliminado'
 
 class Autores(Resource):
+    
+
     def get(self):
-        # return AUTORES
+        # Pagina inicial
+        page = 1
+        # Cantidad de elementos por pagina
+        per_page = 10
+
+        # PAGINACIONES
         listado_autores = db.session.query(AutorModel)
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+        #filtros
         if request.args.get("nombre"):
             listado_autores=listado_autores.filter(AutorModel.nombre.like("%"+request.args.get("nombre")+"%"))
         if request.args.get("apellido"):
@@ -40,9 +53,12 @@ class Autores(Resource):
             listado_autores =listado_autores.order_by(AutorModel.apellido.asc())
         if request.args.get('apellido_orderby') == 'desc':
             listado_autores=listado_autores.order_by(AutorModel.apellido.desc())
-        autores = jsonify([autor.to_json() for autor in listado_autores])
-        return autores
+            
+        listado_autores = listado_autores.paginate(page=page, per_page=per_page, error_out=True)
+        
+        return jsonify({'autores':[autor.to_json() for autor in listado_autores],'total':listado_autores.total, 'page': page, 'per_page': per_page})
     
+    @role_required(['admin'])
     def post(self):
         autor = request.get_json()
         nuevo_autor = AutorModel.from_json(autor)
