@@ -3,13 +3,14 @@ from flask import request, jsonify
 from .. import db   
 from main.models import LibroModel,AutorModel,ValoracionModel
 from sqlalchemy import asc,desc,func
-
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from main.auth.decorators import role_required
 class Libro(Resource):
 
     def get(self,id):
         libro = db.session.query(LibroModel).get_or_404(id)
         return libro.to_json()
-    
+    @role_required(roles=['admin'])
     def put(self, id):
         data = request.get_json()
         libro = db.session.query(LibroModel).get_or_404(id)
@@ -18,7 +19,7 @@ class Libro(Resource):
         db.session.add(libro)
         db.session.commit()
         return libro.to_json(), 201
-    
+    @role_required(roles=['admin'])
     def delete(self,id):
         libro = db.session.query(LibroModel).get_or_404(id)
         db.session.delete(libro)
@@ -59,13 +60,12 @@ class Libros(Resource):
         #Obtener valor paginado
         listado_libros = listado_libros.paginate(page=page, per_page=per_page, error_out=True)
         #joins
+        #fijarse de hacer un filtrado con la tabla de autor
         #fijarse de hacer un promedio para hacer la busqueda por valoracion sino no tiene sentido buscar por valoracion individual 
         #if request.args.get("valoracion"):
         #    listado_libros=listado_libros.join(ValoracionModel).filter(ValoracionModel.valoracion==request.args.get('valoracion')) 
         return jsonify({'libros':[libro.to_json() for libro in listado_libros],'total':listado_libros.total, 'page': page, 'per_page': per_page})
-       
-
-
+    @role_required(roles=['admin'])
     def post(self):
         autores_ids = request.get_json().get('autores')
         libro = LibroModel.from_json(request.get_json())

@@ -15,9 +15,31 @@
 					"item": [
 						{
 							"name": "Lista de usuarios",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"correo\": \"juan.perez@example.com\",\n    \"contraseña\": \"contraseña1\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "http://127.0.0.1:5000/usuarios",
 									"protocol": "http",
@@ -30,6 +52,38 @@
 									"port": "5000",
 									"path": [
 										"usuarios"
+									],
+									"query": [
+										{
+											"key": "nombre",
+											"value": "emi",
+											"disabled": true
+										},
+										{
+											"key": "apellido",
+											"value": "m",
+											"disabled": true
+										},
+										{
+											"key": "nombre_orderby",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "nombre_orderby",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "apellido_orderby",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "apellido_orderby",
+											"value": "desc",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -74,6 +128,16 @@
 						{
 							"name": "Obtener un usuario",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -97,11 +161,21 @@
 						{
 							"name": "Editar un usuario",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAyODQ3MCwianRpIjoiNWEwNjM0NzQtZjZjMi00Mzc4LTkyMzItMjIzMGFmN2Q5OTAxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE3MDI4NDcwLCJjc3JmIjoiYmM2OGNmMjQtMjgxMi00ZmVhLTg5MmYtMjZhNDk2NDhlMzMwIiwiZXhwIjoxNzE3MDMyMDcwLCJyb2wiOiJhZG1pbiIsImlkIjoyLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.bkRlEbHPItWS9JVzn_cikbIO-jHufo2d7htkzKxvstE",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"correo\": \"cambiodecorreo@gmail.com\",\n    \"telefono\":123\n}",
+									"raw": "{\n    \"correo\": \"cambiodecorreo@gmail.com\",\n    \"telefono\":123,\n    \"contraseña\":1234\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -150,42 +224,6 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "cuenta",
-					"item": [
-						{
-							"name": "Login",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"correo\":\"st@\",\n    \"contraseña\":\"123\"\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/login",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						}
-					]
 				}
 			]
 		},
@@ -212,6 +250,38 @@
 									"port": "5000",
 									"path": [
 										"autores"
+									],
+									"query": [
+										{
+											"key": "nombre",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "apellido",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "nombre_orderby",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "nombre_orderby",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "apellido_orderby",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "apellido_orderby",
+											"value": "",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -220,11 +290,21 @@
 						{
 							"name": "Agregar un autor",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Daniel\",\n    \"apellido\": \"Golleman\",\n    \"biografia\": \"Psicologo\"\n}",
+									"raw": "{\n    \"nombre\": \"Bruno\",\n    \"apellido\": \"Bassani\",\n    \"biografia\": \"Psicologo\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -358,6 +438,48 @@
 									"port": "5000",
 									"path": [
 										"libros"
+									],
+									"query": [
+										{
+											"key": "genero",
+											"value": "comedia",
+											"disabled": true
+										},
+										{
+											"key": "nombre",
+											"value": "tres",
+											"disabled": true
+										},
+										{
+											"key": "idioma",
+											"value": "español",
+											"disabled": true
+										},
+										{
+											"key": "editorial",
+											"value": "cc",
+											"disabled": true
+										},
+										{
+											"key": "publicacion",
+											"value": "1998",
+											"disabled": true
+										},
+										{
+											"key": "prestamo_id",
+											"value": "null",
+											"disabled": true
+										},
+										{
+											"key": "nombre_orderby",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "nombre_orderby",
+											"value": "desc",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -366,6 +488,16 @@
 						{
 							"name": "Agregar un libro",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -490,6 +622,16 @@
 						{
 							"name": "Obtener todos los préstamos",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -504,6 +646,30 @@
 									"port": "5000",
 									"path": [
 										"prestamos"
+									],
+									"query": [
+										{
+											"key": "usuario_id",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "estado",
+											"value": "devuelto",
+											"disabled": true
+										},
+										{
+											"key": "fecha_prestamo",
+											"value": "2020-11",
+											"description": "Ver los del 11 (ya sea mes o dia)",
+											"disabled": true
+										},
+										{
+											"key": "fecha_devolucion",
+											"value": "2020",
+											"description": "ver los del año entero",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -512,6 +678,16 @@
 						{
 							"name": "Crear un préstamo",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -667,6 +843,16 @@
 						{
 							"name": "Ver configuración",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -733,7 +919,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://127.0.0.1:5000/valoraciones",
+											"raw": "http://127.0.0.1:5000/valoraciones?valoracion=10",
 											"protocol": "http",
 											"host": [
 												"127",
@@ -744,6 +930,12 @@
 											"port": "5000",
 											"path": [
 												"valoraciones"
+											],
+											"query": [
+												{
+													"key": "valoracion",
+													"value": "10"
+												}
 											]
 										}
 									},
@@ -752,6 +944,16 @@
 								{
 									"name": "Agregar valoración",
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzExMTMyNSwianRpIjoiNjFiN2NhMjgtMjllYi00NDU2LThmMmEtNTBiMTUxZjk4MzNhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE3MTExMzI1LCJjc3JmIjoiYWRmZDUzYzEtZWY0Mi00MmQwLWJkYzEtMDNhNGFmMjkzY2Y5IiwiZXhwIjoxNzE3MTE0OTI1LCJyb2wiOiJ1c2VyIiwiaWQiOjIsImNvcnJlbyI6ImNvcnJlbzEyMzRAZ21haWwuY29tIn0.TnZbJ3FGYHnn-3vP3dgx2rbtEejD3hLBVkVja9qpz6E",
+													"type": "string"
+												}
+											]
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -832,6 +1034,85 @@
 									"response": []
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"correo\":\"correo123@gmail.com\",\n\"contraseña\":\"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "register",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Emiliano\",\n    \"apellido\": \"Massolin\",\n    \"correo\": \"emilianomassolin@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"123\",\n    \"rol\":\"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
