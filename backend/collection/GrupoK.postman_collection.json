@@ -949,7 +949,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzExMTMyNSwianRpIjoiNjFiN2NhMjgtMjllYi00NDU2LThmMmEtNTBiMTUxZjk4MzNhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE3MTExMzI1LCJjc3JmIjoiYWRmZDUzYzEtZWY0Mi00MmQwLWJkYzEtMDNhNGFmMjkzY2Y5IiwiZXhwIjoxNzE3MTE0OTI1LCJyb2wiOiJ1c2VyIiwiaWQiOjIsImNvcnJlbyI6ImNvcnJlbzEyMzRAZ21haWwuY29tIn0.TnZbJ3FGYHnn-3vP3dgx2rbtEejD3hLBVkVja9qpz6E",
 													"type": "string"
 												}
 											]
@@ -1089,7 +1089,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"maxi\",\n    \"apellido\": \"Gomez\",\n    \"correo\": \"correo123456@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"123\",\n    \"rol\":\"user\"\n}",
+									"raw": "{\n    \"nombre\": \"Emiliano\",\n    \"apellido\": \"Massolin\",\n    \"correo\": \"emilianomassolin@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"123\",\n    \"rol\":\"user\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
