@@ -1,4 +1,7 @@
 # Programacion1 - 2024
+## Figma
+[Link Figma](https://www.figma.com/design/5jHK7mWO9wtQLUwVtsxK8k/Programacion1?node-id=27-1624&t=LUhG3UfHfQa7zV8k-1)
+
 ## Instrucciones:
 1. Hacer un git clone 
 2. Escribir en terminal dentro del archivo clonado el comando ./install .sh para instalar los requirements
