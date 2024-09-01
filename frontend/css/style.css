@@ -75,6 +75,10 @@ body {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
+.submit-btn:active {
+    background-color: var(--secondary-color) !important;  
+    border-color: var(--primary-color) !important; 
+}
 
 
 .btn-outline-custom {
@@ -231,6 +235,7 @@ body {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
+
 
 .center-content{
     display: flex;
