@@ -1,99 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #5ABD8C;
+    --secondary-color: #4AA374;
+    --tertiary-color: #0a4e2a;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
+    font-family: 'Roboto', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--white-color);
+}
+
+#titulo-bookit{
+    top: 75%;
+    position: relative;
+    font-family: Roboto, sans-serif;
+    font-size: 100px;
+    color: var(--white-color);
+    font-weight: semibold;
+    font-style: italic;
+    text-align: center;
+}
+
+
+.buttons{
+    position: relative; /* Fija los botones en la pantalla */
+    top: 200px; /* Distancia desde la parte inferior */
+    left: 50%; /* Centra los botones horizontalmente */
+    transform: translateX(-50%); /* Ajusta la posición para centrar */
+    z-index: 1000; /* Asegura que los botones estén por encima de otros elementos */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Redondear las esquinas */
+    color: white; /* Color del texto */
+    border: none; /* Quitar el borde */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */   
+}
+/* Estilos personalizados para los botones */
+.btn-custom {
+    background-color: var(--primary-color); /* Color de fondo personalizado */
+    color: white; /* Color del texto */
+    border: none; /* Quitar el borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Redondear las esquinas */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    margin: 5% auto;
+}
+
+.btn-success:hover{
+    background-color: var(--secondary-color);
+}
+.submit-btn:hover{
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.submit-btn:active {
+    background-color: var(--secondary-color) !important;  
+    border-color: var(--primary-color) !important; 
+}
+
+
+.btn-outline-custom {
+    background-color: transparent; /* Fondo transparente */
+    color: var(--primary-color); /* Color del texto */
+    border: 1px solid var(--primary-color); /* Borde personalizado */
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary-color); /* Color de fondo al pasar el cursor */
+    color: white; /* Color del texto al pasar el cursor */
+}
+
+
+.container{
+    padding: 18%;
+}
+
+/* Estilos para el div con la clase sphere */
+.sphere {
+    padding: 3%;
+    transform: translateX(-50%); 
+    position: absolute; /* Fija el div en la pantalla */
+    top: -55vh; /* Posiciona el div en la parte superior */
+    left: 50%; /* Posiciona el div en la parte izquierda */
+    width: 800px; /* Hace que el div ocupe todo el ancho de la pantalla */
+    height: 800px; /* Ajusta la altura del div según tus necesidades */
+    background-color: var(--primary-color); /* Color de fondo del div */
+    z-index: 1000; /* Asegura que el div esté por encima de otros elementos */
+    border-radius: 0 0 100% 100%; /* Redondea las esquinas superiores */
+    
+}
+@media (min-width: 800px) and (max-width: 1600px) {
+    .sphere {
+        top: -70vh;
+        width: 100%;
+        height: 800px; /* Ajusta el ancho al 100% en pantallas grandes */
+    }
+}
+@media (min-width: 1600px) {
+    .sphere {
+        top: -40vh; 
+        width: 100%;
+        height: 800px; /* Ajusta el ancho al 100% en pantallas grandes */
+    }
+}
+
+#arrow-back{
+    position: absolute;
+    left: 3%;
+    height: 50%;
+    transform: rotate(180deg);
+    top: 25%; 
+     
 }
 
 .header {
-    background-color: #5ABD8C;
-    color: white;
-    padding: 15px;
+    background-color: var(--primary-color);
+    position: absolute;
+    height: 60px;
+    top: 0;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
-/* .bg-success {
-    background-color: #5ABD8C ;
-} */
-
-.arrow-button {
-    display: inline-block;
-    transition: transform 0.2s, color 0.2s;
-    color: #f8f9fa; 
+.align-items-center {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
 }
-.app-title {
-    font-size: 36px;
-    margin: 0;
+
+
+#div-img-login{
+    position: absolute;
+    top: 140px;
+    height: 250px;
+    background-color: var(--primary-color);
+    justify-content: center;
+    
+}
+
+#login-header{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: var(--white-color);
+    font-weight: semibold;
+    font-style: italic;
+    z-index: 1;
+    margin:0;
+}
+
+#login-header-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#header-centered{
+    display: grid;
+}
+
+.input-block{
+    margin-top: 20px; 
+}
+
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     padding: 20px;
 }
 
-.user-list-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+#user_list{
+    position: absolute;
+    left: 3%;
+    height: 50%;
+    top: 25%;
 }
 
-.user-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #13f3d1;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.container {
+    position: relative; /* Cambiar a absolute si necesitas una posición específica */
+    top: -240px; /* Ajusta este valor según sea necesario */
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-}
 
-.user-icon {
-    font-size: 40px;
-    color: #68c98f;
-    margin-right: 15px;
-}
-
-.user-details {
-    color: #333;
-}
-
-.user-name {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.user-description {
-    margin: 5px 0 0;
-    font-size: 14px;
-    color: #777;
-}
-
-.user-actions {
-    display: flex;
-    align-items: center;
-}
-
-.edit-button, .delete-button {
-    background: none;
-    border: none;
-    font-size: 20px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.edit-button {
-    color: #68c98f;
-}
-
-.delete-button {
-    color: #e74c3c;
-}
 
