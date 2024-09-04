@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.header {
+    background-color: #5ABD8C;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* .bg-success {
+    background-color: #5ABD8C ;
+} */
+
+.arrow-button {
+    display: inline-block;
+    transition: transform 0.2s, color 0.2s;
+    color: #f8f9fa; 
+}
+.app-title {
+    font-size: 36px;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+.user-list-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #13f3d1;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    font-size: 40px;
+    color: #68c98f;
+    margin-right: 15px;
+}
+
+.user-details {
+    color: #333;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-description {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.edit-button {
+    color: #68c98f;
+}
+
+.delete-button {
+    color: #e74c3c;
+}
+
