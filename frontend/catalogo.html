@@ -14,49 +14,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
 
 <body>
     <header>
         <!-- Este codigo sirve para el boton-primario del libro -->
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-            aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <p>Try scrolling the rest of the page to see this option in action.</p>
-            </div>
-        </div>
-
-        <!-- Este codigo sirve para el boton de la lupa -->
-        <div class="nav-bg">
-            <nav class="navegacion-principal nav-img contenedor">
-                <button class="btn buscador__libro" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <img src="img/menu-libro.png" alt="Menu">
-                </button>
+        <nav class="nav-bg navbar bg-body-tertiary">
+            <div class="container-fluid">
                 <a href="index.html">
                     <h1>book<span>IT</span></h1>
                 </a>
-                <p>
-                    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample"
-                        aria-expanded="false" aria-controls="collapseWidthExample">
-                        <img class="buscador__lupa" src="img/search.png" alt="Buscador">
-                    </button>
-                </p>
-                <!-- Este codigo sirve para el buscador -->
-                <div class="collapse" id="collapseWidthExample">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">search</label>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon buscador__lupa"> <img src="img/menu.png" alt="Search"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Welcome guest!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 nav-bg-sec">
+                            <li class="nav-item d-flex nav-menu">
+                                <img src="img/book.svg" alt="">
+                                <a class="nav-link active p-3 primario" aria-current="page" href="#">Catalogo</a>
+                            </li>
+                            <li class="nav-item d-flex nav-menu">
+                                <img src="img/cart.svg" alt="">
+                                <a class="nav-link p-3 primario" href="#">Carrito</a>
+                            </li>
+                            <li class="nav-item d-flex nav-menu">
+                                <img src="img/journals.svg" alt="">
+                                <a class="nav-link p-3 primario" href="#">Reservas</a>
+                            </li>
+                            <li class="nav-item d-flex nav-menu">
+                                <img src="img/gear-wide.svg" alt="">
+                                <a class="nav-link p-3 primario" href="#">Config</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
-    
+
     <div class="d-flex flex-row mb-1 justify-content-center">
         <div class="p-2">
             <button type="button" class="btn boton-primario">Romance</button>
@@ -74,23 +81,24 @@
     </div>
 
     <h3 class="resultado-busqueda">Results</h3>
-    <h5 class="resultado-busqueda">showing 5 of 23</h5>
+    <h5 class="resultado-busqueda mb-5">showing 5 of 23</h5>
 
     <div class="container text-center">
         <div class="row row-cols-2">
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
-                        <a href="#" class="btn boton">Go somewhere</a>
+                        <a href="#" class="btn boton-primario">Go somewhere</a>
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -100,7 +108,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -110,7 +118,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -120,7 +128,7 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -128,9 +136,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -138,9 +147,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -148,9 +158,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card">
-                    <img src="img/tremenda.jpg" class="card-img-top" alt="Tremenda">
+                    <img src="img/Libro-en-3d.jpg" class="card-img-top" alt="Libro-en-3d">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example.</p>
@@ -165,17 +176,17 @@
         <div>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item ">
+                    <li class="page-item">
                         <a class="page-link boton-secundario prev-btn transition-img" href="#" aria-label="Previous">
-                          <img src="img/green-arrow-left.png" alt="Previous">
+                            <img src="img/green-arrow-left.png" alt="Previous">
                         </a>
                     </li>
                     <li class="page-item"><a class="page-link boton-primario" href="#">1</a></li>
                     <li class="page-item"><a class="page-link boton-primario" href="#">2</a></li>
                     <li class="page-item"><a class="page-link boton-primario" href="#">3</a></li>
                     <li class="page-item">
-                        <a class="page-link boton-secundario transition-img " href="#" aria-label="Next">
-                          <img src="img/green-arrow-right.png" alt="Next">
+                        <a class="page-link boton-secundario transition-img" href="#" aria-label="Next">
+                            <img src="img/green-arrow-right.png" alt="Next">
                         </a>
                     </li>
                 </ul>

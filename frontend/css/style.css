@@ -1,6 +1,7 @@
 :root {
     --primario: #5ABD8C;
     --blanco: #fff;
+    --celes-clarito: #f3fefe;
     --gris: #707070;
     --negro: #0000;
     --fuentePrincipal: 'Staatliches', sans-serif;
@@ -81,6 +82,14 @@ footer {
     background-color: var(--primario);
     text-decoration: none;
 }
+.nav-bg-sec {
+    background-color: var(--celes-clarito);
+    text-decoration: none;
+    border-radius: 10%;
+}
+.nav-menu {
+    padding: 1rem;
+}
 
 .navegacion-principal {
     display: flex;
@@ -138,6 +147,10 @@ footer {
     background-color: var(--primario);
     color: var(--blanco);
     border: 1px solid var(--primario);
+}
+
+.primario {
+    color: var(--primario);
 }
 
 /*
