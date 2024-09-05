@@ -51,6 +51,9 @@
     background-color: #ffffff;
     color: red;
     border: none;
+    position: absolute;
+    right: 0;
+    bottom: 10px
 }
 .boton-basura:active {
     background-color: #f2f2f2; /* Color de fondo al hacer clic */
@@ -60,3 +63,12 @@
     width: 70%; /* Cambia el ancho a un 50% del contenedor */
     max-height: auto; /* Máximo de 300 píxeles */
   }
+.boton-lapiz {
+    background-color: #ffffff;
+    color: #5ABD8C;
+    border: none;
+}
+.boton-lapiz:active {
+    background-color: #f2f2f2; /* Color de fondo al hacer clic */
+    border-radius: 50px;
+}
