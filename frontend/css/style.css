@@ -1,0 +1,60 @@
+
+:root {
+    --primary-color: #5ABD8C;
+    --secondary-color: #4AA374;
+    --tertiary-color: #0a4e2a;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.navbar   {
+    background-color: #5ABD8C;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #FFFFFF;
+}
+.nav-link  {
+    color: #FFFFFF;
+}
+.navbar-nombre {
+    color: #FFFFFF;
+    margin: 0 auto;
+} 
+.boton-volver {
+    background-color: #5ABD8C;
+    color: #FFFFFF;
+    border: none;
+}
+.boton-volver:active {
+    background-color: #66d69e; /* Color de fondo al hacer clic */
+    border-radius: 50px;
+}
+.btn-primary {
+    background-color: #5ABD8C;
+    border-color: #5ABD8C;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    border-radius: 50px;
+}
+
+.btn-admin {
+    color: #5ABD8C;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 40px;
+}
+
+.image-button {
+    background: none; /* Quita el fondo del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 0; /* Elimina cualquier relleno extra */
+    margin: 0; /* Elimina cualquier margen extra */
+    cursor: pointer; 
+}
+.image-button:active {
+    background-color: #66d69e; /* Color de fondo al hacer clic */
+}
