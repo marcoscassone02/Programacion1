@@ -78,9 +78,12 @@
     border-radius: 50px;
 }
 .imagen-personalizada {
-    width: 70%; /* Cambia el ancho a un 50% del contenedor */
-    max-height: auto; /* Máximo de 300 píxeles */
+    width: 70%; /* Ajusta el ancho al 70% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 200px; /* Restringe la altura máxima a 300 píxeles */
+    max-width: 200px;
   }
+  
 .boton-lapiz {
     background-color: #ffffff;
     color: #5ABD8C;
@@ -93,7 +96,7 @@
 
 .foto-book {
     width: 80%;
-    height: 50%;
+    height: 70%;
     object-fit: cover;
     border-radius: 50%;
     text-align: center;
