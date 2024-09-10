@@ -4,7 +4,8 @@
     --celes-clarito: #f3fefe;
     --gris: #707070;
     --negro: #0000;
-    --fuentePrincipal: 'Staatliches', sans-serif;
+    --fuentePrincipal: 'Roboto', sans-serif;
+    --fuenteEstilo: italic;
 }
 
 html {
@@ -24,7 +25,7 @@ body {
 
 p {
     font-size: 1.8rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-style: var(--fuenteEstilo);
     color: var(--primario);
 }
 
@@ -40,6 +41,8 @@ h1, h2, h3 {
     text-align: center;
     color: var(--blanco);
     font-family: var(--fuentePrincipal);
+    font-style: var(--fuenteEstilo);
+    font-size: italic;
 }
 
 h1 {
@@ -152,20 +155,3 @@ footer {
 .primario {
     color: var(--primario);
 }
-
-/*
-.navegacion-principal a {
-    display: block;
-    text-align: center;
-    color: var(--negro);
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 1rem;
-}
-
-.navegacion-principal a:hover {
-    background-color: var(--primario);
-    color: var(--blanco);
-}
-*/
