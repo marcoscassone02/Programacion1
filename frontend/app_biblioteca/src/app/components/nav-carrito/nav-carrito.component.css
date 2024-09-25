@@ -1,0 +1,24 @@
+.navbar   {
+    background-color: #5ABD8C;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #ffffff;
+}
+.nav-link  {
+    color: #ffffff;
+}
+.navbar-nombre {
+    color: #ffffff;
+    margin: 0 auto;
+} 
+.boton-volver {
+    background-color: #5ABD8C;
+    color: white;
+    border: none;
+    
+}
+.boton-volver:active {
+    background-color: #66d69e; /* Color de fondo al hacer clic */
+    border-radius: 50px;
+    
+}
