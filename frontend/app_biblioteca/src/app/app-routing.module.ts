@@ -14,7 +14,6 @@ const routes: Routes = [
 {path: 'usuario-detalles',component: UsuarioDetallesComponent},
 {path: 'usuarios',component: UsuariosComponent},
 {path: 'prestamos-bibliotecario',component: PrestamosBibliotecarioComponent},
-
 ];
 
 @NgModule({
