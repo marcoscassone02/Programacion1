@@ -1,5 +1,5 @@
 <div class="container-fluid"> 
-<app-nav-volver></app-nav-volver>
+<app-nav-volver routerLink="/admin-view"></app-nav-volver>
 <div class="text-lista-libros"><h3>Lista prestamos</h3></div>
   <div class="container d-flex flex-column align-items-center">
       <div class="row">
@@ -13,11 +13,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Prestamo 1</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <a href="reserva_detalles.html"> 
-                    <button type="button" class="boton-lapiz"> 
+                    <button type="button" class="boton-lapiz" routerLink="/reserva-detalles"> 
                       <i class="bi bi-pencil"></i>
-                    </button>   
-                  </a>               
+                    </button>               
                   <button type="button" class="boton-basura"> 
                     <i class="bi bi-trash"></i>
                   </button>

@@ -11,6 +11,10 @@ import { PrestamosComponent } from './pages/prestamos/prestamos.component';
 import { UsuarioDetallesComponent } from './pages/usuario-detalles/usuario-detalles.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { PrestamosBibliotecarioComponent } from './pages/prestamos-bibliotecario/prestamos-bibliotecario.component';
+import { AdminListaLibrosComponent } from './pages/admin-lista-libros/admin-lista-libros.component';
+import { AdminViewComponent } from './pages/admin-view/admin-view.component';
+import { LibroDetallesComponent } from './pages/libro-detalles/libro-detalles.component';
+import { ReservaDetallesComponent } from './pages/reserva-detalles/reserva-detalles.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { PrestamosBibliotecarioComponent } from './pages/prestamos-bibliotecario
     PrestamosComponent,
     UsuarioDetallesComponent,
     UsuariosComponent,
-    PrestamosBibliotecarioComponent
+    PrestamosBibliotecarioComponent,
+    AdminListaLibrosComponent,
+    AdminViewComponent,
+    LibroDetallesComponent,
+    ReservaDetallesComponent
   ],
   imports: [
     BrowserModule,

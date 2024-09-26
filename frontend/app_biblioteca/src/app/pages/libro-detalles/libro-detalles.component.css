@@ -1,0 +1,7 @@
+.foto-book {
+    width: 80%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 50%;
+    text-align: center;
+}
