@@ -6,11 +6,11 @@ import { LibroDetallesComponent } from './pages/libro-detalles/libro-detalles.co
 import { ReservaDetallesComponent } from './pages/reserva-detalles/reserva-detalles.component';
 
 const routes: Routes = [
-  { path: "app-admin-view", component: AdminViewComponent},
-  { path: "app-admin-lista-libros", component: AdminListaLibrosComponent},
-  { path: "app-libro-detalles", component: LibroDetallesComponent},
-  { path: "app-reserva-detalles", component: ReservaDetallesComponent},
-  { path: "", redirectTo: "app-admin-view", pathMatch: "full" }
+  { path: "admin-view", component: AdminViewComponent},
+  { path: "admin-lista-libros", component: AdminListaLibrosComponent},
+  { path: "libro-detalles", component: LibroDetallesComponent},
+  { path: "reserva-detalles", component: ReservaDetallesComponent},
+  { path: "", redirectTo: "admin-view", pathMatch: "full" }
 ];
 
 @NgModule({
