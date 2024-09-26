@@ -8,6 +8,9 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { NavVolverComponent } from './components/nav-volver/nav-volver.component';
 import { NavCarritoComponent } from './components/nav-carrito/nav-carrito.component';
 import { PrestamosComponent } from './pages/prestamos/prestamos.component';
+import { UsuarioDetallesComponent } from './pages/usuario-detalles/usuario-detalles.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { PrestamosBibliotecarioComponent } from './pages/prestamos-bibliotecario/prestamos-bibliotecario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { PrestamosComponent } from './pages/prestamos/prestamos.component';
     CarritoComponent,
     NavVolverComponent,
     NavCarritoComponent,
-    PrestamosComponent
+    PrestamosComponent,
+    UsuarioDetallesComponent,
+    UsuariosComponent,
+    PrestamosBibliotecarioComponent
   ],
   imports: [
     BrowserModule,
