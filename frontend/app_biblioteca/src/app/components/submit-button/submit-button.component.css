@@ -1,0 +1,28 @@
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn{
+    margin-top: 50px;
+    border-radius: 15px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-width: 2px;
+    color: var(--white-color);
+    height: 40px;
+    width: 65%;
+    
+}
+
+.submit-btn:hover{
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+.submit-btn:active {
+    background-color: var(--secondary-color) !important;  
+    border-color: var(--primary-color) !important; 
+}
