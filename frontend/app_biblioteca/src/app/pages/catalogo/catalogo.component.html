@@ -1,5 +1,7 @@
+<!-- HEADER -->
 <app-nav-catalogo></app-nav-catalogo>
 
+<!-- GENEROS BOTONES -->
 <div class="d-flex flex-row mb-1 justify-content-center">
     <app-boton-generos-catalogo></app-boton-generos-catalogo>
     <app-boton-generos-catalogo></app-boton-generos-catalogo>
@@ -17,11 +19,17 @@
     <!-- <button type="button" class="m-1 btn boton-primario">Terror</button>
     <button type="button" class="m-1 btn boton-primario">Policial</button> -->
 </div>
+
+<!-- RESULTADO DE CANTIDAD DE LIBROS POR GENEROS -->
+
 <div>
     <app-resultado-catalogo></app-resultado-catalogo>
 </div>
+
+<!-- LIBROS PARA VER -->
+
 <div class="container text-center">
-    <div class="row row-cols-2">
+    <div class="row row-cols-2 ">
         <app-libro-catalogo></app-libro-catalogo>
         <app-libro-catalogo></app-libro-catalogo>
         <app-libro-catalogo></app-libro-catalogo>
@@ -31,8 +39,5 @@
 </div>
 
 <div>
-    <app-footer-catalogo></app-footer-catalogo>
-    <app-footer-catalogo></app-footer-catalogo>
-    <app-footer-catalogo></app-footer-catalogo>
-    <app-footer-catalogo></app-footer-catalogo>
+    <app-pagination-catalogo></app-pagination-catalogo>
 </div>

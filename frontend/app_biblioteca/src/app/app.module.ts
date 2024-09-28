@@ -29,7 +29,7 @@ import { NavCatalogoComponent } from './components/nav-catalogo/nav-catalogo.com
 import { LibroCatalogoComponent } from './components/libro-catalogo/libro-catalogo.component';
 import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
 import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
-import { FooterCatalogoComponent } from './components/footer-catalogo/footer-catalogo.component';
+import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
 
 
 @NgModule({
@@ -62,7 +62,7 @@ import { FooterCatalogoComponent } from './components/footer-catalogo/footer-cat
     LibroCatalogoComponent,
     BotonGenerosCatalogoComponent,
     ResultadoCatalogoComponent,
-    FooterCatalogoComponent,
+    PaginationCatalogoComponent,
 
   ],
   imports: [
