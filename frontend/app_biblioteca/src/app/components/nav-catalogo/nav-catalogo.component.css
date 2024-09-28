@@ -1,0 +1,146 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.body {
+    background-color: #fff;
+    font-size: 1.6rem;
+    line-height: 1.05;
+}
+
+p {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #5ABD8C;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+    color: #5ABD8C;
+}
+
+h5 {
+    font-size: 1rem;
+    color: #5ABD8C;
+}
+
+span {
+    font-size: 4rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.nav-bg {
+    background-color: #5ABD8C !important;
+    text-decoration: none;
+}
+.nav-bg-sec {
+    background-color: #f3fefe;
+    text-decoration: none;
+    border-radius: 10%;
+}
+.nav-menu {
+    padding: 1rem;
+}
+
+.navegacion-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.buscador__libro {
+    width: 5rem;
+    text-decoration: none;
+}
+
+.buscador__lupa {
+    width: 3rem;
+}
+
+.navegacion-principal h1 {
+    margin: 0 auto;
+}
+
+.resultado-busqueda {
+    display: flex;
+    justify-content: start;
+    color: #707070;
+}
+
+/* Botones */
+
+.boton-primario {
+    background-color: #5ABD8C;
+    color: #fff;
+    border: none;
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: background-color .3s, color .3s, border .3s;
+}
+
+.boton-primario:hover {
+    background-color: #fff;
+    color: #5ABD8C;
+    border: 1px solid #5ABD8C;
+}
+
+.boton-secundario {
+    background-color: #fff;
+    color: #5ABD8C;
+    border: none;
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: background-color .3s, color .3s, border .3s;
+}
+
+.boton-secundario:hover {
+    background-color: #5ABD8C;
+    color: #fff;
+    border: 1px solid #5ABD8C;
+}
+
+.primario {
+    color: #5ABD8C;
+}

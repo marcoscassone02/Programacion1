@@ -16,12 +16,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 
 
 
 const routes: Routes = [
 {path:'libro',component: LibroComponent},
 {path:'carrito',component: CarritoComponent},
+{ path: 'catalogo', component: CatalogoComponent},
 {path: 'prestamos',component: PrestamosComponent},
 {path: 'usuario-detalles',component: UsuarioDetallesComponent},
 {path: 'usuarios',component: UsuariosComponent},
@@ -41,7 +43,7 @@ const routes: Routes = [
 {path: 'login', redirectTo: '/login'},
 {path: 'sign-up', redirectTo: '/sign-up'},
 {path: 'forgot-password', redirectTo: '/forgot-password'},
-{path: 'change-password', redirectTo: '/change-password'}
+{path: 'change-password', redirectTo: '/change-password'},
 ];
 
 @NgModule({
