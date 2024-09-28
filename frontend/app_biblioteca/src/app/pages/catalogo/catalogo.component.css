@@ -1,18 +1,3 @@
-:root {
-    --primary-color: #5ABD8C;
-    --secondary-color: #4AA374;
-    --tertiary-color: #0a4e2a;
-    --white-color: #FFFFFF;
-    --black-color: #000000;
-    --primario: #5ABD8C;
-    --blanco: #fff;
-    --celes-clarito: #f3fefe;
-    --gris: #707070;
-    --negro: #0000;
-    --fuentePrincipal: 'Roboto', sans-serif;
-    --fuenteEstilo: italic;
-}
-
 .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;

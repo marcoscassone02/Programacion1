@@ -24,6 +24,12 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
+import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { NavCatalogoComponent } from './components/nav-catalogo/nav-catalogo.component';
+import { LibroCatalogoComponent } from './components/libro-catalogo/libro-catalogo.component';
+import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
+import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
+import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
 
 
 @NgModule({
@@ -51,6 +57,12 @@ import { SubmitButtonComponent } from './components/submit-button/submit-button.
     ForgotPasswordComponent,
     ChangePasswordComponent,
     SubmitButtonComponent,
+    CatalogoComponent,
+    NavCatalogoComponent,
+    LibroCatalogoComponent,
+    BotonGenerosCatalogoComponent,
+    ResultadoCatalogoComponent,
+    PaginationCatalogoComponent,
 
   ],
   imports: [
