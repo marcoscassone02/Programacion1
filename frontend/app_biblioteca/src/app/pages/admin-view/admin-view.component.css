@@ -2,8 +2,23 @@
     color: #5ABD8C;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    font-size: 40px;
 }
+
+@media (max-width: 576px) {
+    .custom-text {
+      font-size: 15px;
+    }
+  }
+  @media (min-width: 577px) and (max-width: 768px) {
+    .custom-text {
+      font-size: 25px;
+    }
+  }
+  @media (min-width: 769px) {
+    .custom-text {
+      font-size: 40px;
+    }
+  }
 
 .container-fluid {
     padding-left: 0 !important;
@@ -17,6 +32,26 @@
     margin: 0; /* Elimina cualquier margen extra */
     cursor: pointer; 
 }
+
 .image-button:active {
     background-color: #66d69e; /* Color de fondo al hacer clic */
 }
+
+@media (max-width: 576px) {
+    .custom-img {
+      width: 70%; /* Ocupa todo el ancho en pantallas pequeñas */
+      height: auto;
+    }
+  }
+  @media (min-width: 577px) and (max-width: 768px) {
+    .custom-img {
+      width: 90%; /* Ocupa la mitad del ancho en pantallas medianas */
+      height: auto;
+    }
+  }
+  @media (min-width: 769px) {
+    .custom-img {
+      width: 100%; /* Ocupa el 30% del ancho en pantallas grandes */
+      height: auto;
+    }
+  }
