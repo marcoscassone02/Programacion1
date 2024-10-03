@@ -65,11 +65,6 @@ footer {
     background-color: #f8f9fa;
 }
 
-.contenedor {
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
 .nav-bg {
     background-color: #5ABD8C !important;
     text-decoration: none;
@@ -79,16 +74,28 @@ footer {
     text-decoration: none;
     border-radius: 10%;
 }
+
+/* Nav menu*/
+
 .nav-menu {
     padding: 1rem;
 }
-
-.navegacion-principal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
+.navbar-toggler {
+    border: none; /* Elimina el contorno del botón */
 }
+
+.navbar-toggler:focus {
+    outline: none; /* Elimina el contorno al hacer clic */
+    box-shadow: none; /* Elimina cualquier sombra que pudiera aparecer */
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba(0,0,0,1)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"%3E%3C/path%3E%3C/svg%3E');
+    filter: invert(100%); /* Cambia el ícono a blanco */
+}
+
+
+
 
 .buscador__libro {
     width: 5rem;
@@ -99,47 +106,8 @@ footer {
     width: 3rem;
 }
 
-.navegacion-principal h1 {
-    margin: 0 auto;
-}
-
-.resultado-busqueda {
-    display: flex;
-    justify-content: start;
-    color: #707070;
-}
 
 /* Botones */
-
-.boton-primario {
-    background-color: #5ABD8C;
-    color: #fff;
-    border: none;
-    border-radius: 10rem;
-    cursor: pointer;
-    transition: background-color .3s, color .3s, border .3s;
-}
-
-.boton-primario:hover {
-    background-color: #fff;
-    color: #5ABD8C;
-    border: 1px solid #5ABD8C;
-}
-
-.boton-secundario {
-    background-color: #fff;
-    color: #5ABD8C;
-    border: none;
-    border-radius: 10rem;
-    cursor: pointer;
-    transition: background-color .3s, color .3s, border .3s;
-}
-
-.boton-secundario:hover {
-    background-color: #5ABD8C;
-    color: #fff;
-    border: 1px solid #5ABD8C;
-}
 
 .primario {
     color: #5ABD8C;
