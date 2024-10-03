@@ -23,11 +23,9 @@ a {
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-}
 
-h1, h2, h3 {
+
+h1, h2, h3,h4,.navbar-nombre {
     text-align: center;
     color: #fff;
     font-family: 'Roboto', sans-serif;
@@ -53,9 +51,6 @@ h5 {
     color: #5ABD8C;
 }
 
-span {
-    font-size: 4rem;
-}
 
 footer {
     display: flex;
@@ -77,12 +72,8 @@ footer {
 
 /* Nav menu*/
 
-.nav-menu {
-    padding: 1rem;
-}
-.navbar-toggler {
-    border: none; /* Elimina el contorno del botón */
-}
+
+
 
 .navbar-toggler:focus {
     outline: none; /* Elimina el contorno al hacer clic */
@@ -101,14 +92,26 @@ footer {
     width: 5rem;
     text-decoration: none;
 }
+.navbar-toggler {
+    width: 40px; /* Ajusta el ancho según necesites */
+    height: 40px; /* Ajusta la altura según necesites */
+    padding: 0; /* Elimina el padding para que el botón sea más pequeño */
+    border: none;
+}
 
-.buscador__lupa {
-    width: 3rem;
+.navbar-toggler-icon {
+    width: 30px; /* Ajusta el tamaño del icono */
+    height: 30px; /* Ajusta el tamaño del icono */
 }
 
 
-/* Botones */
+.navbar-nombre {
+    color: #ffffff;
+    font-size: 24px; /* Tamaño h4 en píxeles */
+} 
 
-.primario {
-    color: #5ABD8C;
+.nav-link.primario {
+    font-size: 20px; /* Ajusta el tamaño según prefieras */
 }
+
+

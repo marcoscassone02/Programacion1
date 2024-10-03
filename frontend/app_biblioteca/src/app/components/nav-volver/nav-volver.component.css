@@ -10,6 +10,9 @@
 .navbar-nombre {
     color: #ffffff;
     margin: 0 auto;
+    font-size: 24px; /* Tamaño h4 en píxeles */
+        font-family: 'Roboto', sans-serif;
+    font-style: italic;
 } 
 .boton-volver {
     background-color: #5ABD8C;
