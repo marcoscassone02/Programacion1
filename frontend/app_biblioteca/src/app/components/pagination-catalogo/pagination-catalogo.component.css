@@ -6,50 +6,6 @@
     background-color: #f8f9fa;
 }
 
-.contenedor {
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
-.nav-bg {
-    background-color: #5ABD8C;
-    text-decoration: none;
-}
-.nav-bg-sec {
-    background-color: #f3fefe;
-    text-decoration: none;
-    border-radius: 10%;
-}
-.nav-menu {
-    padding: 1rem;
-}
-
-.navegacion-principal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-}
-
-.buscador__libro {
-    width: 5rem;
-    text-decoration: none;
-}
-
-.buscador__lupa {
-    width: 3rem;
-}
-
-.navegacion-principal h1 {
-    margin: 0 auto;
-}
-
-.resultado-busqueda {
-    display: flex;
-    justify-content: start;
-    color: #707070;;
-}
-
 /* Botones */
 
 .boton-primario {
@@ -82,6 +38,3 @@
     border: 1px solid #5ABD8C;
 }
 
-.primario {
-    color: #5ABD8C;
-}
