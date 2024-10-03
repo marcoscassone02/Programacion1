@@ -6,7 +6,7 @@
 .text-lista-libros {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    color: var(--primary-color);
+    color: black;
     text-align: center;
 }
 

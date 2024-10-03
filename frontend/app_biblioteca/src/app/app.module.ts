@@ -16,9 +16,6 @@ import { LibroDetallesComponent } from './pages/libro-detalles/libro-detalles.co
 import { ReservaDetallesComponent } from './pages/reserva-detalles/reserva-detalles.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavComponent } from './components/nav/nav.component';
-import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -49,9 +46,6 @@ import { PaginationCatalogoComponent } from './components/pagination-catalogo/pa
     ReservaDetallesComponent,
     HomeComponent,
     ErrorPageComponent,
-    NavComponent,
-    FooterComponent,
-    HeaderComponent,
     LoginComponent,
     SignUpComponent,
     ForgotPasswordComponent,
