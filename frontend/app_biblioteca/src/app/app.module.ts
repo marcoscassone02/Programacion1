@@ -16,9 +16,6 @@ import { LibroDetallesComponent } from './pages/libro-detalles/libro-detalles.co
 import { ReservaDetallesComponent } from './pages/reserva-detalles/reserva-detalles.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavComponent } from './components/nav/nav.component';
-import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -30,6 +27,8 @@ import { LibroCatalogoComponent } from './components/libro-catalogo/libro-catalo
 import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
 import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
 import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
+import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrito.component';
+import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -50,9 +49,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReservaDetallesComponent,
     HomeComponent,
     ErrorPageComponent,
-    NavComponent,
-    FooterComponent,
-    HeaderComponent,
     LoginComponent,
     SignUpComponent,
     ForgotPasswordComponent,
@@ -64,6 +60,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BotonGenerosCatalogoComponent,
     ResultadoCatalogoComponent,
     PaginationCatalogoComponent,
+    VerCarritoComponent,
+    VerPrestamosComponent,
 
   ],
   imports: [

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterComponent } from './footer.component';
+import { VerCarritoComponent } from './ver-carrito.component';
 
-describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
+describe('VerCarritoComponent', () => {
+  let component: VerCarritoComponent;
+  let fixture: ComponentFixture<VerCarritoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FooterComponent]
+      declarations: [VerCarritoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FooterComponent);
+    fixture = TestBed.createComponent(VerCarritoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,10 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav-volver',
   templateUrl: './nav-volver.component.html',
   styleUrl: './nav-volver.component.css'
 })
-export class NavVolverComponent { 
+export class NavVolverComponent implements OnInit { 
   
+
+    headerTitle: string = 'Login'; // Valor por defecto
+  
+    constructor(private router: Router) {}
+  ngOnInit(): void {
+    this.setHeaderTitle();
+  }
+  
+  setHeaderTitle() {
+    const currentRoute = this.router.url; // Obtiene la ruta actual
+      const segments = currentRoute.split('/'); // Divide la ruta en segmentos
+      this.headerTitle = segments[segments.length - 1]; // Toma el último segmento
+      if (this.headerTitle === 'sign-up') {
+        this.headerTitle = 'Register'
+      };
+      if (!this.headerTitle) {
+        this.headerTitle = 'Página Desconocida'; // Texto por defecto si no hay segmento
+      }
+      ;
+      if (this.headerTitle === 'carrito') {
+        this.headerTitle = 'carrito'
+      }
+      ;
+      if (this.headerTitle === 'admin-view') {
+        this.headerTitle = 'administrador'
+      }      ;
+      if (this.headerTitle === 'usuario-detalles') {
+        this.headerTitle = 'detalles usuario'
+      }      ;
+      if (this.headerTitle === 'prestamos-bibliotecario') {
+        this.headerTitle = 'prestamos'
+      }
+      if (this.headerTitle === 'reserva-detalles') {
+        this.headerTitle = 'detalles reserva'
+      }
+      if (this.headerTitle === 'admin-lista-libros') {
+        this.headerTitle = 'libros'
+      }
+      if (this.headerTitle === 'libro-detalles') {
+        this.headerTitle = 'libro'
+      }
+  }
 }
