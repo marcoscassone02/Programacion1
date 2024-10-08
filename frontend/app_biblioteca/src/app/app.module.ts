@@ -30,7 +30,8 @@ import { LibroCatalogoComponent } from './components/libro-catalogo/libro-catalo
 import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
 import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
 import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,10 @@ import { PaginationCatalogoComponent } from './components/pagination-catalogo/pa
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

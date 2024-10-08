@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { Router } from '@angular/router';
+import {AuthService} from '../../services/auth.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-submit-button',
@@ -7,10 +9,22 @@ import { Router } from '@angular/router';
   styleUrl: './submit-button.component.css'
 })
 export class SubmitButtonComponent {
-  
+  loginForm!: FormGroup;
   headerTitle: string = 'Login'; // Valor por defecto
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private formBuilder: FormBuilder  
+  ){
+    this.loginForm = this.formBuilder.group(
+    {
+      email: ['', Validators.required],
+     password: ['', Validators.required]
+    }
+    )
+    
+  }
 ngOnInit(): void {
   this.setHeaderTitle();
 }
@@ -30,5 +44,23 @@ setHeaderTitle() {
     if (!this.headerTitle || this.headerTitle === 'forgot-password') {
       this.headerTitle = 'Send'; // Texto por defecto si no hay segmento
     }
+}
+accionBoton(){
+  if (this.headerTitle === 'login') {
+  this.authService.login().subscribe({
+    next: (rta:any) => {
+      alert('Exito!!!!'),
+      console.log('Exito: ', rta);
+      localStorage.setItem('token', rta.access_token);
+      this.router.navigateByUrl('catalogo');
+    }, error: (err:any)=>{
+      alert('ERROR!!!!'),
+      console.log('Error: ', err);
+      localStorage.removeItem('token');
+    }, complete: ()=>{
+      console.log('Completado');
+    }
+  })
+}
 }
 }
