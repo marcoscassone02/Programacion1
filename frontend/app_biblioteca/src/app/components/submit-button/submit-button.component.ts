@@ -66,6 +66,7 @@ accionBoton2(){
   }
   else {
     alert('Porfavor ingrese los datos requeridos.')
+    localStorage.removeItem('token');
   }
   
 }
