@@ -9,6 +9,7 @@ class Libro(db.Model):
     genero = db.Column(db.String(100),nullable=False)
     editorial = db.Column(db.String(100),nullable=False)
     idioma = db.Column(db.String(100),nullable=False)
+    descripcion = db.Column(db.String(100), nullable=False)
     #relacion 
     valoraciones=db.relationship('Valoracion', back_populates='libro',cascade="all, delete-orphan")
     prestamo_id = db.Column(db.Integer, db.ForeignKey('Prestamos.id'),nullable=True)
@@ -24,7 +25,8 @@ class Libro(db.Model):
             'editorial': str(self.editorial),
             'idioma' : str(self.idioma),
             'valoraciones':valoraciones,
-            "prestamo_id":self.prestamo_id  
+            "prestamo_id":self.prestamo_id,
+            'descripcion': self.descripcion  
         }
         return libro_json
     
@@ -37,11 +39,13 @@ class Libro(db.Model):
         editorial = libro_json.get('editorial')
         idioma = libro_json.get('idioma')
         prestamo_id = libro_json.get('prestamo_id')
+        descripcion = libro_json.get('descripcion')
         return Libro(id=id,
                     nombre=nombre,
                     publicacion=publicacion,
                     genero=genero,
                     editorial=editorial,
                     prestamo_id=prestamo_id,
-                    idioma=idioma)
+                    idioma=idioma,
+                    descripcion=descripcion)
     
