@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LibroComponent } from './pages/libro/libro.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { NavVolverComponent } from './components/nav-volver/nav-volver.component';
-import { NavCarritoComponent } from './components/nav-carrito/nav-carrito.component';
 import { PrestamosComponent } from './pages/prestamos/prestamos.component';
 import { UsuarioDetallesComponent } from './pages/usuario-detalles/usuario-detalles.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
@@ -23,8 +21,6 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { NavCatalogoComponent } from './components/nav-catalogo/nav-catalogo.component';
-import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
-import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
 import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
 import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrito.component';
 import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
@@ -35,10 +31,8 @@ import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-cat
 @NgModule({
   declarations: [
     AppComponent,
-    LibroComponent,
     CarritoComponent,
     NavVolverComponent,
-    NavCarritoComponent,
     PrestamosComponent,
     UsuarioDetallesComponent,
     UsuariosComponent,
@@ -56,8 +50,6 @@ import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-cat
     SubmitButtonComponent,
     CatalogoComponent,
     NavCatalogoComponent,
-    BotonGenerosCatalogoComponent,
-    ResultadoCatalogoComponent,
     PaginationCatalogoComponent,
     VerCarritoComponent,
     VerPrestamosComponent,
