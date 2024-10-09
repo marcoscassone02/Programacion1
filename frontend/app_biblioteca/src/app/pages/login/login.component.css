@@ -8,6 +8,7 @@
     align-items: center;
     height: 100vh;
     background-color: var(--white-color);
+    flex-direction: column;
 }
 
 
@@ -34,7 +35,8 @@
     border-radius: 20px; /* Redondear las esquinas */
     color: white; /* Color del texto */
     border: none; /* Quitar el borde */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */   
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */ 
+    
 }
 
 
@@ -100,11 +102,13 @@
     height: 250px;
     background-color: var(--primary-color);
     justify-content: center;
+   
     
 }
 #seated-person-img{
     position: absolute;
     height: 90%;
+    transform: translateX(-45%)
 }
 
 

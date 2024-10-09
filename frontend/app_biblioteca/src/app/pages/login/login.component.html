@@ -8,18 +8,19 @@
             </div>
         </div>
     </div>
-    <form id="login-form" action="/pages/home">
-        <div class="input-block">
+    <form [formGroup]='loginForm'  id="login-form" action="/pages/home">
+        <div class="input-block" >
             <label for="email" class="form-label">Username or email</label>
-            <input type="email" class="form-control input-field" >
+            <input type="email" class="form-control input-field" formControlName="correo">
             
         </div>
         <div class="input-block">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control input-field">
+            <input type="password" class="form-control input-field" formControlName="contraseña">
         </div>
-       
-        <app-submit-button></app-submit-button>
         
     </form>
+    <app-submit-button [loginForm]="loginForm"></app-submit-button>
+
+    
 </div>

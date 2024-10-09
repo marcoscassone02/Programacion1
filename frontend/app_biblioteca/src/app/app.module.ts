@@ -29,7 +29,8 @@ import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resu
 import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
 import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrito.component';
 import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,10 @@ import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
