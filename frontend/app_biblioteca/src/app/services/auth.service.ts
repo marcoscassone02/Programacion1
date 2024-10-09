@@ -11,11 +11,11 @@ export class AuthService {
     private httpClient: HttpClient, 
   ) { }
 
-  login(): Observable<any> {
-    const dataLogin = {
-      'correo': 'correo123@gmail.com',
-      'contraseña': "123"
-    }
+  login(dataLogin:any): Observable<any> {
+    // const dataLogin = {
+    //   'correo': 'correo123@gmail.com',
+    //   'contraseña': "123"
+    // }
     return this.httpClient.post(this.url+'/auth/login', dataLogin).pipe(take(1));
   }
 }
