@@ -27,6 +27,8 @@ import { LibroCatalogoComponent } from './components/libro-catalogo/libro-catalo
 import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
 import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
 import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
+import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrito.component';
+import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { PaginationCatalogoComponent } from './components/pagination-catalogo/pa
     BotonGenerosCatalogoComponent,
     ResultadoCatalogoComponent,
     PaginationCatalogoComponent,
+    VerCarritoComponent,
+    VerPrestamosComponent,
 
   ],
   imports: [
