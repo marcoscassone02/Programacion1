@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibroCatalogoComponent } from './libro-catalogo.component';
+import { VerCatalogoComponent } from './ver-catalogo.component';
 
-describe('LibroCatalogoComponent', () => {
-  let component: LibroCatalogoComponent;
-  let fixture: ComponentFixture<LibroCatalogoComponent>;
+describe('VerCatalogoComponent', () => {
+  let component: VerCatalogoComponent;
+  let fixture: ComponentFixture<VerCatalogoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LibroCatalogoComponent]
+      declarations: [VerCatalogoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LibroCatalogoComponent);
+    fixture = TestBed.createComponent(VerCatalogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

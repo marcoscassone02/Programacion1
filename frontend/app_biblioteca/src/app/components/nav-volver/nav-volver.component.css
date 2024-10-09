@@ -3,17 +3,14 @@
     font-family: 'Roboto', sans-serif;
     font-style: italic;
     color: #ffffff;
+    margin: 0 auto;
 }
 .nav-link  {
     color: #ffffff;
-}
-.navbar-nombre {
-    color: #ffffff;
     margin: 0 auto;
-    font-size: 24px; /* Tamaño h4 en píxeles */
-        font-family: 'Roboto', sans-serif;
-    font-style: italic;
-} 
+    font-size: 22px;
+}
+
 .boton-volver {
     background-color: #5ABD8C;
     color: white;

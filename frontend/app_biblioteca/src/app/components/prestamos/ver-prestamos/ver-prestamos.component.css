@@ -59,9 +59,31 @@
     background-color: #f2f2f2; /* Color de fondo al hacer clic */
     border-radius: 50px;
 }
-.imagen-personalizada {
-    width: 70%; /* Cambia el ancho a un 50% del contenedor */
-    max-height: auto; /* Máximo de 300 píxeles */
+@media (max-width: 576px) {
+    .imagen-personalizada {
+      width: 40%; /* Ajusta el ancho en pantallas pequeñas */
+      height: auto;
+      display: block; /* Asegura que la imagen sea tratada como un bloque */
+      margin: 0 auto; /* Centra la imagen horizontalmente */
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) {
+    .imagen-personalizada {
+      width: 90%; /* Ajusta el ancho en pantallas medianas */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .imagen-personalizada {
+      width: 100%; /* Ajusta el ancho en pantallas grandes */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   }
 .boton-lapiz {
     background-color: #ffffff;
@@ -72,3 +94,8 @@
     background-color: #f2f2f2; /* Color de fondo al hacer clic */
     border-radius: 50px;
 }
+.texto-libro {
+    margin-bottom: 0;
+    padding: 0;
+  }
+  

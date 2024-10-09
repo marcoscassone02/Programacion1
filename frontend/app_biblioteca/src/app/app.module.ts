@@ -23,7 +23,6 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { NavCatalogoComponent } from './components/nav-catalogo/nav-catalogo.component';
-import { LibroCatalogoComponent } from './components/libro-catalogo/libro-catalogo.component';
 import { BotonGenerosCatalogoComponent } from './components/boton-generos-catalogo/boton-generos-catalogo.component';
 import { ResultadoCatalogoComponent } from './components/resultado-catalogo/resultado-catalogo.component';
 import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
@@ -31,6 +30,7 @@ import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrit
 import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-catalogo.component';
 
 @NgModule({
   declarations: [
@@ -56,12 +56,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SubmitButtonComponent,
     CatalogoComponent,
     NavCatalogoComponent,
-    LibroCatalogoComponent,
     BotonGenerosCatalogoComponent,
     ResultadoCatalogoComponent,
     PaginationCatalogoComponent,
     VerCarritoComponent,
     VerPrestamosComponent,
+    VerCatalogoComponent,
 
   ],
   imports: [

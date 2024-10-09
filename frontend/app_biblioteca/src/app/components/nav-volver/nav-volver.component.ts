@@ -27,26 +27,29 @@ export class NavVolverComponent implements OnInit {
       }
       ;
       if (this.headerTitle === 'carrito') {
-        this.headerTitle = 'carrito'
+        this.headerTitle = 'Carrito'
       }
       ;
       if (this.headerTitle === 'admin-view') {
-        this.headerTitle = 'administrador'
+        this.headerTitle = 'Administrador'
       }      ;
       if (this.headerTitle === 'usuario-detalles') {
-        this.headerTitle = 'detalles usuario'
+        this.headerTitle = 'Detalles usuario'
       }      ;
       if (this.headerTitle === 'prestamos-bibliotecario') {
-        this.headerTitle = 'prestamos'
+        this.headerTitle = 'Prestamos'
       }
       if (this.headerTitle === 'reserva-detalles') {
-        this.headerTitle = 'detalles reserva'
+        this.headerTitle = 'Detalles reserva'
       }
       if (this.headerTitle === 'admin-lista-libros') {
-        this.headerTitle = 'libros'
+        this.headerTitle = 'Libros'
       }
       if (this.headerTitle === 'libro-detalles') {
-        this.headerTitle = 'libro'
+        this.headerTitle = 'Libro'
+      }
+      if (this.headerTitle === 'prestamos') {
+        this.headerTitle = 'Prestamos'
       }
   }
 }

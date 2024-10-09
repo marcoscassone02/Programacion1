@@ -1,117 +1,49 @@
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-.body {
-    background-color: #fff;
-    font-size: 1.6rem;
-    line-height: 1.05;
-}
-
-p {
-    font-size: 1.8rem;
-    font-style: italic;
-    color: #5ABD8C;
-}
-
-a {
-    text-decoration: none;
-}
-
-
-
-h1, h2, h3,h4,.navbar-nombre {
-    text-align: center;
-    color: #fff;
+.navbar   {
+    background-color: #5ABD8C;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
+    color: #ffffff;
 }
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 0;
+.nav-link  {
+    color: #ffffff;
+    font-size: 22px;
+    
 }
-
-h2 {
-    font-size: 3.2rem;
+.nav-link:hover {
+    color: #ffffff;
+    transform: scale(0.98); /* Efecto de "presionado" */
 }
-
-h3 {
-    font-size: 2.4rem;
-    color: #5ABD8C;
+.btn-primary {
+    background-color: #5ABD8C;
+    border-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    border-radius: 50px;
 }
-
-h5 {
-    font-size: 1rem;
-    color: #5ABD8C;
+.btn-primary:focus, .btn-primary:hover {
+    background-color: #5ABD8C !important; /* Color de fondo al hacer clic */
+    border-color: #ffffff !important;
+    transform: scale(0.98); /* Efecto de "presionado" */
 }
-
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #f8f9fa;
+.btn-primary:active {
+    background-color: #64c698 !important; /* Color de fondo al hacer clic */
+    border-color: #ffffff !important;
+    
 }
-
-.nav-bg {
-    background-color: #5ABD8C !important;
-    text-decoration: none;
-}
-.nav-bg-sec {
-    background-color: #f3fefe;
-    text-decoration: none;
-    border-radius: 10%;
-}
-
-/* Nav menu*/
-
-
-
-
-.navbar-toggler:focus {
-    outline: none; /* Elimina el contorno al hacer clic */
-    box-shadow: none; /* Elimina cualquier sombra que pudiera aparecer */
-}
-
 .navbar-toggler-icon {
     background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba(0,0,0,1)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"%3E%3C/path%3E%3C/svg%3E');
     filter: invert(100%); /* Cambia el ícono a blanco */
-}
-
-
-
-
-.buscador__libro {
-    width: 5rem;
-    text-decoration: none;
+    border-color: #ffffff;
 }
 .navbar-toggler {
-    width: 40px; /* Ajusta el ancho según necesites */
-    height: 40px; /* Ajusta la altura según necesites */
-    padding: 0; /* Elimina el padding para que el botón sea más pequeño */
-    border: none;
+    box-shadow: none; /* Elimina cualquier sombra que pudiera aparecer */
+    border-color: #ffffff;
 }
 
-.navbar-toggler-icon {
-    width: 30px; /* Ajusta el tamaño del icono */
-    height: 30px; /* Ajusta el tamaño del icono */
+.navbar-toggler.collapsed:active {
+    transform: scale(0.98); /* Efecto de "presionado" */
 }
-
-
-.navbar-nombre {
+.dropdown-item:active{
+    background-color: #5ABD8C !important; /* Color de fondo al hacer clic */
     color: #ffffff;
-    font-size: 24px; /* Tamaño h4 en píxeles */
-} 
-
-.nav-link.primario {
-    font-size: 20px; /* Ajusta el tamaño según prefieras */
 }
-
-
