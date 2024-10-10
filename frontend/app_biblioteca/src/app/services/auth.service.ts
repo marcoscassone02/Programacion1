@@ -21,4 +21,18 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
   }
+  // Decodificar el token manualmente sin librerías adicionales
+  decodeToken(token: string) {
+    const payload = token.split('.')[1];
+    return JSON.parse(atob(payload)); // Decodificar el payload del JWT
+  }
+   // Obtener rol del usuario
+   getRole(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded.rol; // Suponiendo que el token tiene un campo "role"
+    }
+    return '';
+  }
 }
