@@ -18,4 +18,7 @@ export class AuthService {
     // }
     return this.httpClient.post(this.url+'/auth/login', dataLogin).pipe(take(1));
   }
+  logout(){
+    localStorage.removeItem('token');
+  }
 }

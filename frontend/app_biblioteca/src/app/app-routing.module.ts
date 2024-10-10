@@ -16,7 +16,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
-
+import { authsessionGuard } from './guards/authsession.guard';
 
 
 const routes: Routes = [

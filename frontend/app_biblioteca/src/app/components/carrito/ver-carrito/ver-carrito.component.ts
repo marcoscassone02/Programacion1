@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './ver-carrito.component.css'
 })
 export class VerCarritoComponent {
-arrayLibros= [
+get isToken(){
+   return localStorage.getItem('token');
+}
+  arrayLibros= [
 {
   id:1,
   nombre: 'El principito',

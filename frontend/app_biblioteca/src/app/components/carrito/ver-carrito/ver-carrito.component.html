@@ -43,5 +43,7 @@
 
 </div>
 <div class="d-flex justify-content-center mb-3">
-  <a href="#" class="btn btn-primary">Agregar Prestamo </a>
+  <a *ngIf="isToken"  class="btn btn-primary">Agregar Prestamo </a>
+  <a  *ngIf="!isToken"class="btn btn-primary" routerLink="/home">Log in para agregar prestamo  </a>
+
 </div>    
