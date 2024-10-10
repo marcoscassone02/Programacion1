@@ -3,8 +3,8 @@
 		"_postman_id": "477d48d1-1f28-4d2b-a35e-630dd876779b",
 		"name": "GrupoK",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34024076",
-		"_collection_link": "https://winter-capsule-328300.postman.co/workspace/My-Workspace~ee9bb140-6267-4209-808a-7a7d58532e9b/collection/34070862-477d48d1-1f28-4d2b-a35e-630dd876779b?action=share&source=collection_link&creator=34024076"
+		"_exporter_id": "34070862",
+		"_collection_link": "https://winter-capsule-328300.postman.co/workspace/My-Workspace~ee9bb140-6267-4209-808a-7a7d58532e9b/collection/34070862-477d48d1-1f28-4d2b-a35e-630dd876779b?action=share&source=collection_link&creator=34070862"
 	},
 	"item": [
 		{
@@ -24,7 +24,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODMyNzI0OCwianRpIjoiMDQwNjZkNmEtOWM2Ny00NGZmLThiY2UtYWVlNTVlY2VjNDc2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4MzI3MjQ4LCJjc3JmIjoiNDViMTY1MGUtNmUxMi00MzkwLTkzYjktYjVkMmExMmIzMWM5IiwiZXhwIjoxNzE4MzMwODQ4LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.f3nJME5ZPt7mFBPZVyTIQoLFQ6YY_o_NQrvT5y6W3EA",
 											"type": "string"
 										}
 									]
@@ -493,7 +493,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODQ4MzA4NSwianRpIjoiOGU5ODc4ZWUtNmIzOC00YjY5LWEzNTItNjFiMDYwZTU3ZTBlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4NDgzMDg1LCJjc3JmIjoiYzU1NTIzMDktMDc4Zi00NTY1LTkxNDgtNjYzNTQzZGRkOGRlIiwiZXhwIjoxNzI4NDg2Njg1LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.8545njqOC9pmW6Ip7Ipc9vJjKzPQrEHEtZ4FoM58WVA",
 											"type": "string"
 										}
 									]
@@ -502,7 +502,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"El resplandor\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autores\":[1],\n    \"prestamo_id\": 1\n}",
+									"raw": "{\n    \"nombre\":\"Principe\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autores\":[1],\n    \"prestamo_id\": 1,\n    \"descripcion\": \"Descripcion de libro\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
