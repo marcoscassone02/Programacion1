@@ -17,9 +17,12 @@ export class SignUpComponent {
     this.registerForm = this.formBuilder.group(
     {
       correo: ['', Validators.required],
-      usuario: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
      contraseña: ['', Validators.required],
-     recontraseña: ['', Validators.required]
+
+     telefono: ['', Validators.nullValidator],
+     rol: ['', Validators.nullValidator]
     }
     )
 

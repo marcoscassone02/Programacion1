@@ -7,8 +7,12 @@
             <input type="email" class="form-control input-field" formControlName="correo">
         </div>
         <div class="input-block">
-            <label for="Username" class="form-label">Username</label>
-            <input type="text" class="form-control input-field" formControlName="usuario">
+            <label for="Username" class="form-label">Name</label>
+            <input type="text" class="form-control input-field" formControlName="nombre">
+        </div>
+        <div class="input-block">
+            <label for="Username" class="form-label">LastName</label>
+            <input type="text" class="form-control input-field" formControlName="apellido">
         </div>
         <div class="input-block">
             <label for="password" class="form-label">Password</label>
@@ -16,7 +20,7 @@
         </div>
         <div class="input-block">
             <label for="password" class="form-label">Confirm password</label>
-            <input type="password" class="form-control input-field" formControlName="recontraseña">
+            <input type="password" class="form-control input-field" >
         </div>
         <app-submit-button [registerForm]='registerForm'></app-submit-button>
     </form>

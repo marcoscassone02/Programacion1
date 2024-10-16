@@ -13,6 +13,6 @@ export class RegisterService {
 
   register(dataRegister:any): Observable<any> {
 
-    return this.httpClient.post(this.url+'/usuarios', dataRegister).pipe(take(1));
+    return this.httpClient.post(this.url + '/usuarios', dataRegister).pipe(take(1));
   }
 }
