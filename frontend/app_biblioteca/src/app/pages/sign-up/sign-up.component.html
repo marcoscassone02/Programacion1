@@ -1,23 +1,23 @@
 <app-nav-volver routerLink="/home"></app-nav-volver>
 <div class = 'body'>
 
-    <form id="register-form" action="/pages/login">
+    <form [formGroup]='registerForm' id="register-form" action="/pages/login" >
         <div class="input-block">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control input-field" >
+            <input type="email" class="form-control input-field" formControlName="correo">
         </div>
         <div class="input-block">
             <label for="Username" class="form-label">Username</label>
-            <input type="text" class="form-control input-field" >
+            <input type="text" class="form-control input-field" formControlName="usuario">
         </div>
         <div class="input-block">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control input-field">
+            <input type="password" class="form-control input-field" formControlName="contraseña">
         </div>
         <div class="input-block">
             <label for="password" class="form-label">Confirm password</label>
-            <input type="password" class="form-control input-field">
+            <input type="password" class="form-control input-field" formControlName="recontraseña">
         </div>
-        <app-submit-button></app-submit-button>
+        <app-submit-button [registerForm]='registerForm'></app-submit-button>
     </form>
 </div>

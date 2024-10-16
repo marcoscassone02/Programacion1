@@ -2,6 +2,7 @@ import { Component, importProvidersFrom, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-submit-button',
@@ -10,12 +11,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class SubmitButtonComponent {
   @Input() loginForm!: FormGroup;
-  // loginForm!: FormGroup;
+  @Input() registerForm!: FormGroup;
   headerTitle: string = 'Login'; // Valor por defecto
 
   constructor(
     private router: Router,
     private authService: AuthService,
+    private registerService: RegisterService,
     private formBuilder: FormBuilder  
   ){
 
@@ -40,7 +42,7 @@ setHeaderTitle() {
       this.headerTitle = 'Send'; // Texto por defecto si no hay segmento
     }
 }
-accionBoton(dataLogin:any){
+accionLogin(dataLogin:any){
   if (this.headerTitle === 'login') {
   this.authService.login(dataLogin).subscribe({
     next: (rta:any) => {
@@ -57,21 +59,48 @@ accionBoton(dataLogin:any){
   })
 }
 }
+accionRegister(dataRegister:any){
+  if (this.headerTitle === 'Sign Up') {
+  this.registerService.register(dataRegister).subscribe({
+    next: (rta:any) => {
+      console.log('Exito: ', rta);
+      this.router.navigateByUrl('login');
+    }, error: (err:any)=>{
+      alert('Hubo un error, Porfavor intente nuevamente.'),
+      console.log('Error: ', err);
+
+    }, complete: ()=>{
+      console.log('Completado');
+    }
+  })
+}
+}
 
 
-accionBoton2(){
-  if (this.loginForm.valid){
-    console.log('Datos: ',this.loginForm.value)
-    this.accionBoton(this.loginForm.value)
+
+botonMultiAccion(){
+  if (this.headerTitle === 'login'){
+    if (this.loginForm.valid){
+      console.log('Datos: ',this.loginForm.value)
+      this.accionLogin(this.loginForm.value)
+    }
+    else {
+      alert('Porfavor ingrese los datos requeridos.')
+      localStorage.removeItem('token');
+    }
   }
-  else {
-    alert('Porfavor ingrese los datos requeridos.')
-    localStorage.removeItem('token');
-  }
-  
+  if (this.headerTitle === 'Sign Up'){
+    if (this.registerForm.valid){
+      console.log('Datos: ',this.registerForm.value)
+      this.accionRegister(this.registerForm.value)
+    }
+    else {
+      alert('Porfavor ingrese los datos requeridos.')}
+    }
+ }
 }
 
 
 
 
-}
+
