@@ -21,7 +21,6 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { NavCatalogoComponent } from './components/nav-catalogo/nav-catalogo.component';
-import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
 import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrito.component';
 import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
@@ -50,7 +49,6 @@ import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-cat
     SubmitButtonComponent,
     CatalogoComponent,
     NavCatalogoComponent,
-    PaginationCatalogoComponent,
     VerCarritoComponent,
     VerPrestamosComponent,
     VerCatalogoComponent,

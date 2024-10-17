@@ -31,4 +31,22 @@
       </div>
     </div>
     </div>
-    
+    <div class=".footer mt-3">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link boton-secundario prev-btn me-2" aria-label="Previous" (click)="prevPage()">
+              <img src="assets/green-arrow-left.png" alt="Previous">
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link boton-primario" (click)="goToPage(1)">1</a></li>
+          <li class="page-item"><a class="page-link boton-primario" (click)="goToPage(2)">2</a></li>
+          <li class="page-item"><a class="page-link boton-primario" (click)="goToPage(3)">3</a></li>
+          <li class="page-item">
+            <a  class="page-link boton-secundario prev-btn ms-2" aria-label="Next" (click)="nextPage()" >
+              <img src="assets/green-arrow-right.png" alt="Next">
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>    
