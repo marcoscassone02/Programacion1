@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import { LibrosService } from '../../services/libros.service';
+import { VerCatalogoComponent } from '../catalogo/ver-catalogo/ver-catalogo.component'
 @Component({
   selector: 'app-nav-catalogo',
   templateUrl: './nav-catalogo.component.html',
@@ -10,8 +11,10 @@ export class NavCatalogoComponent {
   
   constructor(
     private authService: AuthService,
-    private librosService: LibrosService
+    private librosService: LibrosService,
+    // private verCatalogo: VerCatalogoComponent
   ){}
+
 get isToken() {
   return localStorage.getItem('token');
 }
@@ -20,12 +23,12 @@ cerrarSesion(){
 }
 
 
+
 enviarGenero(genero: string) {
-  this.librosService.setGenero(genero).subscribe(data => {
-    console.log('Libros actualizados:', data);
-  
-  });
+  this.librosService.setGenero(genero);
+
+}
 }
 
 
-}
+
