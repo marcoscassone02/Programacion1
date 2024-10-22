@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { VerCatalogoComponent } from '../components/catalogo/ver-catalogo/ver-catalogo.component'
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LibrosService {
   url = '/api';
   filtro_genero = '';
+  private generoSubject = new BehaviorSubject<string>('');  // Aquí puedes establecer un género inicial
+
+  // Observable que VerCatalogoComponent puede suscribirse para recibir actualizaciones
+  public generoObservable = this.generoSubject.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -20,6 +24,7 @@ export class LibrosService {
 
     this.filtro_genero = genero
     console.log('Genero despues de actualizar:', this.filtro_genero)
+    this.generoSubject.next(genero); 
 
   }
 

@@ -28,6 +28,11 @@ export class VerCatalogoComponent {
   constructor(private librosService: LibrosService,private cartService:CarritoService) {}
   ngOnInit() {
     this.getLibros()
+    this.librosService.generoObservable.subscribe((nuevoGenero: string) => {
+      if (nuevoGenero) {
+        this.getLibros();  // Llamar a getLibros cuando cambia el género
+      }
+    });
      
   }
   addToCart(book: any) {
