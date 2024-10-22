@@ -51,6 +51,7 @@ export class VerCatalogoComponent {
     if (this.page * this.perPage < this.totalLibros) {
       this.page++;
     }
+    this.getLibros()
   }
 
   getPagesArray(): number[] {
@@ -61,6 +62,7 @@ export class VerCatalogoComponent {
     if (this.page > 1) {
       this.page--;
     }
+    this.getLibros()
   }
   goToPage(page: number): void {
     this.page = page;
