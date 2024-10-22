@@ -18,7 +18,8 @@ export class LibrosService {
   setGenero(genero: string) {
     console.log('Género antes de actualizar:', this.filtro_genero); 
 
-    this.getGenero()
+    this.filtro_genero = genero
+    console.log('Genero despues de actualizar:', this.filtro_genero)
 
   }
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LibrosService } from '../../../services/libros.service';
-import { CartService } from '../../../services/carrito.service'; 
+import { CarritoService } from '../../../services/carrito.service'; 
 
 @Component({
   selector: 'app-ver-catalogo',
@@ -21,11 +21,11 @@ export class VerCatalogoComponent {
   arrayLibros:any[] = [];
   page: number = 1;
   perPage: number = 1;
-  genero: string = ''
+  // genero: string = ''
   totalLibros: number = 0;
   cantidadDePaginas: number = (this.totalLibros/this.perPage)
 
-  constructor(private librosService: LibrosService,private cartService:CartService) {}
+  constructor(private librosService: LibrosService,private cartService:CarritoService) {}
   ngOnInit() {
     this.getLibros()
      
@@ -59,6 +59,7 @@ export class VerCatalogoComponent {
   }
   goToPage(page: number): void {
     this.page = page;
+    this.getLibros()
     
   }
 
