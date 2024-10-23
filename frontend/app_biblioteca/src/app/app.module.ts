@@ -26,6 +26,7 @@ import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-catalogo.component';
+import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-cat
     VerCarritoComponent,
     VerPrestamosComponent,
     VerCatalogoComponent,
+    VerUsersComponent,
 
   ],
   imports: [
