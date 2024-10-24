@@ -27,6 +27,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-catalogo.component';
 import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.component';
+import { VerPrestamosAdminComponent } from './components/prestamos-admin/ver-prestamos-admin/ver-prestamos-admin.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.com
     VerPrestamosComponent,
     VerCatalogoComponent,
     VerUsersComponent,
+    VerPrestamosAdminComponent,
 
   ],
   imports: [
