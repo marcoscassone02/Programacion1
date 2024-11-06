@@ -30,6 +30,8 @@ import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.com
 import { VerPrestamosAdminComponent } from './components/prestamos-admin/ver-prestamos-admin/ver-prestamos-admin.component';
 import { VerLibrosadminComponent } from './components/librosadmin/ver-librosadmin/ver-librosadmin.component';
 import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros.component';
+import { DeleteButtonComponent } from './components/delete-button/delete-button/delete-button.component';
+import { EditButtonComponent } from './components/edit-button/edit-button/edit-button.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros
     VerPrestamosAdminComponent,
     VerLibrosadminComponent,
     AddLibrosComponent,
+    DeleteButtonComponent,
+    EditButtonComponent,
 
   ],
   imports: [

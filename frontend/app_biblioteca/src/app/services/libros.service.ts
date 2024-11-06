@@ -59,6 +59,11 @@ export class LibrosService {
 
     return this.http.post(this.url + '/libros', dataRegister, requestOptions).pipe(take(1));
     }
+
+
+  
+
+    
   }
 
     

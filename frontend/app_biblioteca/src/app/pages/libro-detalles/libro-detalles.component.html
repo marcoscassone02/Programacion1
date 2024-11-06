@@ -22,7 +22,11 @@
               <label for="idioma" class="form-label">Idioma</label>
               <input type="text" class="form-control input-field" formControlName="idioma">
           </div>
+          <div class="input-block">
+            <label for="publicacion" class="form-label">Publicacion</label>
+            <input type="text" class="form-control input-field" formControlName="ublicacion">
+        </div>
       </form>
   </div>
-  <app-add-libros [bookForm]="bookForm"></app-add-libros>
+  <app-add-libros [bookForm]="bookForm" [isEditMode]="isEditMode" [bookId]="bookId ?? 0"></app-add-libros>
   </div>    

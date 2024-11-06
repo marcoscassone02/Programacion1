@@ -10,18 +10,6 @@
     text-align: center;
 }
 
-.boton-basura {
-    background-color: #ffffff;
-    color: red;
-    border: none;
-    position: absolute;
-    right: 0;
-    bottom: 10px
-}
-.boton-basura:active {
-    background-color: #f2f2f2; /* Color de fondo al hacer clic */
-    border-radius: 50px;
-}
 
 .imagen-personalizada {
     width: 70%; /* Ajusta el ancho al 70% del contenedor */
@@ -30,12 +18,3 @@
     max-width: 200px;
   }
 
-  .boton-lapiz {
-    background-color: #ffffff;
-    color: #5ABD8C;
-    border: none;
-}
-.boton-lapiz:active {
-    background-color: #f2f2f2; /* Color de fondo al hacer clic */
-    border-radius: 50px;
-}
