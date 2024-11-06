@@ -29,6 +29,7 @@ import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-cat
 import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.component';
 import { VerPrestamosAdminComponent } from './components/prestamos-admin/ver-prestamos-admin/ver-prestamos-admin.component';
 import { VerLibrosadminComponent } from './components/librosadmin/ver-librosadmin/ver-librosadmin.component';
+import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { VerLibrosadminComponent } from './components/librosadmin/ver-librosadmi
     VerUsersComponent,
     VerPrestamosAdminComponent,
     VerLibrosadminComponent,
+    AddLibrosComponent,
 
   ],
   imports: [

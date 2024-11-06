@@ -6,6 +6,15 @@
     text-align: center;
 }
 
+.body {
+    font-family: 'Roboto', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: var(--white-color);
+}
+
 .text-lista-libros {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
@@ -26,6 +35,7 @@
     border-radius: 50px;
 }
 
+
 .boton-lapiz {
     background-color: #ffffff;
     color: #5ABD8C;
@@ -39,4 +49,25 @@
 .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.input-block{
+    margin-top: 20px; 
+}
+
+/* Texto sobre los campos de formulario */
+.form-label{
+    color: var(--primary-color);
+    font-weight: semibold;
+    font-size: 17px;
+    margin-left: 15px;
+    margin-bottom: 0;
+}
+
+.input-field{
+    border-radius: 15px;
+    border-color: var(--primary-color);
+    border-width: 2px;
+    height: 40px;
+    width: 280px;
 }

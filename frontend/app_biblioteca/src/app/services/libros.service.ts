@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { VerCatalogoComponent } from '../components/catalogo/ver-catalogo/ver-catalogo.component'
 import { BehaviorSubject } from 'rxjs';
 @Injectable({
@@ -45,6 +45,20 @@ export class LibrosService {
     // Agregar los headers y los params a las opciones de la solicitud
     const requestOptions = { headers: headers, params: params };
     return this.http.get(`${this.url}/libros?page=${page}&per_page=${perPage}`, requestOptions);
+    }
+
+  registerbook(dataRegister:any): Observable<any> {
+    let auth_token = localStorage.getItem('token');
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}` 
+    })
+
+    const requestOptions = {headers: headers}
+
+    return this.http.post(this.url + '/libros', dataRegister, requestOptions).pipe(take(1));
+    }
   }
-}
+
     
