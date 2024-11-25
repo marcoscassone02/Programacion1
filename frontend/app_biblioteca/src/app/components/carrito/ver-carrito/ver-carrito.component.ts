@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CartService } from '../../../services/carrito.service'; 
+import { CarritoService } from '../../../services/carrito.service'; 
 @Component({
   selector: 'app-ver-carrito',
   templateUrl: './ver-carrito.component.html',
@@ -20,7 +20,7 @@ get isToken(){
 //
 //]
 arrayLibros:any[] = [];
-constructor(private cartService:CartService) {
+constructor(private cartService:CarritoService) {
   this.arrayLibros = this.cartService.getCart();
 }
 

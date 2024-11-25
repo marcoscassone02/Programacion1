@@ -1,19 +1,28 @@
-
 .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
+.navbar   {
+    background-color: #5ABD8C;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #ffffff;
+}
+.nav-link  {
+    color: #ffffff;
+}
+.navbar-nombre {
+    color: #ffffff;
+    margin: 0 auto;
+} 
 .boton-volver {
     background-color: #5ABD8C;
     color: white;
     border: none;
-    
 }
 .boton-volver:active {
     background-color: #66d69e; /* Color de fondo al hacer clic */
     border-radius: 50px;
-    
 }
 .btn-primary {
     background-color: #5ABD8C;
@@ -25,7 +34,6 @@
 .btn-primary:focus, .btn-primary:hover {
     background-color: #5ABD8C !important; /* Color de fondo al hacer clic */
     border-color: #5ABD8C !important;
-    transform: scale(0.98); /* Efecto de "presionado" */
 }
 .btn-primary:active {
     background-color: #64c698 !important; /* Color de fondo al hacer clic */
@@ -50,56 +58,16 @@
     background-color: #f2f2f2; /* Color de fondo al hacer clic */
     border-radius: 50px;
 }
-@media (max-width: 576px) {
-    .imagen-personalizada {
-      width: 50%; /* Ajusta el ancho en pantallas pequeñas */
-      height: auto;
-      display: block; /* Asegura que la imagen sea tratada como un bloque */
-      margin: 0 auto; /* Centra la imagen horizontalmente */
-    }
+.imagen-personalizada {
+    width: 70%; /* Cambia el ancho a un 50% del contenedor */
+    max-height: auto; /* Máximo de 300 píxeles */
   }
-  
-  @media (min-width: 577px) and (max-width: 768px) {
-    .imagen-personalizada {
-      width: 50%; /* Ajusta el ancho en pantallas medianas */
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-  }
-  
-  @media (min-width: 769px) {
-    .imagen-personalizada {
-      width: 50%; /* Ajusta el ancho en pantallas grandes */
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-  }
-  
-
-
-
-
-/* Botones de paginacion */
-
-.boton-primario {
-  background-color: #5ABD8C;
-  color: #fff;
-  border: none;
-  border-radius: 9rem;
-  
-  
+.boton-lapiz {
+    background-color: #ffffff;
+    color: #5ABD8C;
+    border: none;
 }
-
-.boton-secundario {
-  background-color: #fff;
-  color: #5ABD8C;
-  border: none;
-  border-radius: 9rem;
- 
-  
+.boton-lapiz:active {
+    background-color: #f2f2f2; /* Color de fondo al hacer clic */
+    border-radius: 50px;
 }
-
-
-

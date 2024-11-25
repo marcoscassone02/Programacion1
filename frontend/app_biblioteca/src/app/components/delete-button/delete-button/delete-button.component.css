@@ -1,0 +1,13 @@
+.boton-basura {
+    background-color: #ffffff;
+    color: red;
+    border: none;
+    position: absolute;
+    right: 0;
+    bottom: 10px
+}
+
+.boton-basura:active {
+    background-color: #f2f2f2; /* Color de fondo al hacer clic */
+    border-radius: 50px;
+}

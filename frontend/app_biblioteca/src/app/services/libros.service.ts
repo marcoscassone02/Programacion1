@@ -1,19 +1,69 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, take } from 'rxjs';
+import { VerCatalogoComponent } from '../components/catalogo/ver-catalogo/ver-catalogo.component'
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LibrosService {
-  url='/api';
+  url = '/api';
+  filtro_genero = '';
+  private generoSubject = new BehaviorSubject<string>('');  // Aquí puedes establecer un género inicial
+
+  // Observable que VerCatalogoComponent puede suscribirse para recibir actualizaciones
+  public generoObservable = this.generoSubject.asObservable();
+
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    // public verCatalogo: VerCatalogoComponent,
   ) { }
-  getLibros() {
+
+  setGenero(genero: string) {
+    console.log('Género antes de actualizar:', this.filtro_genero); 
+
+    this.filtro_genero = genero
+    console.log('Genero despues de actualizar:', this.filtro_genero)
+    this.generoSubject.next(genero); 
+
+  }
+
+  getGenero(): string{
+    return (this.filtro_genero)
+  }
+
+  getLibros(page: number = 1, perPage: number = 10, genero: string = this.getGenero()): Observable<any> {
     let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'authorization': `Bearer ${auth_token}`
+      'authorization': `Bearer ${auth_token}`,
     });
-    const requestOptions = {headers: headers};
-    return this.http.get(this.url+'/libros',requestOptions);
-}}
+
+    // Configurar los parámetros de la consulta
+    let params = new HttpParams().set('genero', genero);
+
+    // Agregar los headers y los params a las opciones de la solicitud
+    const requestOptions = { headers: headers, params: params };
+    return this.http.get(`${this.url}/libros?page=${page}&per_page=${perPage}`, requestOptions);
+    }
+
+  registerbook(dataRegister:any): Observable<any> {
+    let auth_token = localStorage.getItem('token');
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}` 
+    })
+
+    const requestOptions = {headers: headers}
+
+    return this.http.post(this.url + '/libros', dataRegister, requestOptions).pipe(take(1));
+    }
+
+
+  
+
+    
+  }
+
+    

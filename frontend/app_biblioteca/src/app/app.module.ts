@@ -21,12 +21,17 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { NavCatalogoComponent } from './components/nav-catalogo/nav-catalogo.component';
-import { PaginationCatalogoComponent } from './components/pagination-catalogo/pagination-catalogo.component';
 import { VerCarritoComponent } from './components/carrito/ver-carrito/ver-carrito.component';
 import { VerPrestamosComponent } from './components/prestamos/ver-prestamos/ver-prestamos.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-catalogo.component';
+import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.component';
+import { VerPrestamosAdminComponent } from './components/prestamos-admin/ver-prestamos-admin/ver-prestamos-admin.component';
+import { VerLibrosadminComponent } from './components/librosadmin/ver-librosadmin/ver-librosadmin.component';
+import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros.component';
+import { DeleteButtonComponent } from './components/delete-button/delete-button/delete-button.component';
+import { EditButtonComponent } from './components/edit-button/edit-button/edit-button.component';
 
 @NgModule({
   declarations: [
@@ -50,10 +55,15 @@ import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-cat
     SubmitButtonComponent,
     CatalogoComponent,
     NavCatalogoComponent,
-    PaginationCatalogoComponent,
     VerCarritoComponent,
     VerPrestamosComponent,
     VerCatalogoComponent,
+    VerUsersComponent,
+    VerPrestamosAdminComponent,
+    VerLibrosadminComponent,
+    AddLibrosComponent,
+    DeleteButtonComponent,
+    EditButtonComponent,
 
   ],
   imports: [

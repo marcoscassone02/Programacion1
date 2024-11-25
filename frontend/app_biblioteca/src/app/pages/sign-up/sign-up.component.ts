@@ -22,7 +22,7 @@ export class SignUpComponent {
      contraseña: ['', Validators.required],
 
      telefono: ['', Validators.nullValidator],
-     rol: ['', Validators.nullValidator]
+     rol: ['user', Validators.nullValidator]
     }
     )
 

@@ -1,0 +1,20 @@
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.text-lista-libros {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #5ABD8C;
+    text-align: center;
+}
+
+
+.imagen-personalizada {
+    width: 70%; /* Ajusta el ancho al 70% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 200px; /* Restringe la altura máxima a 300 píxeles */
+    max-width: 200px;
+  }
+

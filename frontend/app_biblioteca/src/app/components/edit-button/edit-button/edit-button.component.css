@@ -1,0 +1,9 @@
+.boton-lapiz {
+    background-color: #ffffff;
+    color: #5ABD8C;
+    border: none;
+}
+.boton-lapiz:active {
+    background-color: #f2f2f2; /* Color de fondo al hacer clic */
+    border-radius: 50px;
+}
