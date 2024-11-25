@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
     background-color: var(--white-color);
 }
 
@@ -94,25 +94,7 @@
 }
 
 
-#div-img-login{
-    position: absolute;
-    top: 140px;
-    height: 250px;
-    background-color: var(--primary-color);
-    justify-content: center;
-    
-}
-#seated-person-img{
-    position: absolute;
-    height: 90%;
-}
 
-
-
-
-#login-form{
-    margin-top: 300px;
-}
 
 .input-field{
     border-radius: 15px;
