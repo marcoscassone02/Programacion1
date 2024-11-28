@@ -12,13 +12,14 @@
              class="nav-link" routerLink="/home"style="text-decoration: underline;" (click)="cerrarSesion()">Log out</a>
           </li>
           <li class="nav-item">
-            <a 
-             class="nav-link" routerLink="/prestamos">Prestamos</a>
-          </li>
-          <li class="nav-item">
             <a *ngIf="isToken"
              class="nav-link" routerLink="/admin-view">Admin-view</a>
           </li>
+          <li class="nav-item">
+            <a 
+             class="nav-link" routerLink="/prestamos">Prestamos</a>
+          </li>
+
           <li class="nav-item dropdown">
           <li class="nav-item">
             <a 

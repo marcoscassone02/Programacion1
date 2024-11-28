@@ -15,9 +15,7 @@
                   <button type="button" class="boton-lapiz" routerLink="/usuario-detalles"> 
                     <i class="bi bi-pencil"></i>
                   </button>                 
-                <button type="button" class="boton-basura"> 
-                  <i class="bi bi-trash"></i>
-                </button>
+                  <app-delete-button (click)="deleteUser(usuario.id)"></app-delete-button>
               </div>
             </div>
           </div>
