@@ -14,6 +14,7 @@
               <label for="descripcion" class="form-label">Descripcion</label>
               <input type="text" class="form-control input-field" formControlName="descripcion">
           </div>
+          
           <div class="input-block">
               <label for="editorial" class="form-label">Editorial</label>
               <input type="text" class="form-control input-field" formControlName="editorial">
@@ -25,7 +26,11 @@
           <div class="input-block">
             <label for="publicacion" class="form-label">Publicacion</label>
             <input type="text" class="form-control input-field" formControlName="ublicacion">
-        </div>
+            <div class="input-block">
+                <label for="portada" class="form-label">Portada</label>
+                <input type="url" class="form-control input-field" formControlName="portada">
+            </div>
+         </div>
       </form>
   </div>
   <app-add-libros [bookForm]="bookForm" [isEditMode]="isEditMode" [bookId]="bookId ?? 0"></app-add-libros>
