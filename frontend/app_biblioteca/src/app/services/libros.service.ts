@@ -9,15 +9,31 @@ import { BehaviorSubject } from 'rxjs';
 export class LibrosService {
   url = '/api';
   filtro_genero = '';
-  private generoSubject = new BehaviorSubject<string>('');  // Aquí puedes establecer un género inicial
+  filtro_busqueda = '';
+  private generoSubject = new BehaviorSubject<string>('');  
+  private terminoBusquedaSubject = new BehaviorSubject<string>('');
 
   // Observable que VerCatalogoComponent puede suscribirse para recibir actualizaciones
   public generoObservable = this.generoSubject.asObservable();
+  public terminoBusquedaObservable = this.terminoBusquedaSubject.asObservable();
 
   constructor(
     private http: HttpClient,
     // public verCatalogo: VerCatalogoComponent,
   ) { }
+
+  setBusqueda(filtro_busqueda: string = '') {
+    console.log('Busqueda antes de actualizar:', this.filtro_busqueda); 
+
+    this.filtro_busqueda = filtro_busqueda
+    console.log('Busqueda despues de actualizar:', this.filtro_busqueda)
+    this.terminoBusquedaSubject.next(this.filtro_busqueda); 
+
+  }
+
+  getBusqueda(): string{
+    return (this.filtro_busqueda)
+  }
 
   setGenero(genero: string) {
     console.log('Género antes de actualizar:', this.filtro_genero); 
@@ -32,7 +48,7 @@ export class LibrosService {
     return (this.filtro_genero)
   }
 
-  getLibros(page: number = 1, perPage: number = 10, genero: string = this.getGenero()): Observable<any> {
+  getLibros(page: number = 1, perPage: number = 10, genero: string = this.getGenero(), busqueda: string = this.getBusqueda()): Observable<any> {
     let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -40,7 +56,7 @@ export class LibrosService {
     });
 
     // Configurar los parámetros de la consulta
-    let params = new HttpParams().set('genero', genero);
+    let params = new HttpParams().set('genero', genero).set('busqueda', busqueda);
 
     // Agregar los headers y los params a las opciones de la solicitud
     const requestOptions = { headers: headers, params: params };

@@ -30,6 +30,7 @@
               Géneros
             </a>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="enviarGenero('')">Ninguno</a></li>
               <li><a class="dropdown-item" (click)="enviarGenero('accion')">Acción</a></li>
               <li><a class="dropdown-item" (click)="enviarGenero('Ciencia Ficcion')">Ciencia ficción</a></li>
               <li><a class="dropdown-item" (click)="enviarGenero('Drama')">Drama</a></li>
@@ -42,8 +43,8 @@
           </li>
         </ul>
         <form class="d-flex" role="buscar">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-          <button class="btn btn-primary" type="submit">Buscar</button>
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" [(ngModel)]="terminoBusqueda" name="terminoBusqueda">
+          <button class="btn btn-primary" type="submit" (click)="enviarBusqueda()">Buscar</button>
         </form>
       </div>
     </div>

@@ -29,10 +29,12 @@ export class VerCatalogoComponent {
   ngOnInit() {
     this.getLibros()
     this.librosService.generoObservable.subscribe((nuevoGenero: string) => {
-      if (nuevoGenero) {
         this.getLibros();  // Llamar a getLibros cuando cambia el género
-      }
-    });
+    })
+    this.librosService.terminoBusquedaObservable.subscribe((nuevaBusqueda: string) => {
+        this.getLibros();  // Llamar a getLibros cuando cambia la búsqueda
+    })
+    ;
      
   }
   addToCart(book: any) {
@@ -40,7 +42,7 @@ export class VerCatalogoComponent {
     console.log('Libro agregado al carrito:', book);
   }
   getLibros(): void {
-    this.librosService.getLibros(this.page, this.perPage, this.librosService.getGenero()).subscribe((res: any) => {
+    this.librosService.getLibros(this.page, this.perPage, this.librosService.getGenero(), this.librosService.getBusqueda()).subscribe((res: any) => {
       this.arrayLibros = res.libros;
       this.totalLibros = res.total;
       this.cantidadDePaginas = (this.totalLibros / this.perPage);
