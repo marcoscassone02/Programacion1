@@ -31,7 +31,7 @@ class Libros(Resource):
         # Pagina inicial
         page = 1
         # Cantidad de elementos por pagina
-        per_page = 10
+        per_page = 1000
 
         listado_libros = db.session.query(LibroModel)
 
