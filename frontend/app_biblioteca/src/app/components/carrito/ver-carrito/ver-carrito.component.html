@@ -11,7 +11,7 @@
               <div  class="card-body">
                 <h5 class="card-title">{{arrayLibros[i].nombre}}</h5>
                 <p class="card-text">{{arrayLibros[i].descripcion}}</p>
-                <h6>Autor:{{arrayLibros[i].autor}}</h6>
+                <h6>Publicación:{{arrayLibros[i].publicacion}}</h6>
                 <button type="button" class="boton-basura"(click)="DelCart(arrayLibros[i])"> 
                   <i class="bi bi-trash"></i>
                 </button>
@@ -44,7 +44,9 @@
 
 </div>
 <div class="d-flex justify-content-center mt-3">
-  <a *ngIf="isToken"  class="btn btn-primary">Agregar Prestamo </a>
+  <button *ngIf="isToken && isArrayLibros" class="btn btn-primary" (click)="agregarPrestamo()">Agregar Préstamo</button>
   <a  *ngIf="!isToken"class="btn btn-primary" routerLink="/home">Log in para agregar prestamo  </a>
+  <a  *ngIf="!isArrayLibros"class="btn btn-primary" routerLink="/catalogo">Agregar Libros  </a>
+
 
 </div>    
