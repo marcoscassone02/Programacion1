@@ -1,29 +1,30 @@
-<div class="col-4 mt-1 mb-3 d-flex justify-content-center mt-3" > 
-    <a routerLink="/libro-detalles">
-      <button type="button" class="btn btn-success">Add book</button>
-    </a>
-  </div>
-<div class="container d-flex flex-column align-items-center">
-    <div class="row">
-    <div *ngFor="let libro of arrayLibrosAdmin" class="col-md-6">
-      <div class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-sm-4 ">
-              <img src="{{libro.portada}}" class="imagen-personalizada" alt="..."  >
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{libro.nombre}}</h5>
-                <p class="card-text mb-1">ID: {{libro.id}}</p>
-                <p class="card-text mb-1">descripcion: {{libro.descripcion}}</p>
-                <p class="card-text mb-1">genero: {{libro.genero}}</p>
-                <p class="card-text mb-1">prestamo_id: {{libro.prestamo_id}}</p>
-                <app-edit-button (click)="goToLibroDetalles(libro.id)"></app-edit-button>                 
-                <app-delete-button (click)="accionDeleteBook(libro.id)"></app-delete-button>
+<div class="container-fluid"> 
+  <div class="col-4 mt-1 mb-3 d-flex justify-content-center mt-3" > 
+      <a routerLink="/libro-detalles">
+        <button type="button" class="btn btn-success">Add book</button>
+      </a>
+    </div>
+  <div class="container d-flex flex-column align-items-center">
+      <div class="row">
+      <div *ngFor="let libro of arrayLibrosAdmin" class="col-md-6">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-sm-4 ">
+                <img src="{{libro.portada}}" class="imagen-personalizada" alt="..."  >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{libro.nombre}}</h5>
+                  <p class="card-text mb-1">ID: {{libro.id}}</p>
+                  <p class="card-text mb-1">descripcion: {{libro.descripcion}}</p>
+                  <p class="card-text mb-1">genero: {{libro.genero}}</p>
+                  <p class="card-text mb-1">prestamo_id: {{libro.prestamo_id}}</p>
+                  <app-edit-button (click)="goToLibroDetalles(libro.id)"></app-edit-button>                 
+                  <app-delete-button (click)="accionDeleteBook(libro.id)"></app-delete-button>
+                </div>
               </div>
             </div>
-          </div>
+        </div>
       </div>
-    </div>
-       
+  </div>
 </div>
