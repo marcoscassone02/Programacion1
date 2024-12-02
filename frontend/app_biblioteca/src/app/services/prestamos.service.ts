@@ -23,6 +23,7 @@ export class PrestamosService {
 
     return this.httpClient.get(this.url + '/prestamos', requestOptions);
   }
+  
 
   
 }

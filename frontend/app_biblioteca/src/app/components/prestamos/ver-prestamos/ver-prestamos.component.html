@@ -9,7 +9,10 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Prestamo {{arrayPrestamos[i].id}}</h5>
-                <p *ngFor="let libro of arrayPrestamos[i].libros"class="card-text texto-libro">Libro:{{libro.nombre}}</p>
+                <p class="card-title">ID libro: {{arrayPrestamos[i].libro_id}}</p>
+                <p class="card-title">Nombre libro: {{arrayPrestamos[i].libro?.nombre}}</p>
+                <p class="card-title">Fecha prestamo: {{arrayPrestamos[i].fecha_prestamo}}</p>
+                <p class="card-title">Fecha devolución: {{arrayPrestamos[i].fecha_devolucion}}</p>
               </div>
             </div>
           </div>
@@ -24,7 +27,11 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Prestamo {{arrayPrestamos[i+1].id}}</h5>
-                <p *ngFor="let libro of arrayPrestamos[i+1].libros"class="card-text texto-libro">Libro:{{libro.nombre}}</p>
+                <p class="card-title">ID libro: {{arrayPrestamos[i+1].libro_id}}</p>
+                <p class="card-title">Nombre libro: {{arrayPrestamos[i+1].libro?.nombre}}</p>
+                <p class="card-title">Fecha prestamo: {{arrayPrestamos[i+1].fecha_prestamo}}</p>
+                <p class="card-title">Fecha devolución: {{arrayPrestamos[i+1].fecha_devolucion}}</p>
+
               </div>
             </div>
           </div>

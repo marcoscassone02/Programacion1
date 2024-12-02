@@ -28,7 +28,8 @@ class Prestamo(db.Model):
             'estado': str(self.estado),
             'usuario_id': self.usuario_id,
             #"libros":libros,
-            "libro_id":self.libro_id
+            "libro_id":self.libro_id,
+            'libro': self.libro.to_json() if self.libro else None
         }
         return prestamo_json
 
