@@ -19,6 +19,9 @@ export class NavCatalogoComponent {
 get isToken() {
   return localStorage.getItem('token');
 }
+get isAdmin() {
+  return this.authService.getRole() === 'admin';
+}
 cerrarSesion(){
   this.authService.logout();
 }

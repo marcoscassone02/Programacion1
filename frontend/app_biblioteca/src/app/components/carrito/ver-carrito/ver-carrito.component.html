@@ -46,7 +46,7 @@
 <div class="d-flex justify-content-center mt-3">
   <button *ngIf="isToken && isArrayLibros" class="btn btn-primary" (click)="agregarPrestamo()">Agregar Préstamo</button>
   <a  *ngIf="!isToken"class="btn btn-primary" routerLink="/home">Log in para agregar prestamo  </a>
-  <a  *ngIf="!isArrayLibros"class="btn btn-primary" routerLink="/catalogo">Agregar Libros  </a>
+  <a  *ngIf="!isArrayLibros && isToken"class="btn btn-primary" routerLink="/catalogo">Agregar Libros  </a>
 
 
 </div>    

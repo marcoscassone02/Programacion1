@@ -12,7 +12,7 @@
              class="nav-link" routerLink="/home"style="text-decoration: underline;" (click)="cerrarSesion()">Log out</a>
           </li>
           <li class="nav-item">
-            <a *ngIf="isToken"
+            <a *ngIf="isToken && isAdmin"
              class="nav-link" routerLink="/admin-view">Admin-view</a>
           </li>
           <li class="nav-item">
