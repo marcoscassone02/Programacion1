@@ -1,10 +1,16 @@
 <nav class="navbar navbar-expand-lg" >
     <div class="container-fluid">
-    <button type="button" class="boton-volver"> 
+    <button type="button" class="boton-volver" (click)="goBack()"> 
       <img src="assets/flecha.png"style="width: 18px;">
     </button>
     
       <span class="nav-link">{{ headerTitle }} </span>
+
+      <form *ngIf="hasSearchBar()" class="d-flex" role="buscar">
+        <input class="form-control me-2" type="search" placeholder="Buscar">
+        <button class="btn btn-primary" type="submit" >Buscar</button>
+      </form>
     
     </div>
+    
   </nav>
