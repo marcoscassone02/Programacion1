@@ -20,9 +20,8 @@ export class SignUpComponent {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
      contraseña: ['', Validators.required],
-
      telefono: ['', Validators.nullValidator],
-     rol: ['', Validators.nullValidator]
+     rol: ['user', Validators.nullValidator]
     }
     )
 

@@ -31,7 +31,7 @@ class Libros(Resource):
         # Pagina inicial
         page = 1
         # Cantidad de elementos por pagina
-        per_page = 10
+        per_page = 1000
 
         listado_libros = db.session.query(LibroModel)
 
@@ -57,8 +57,19 @@ class Libros(Resource):
             listado_libros =listado_libros.order_by(LibroModel.nombre.asc())
         if request.args.get('nombre_orderby') == 'desc':
             listado_libros=listado_libros.order_by(LibroModel.nombre.desc())
+            
+        if request.args.get("busqueda"):
+            busqueda = request.args.get("busqueda")
+            listado_libros = listado_libros.filter(
+                (LibroModel.nombre.like(f"%{busqueda}%")) |
+                (LibroModel.autores.any(AutorModel.nombre.like(f"%{busqueda}%")))
+            )
+            
+            
         #Obtener valor paginado
         listado_libros = listado_libros.paginate(page=page, per_page=per_page, error_out=True)
+
+        
         #joins
         #fijarse de hacer un filtrado con la tabla de autor
         #fijarse de hacer un promedio para hacer la busqueda por valoracion sino no tiene sentido buscar por valoracion individual 

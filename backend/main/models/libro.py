@@ -10,10 +10,15 @@ class Libro(db.Model):
     editorial = db.Column(db.String(100),nullable=False)
     idioma = db.Column(db.String(100),nullable=False)
     descripcion = db.Column(db.String(100), nullable=False)
+    portada = db.Column(db.String(255), nullable=True) 
+
     #relacion 
     valoraciones=db.relationship('Valoracion', back_populates='libro',cascade="all, delete-orphan")
-    prestamo_id = db.Column(db.Integer, db.ForeignKey('Prestamos.id'),nullable=True)
-    prestamo= db.relationship('Prestamo',uselist=False, back_populates='libros',single_parent=True)
+    #prestamo_id = db.Column(db.Integer, db.ForeignKey('Prestamos.id'),nullable=True)
+    #prestamo= db.relationship('Prestamo',uselist=False, back_populates='libros',single_parent=True)
+    # ver q onda
+    prestamos=db.relationship('Prestamo', back_populates='libro',cascade="all, delete-orphan")
+
     #Convertir objeto en JSON
     def to_json(self):
         valoraciones=[valoracion.to_json_sin_libro_id() for valoracion in self.valoraciones]
@@ -25,9 +30,9 @@ class Libro(db.Model):
             'editorial': str(self.editorial),
             'idioma' : str(self.idioma),
             'valoraciones':valoraciones,
-            "prestamo_id":self.prestamo_id,
-            'descripcion': self.descripcion  
-        }
+            'descripcion': self.descripcion,
+            'portada' : self.portada
+            }
         return libro_json
     
     #Convertir JSON a objeto (post)
@@ -38,14 +43,14 @@ class Libro(db.Model):
         genero = libro_json.get('genero')
         editorial = libro_json.get('editorial')
         idioma = libro_json.get('idioma')
-        prestamo_id = libro_json.get('prestamo_id')
         descripcion = libro_json.get('descripcion')
+        portada = libro_json.get('portada')
         return Libro(id=id,
                     nombre=nombre,
                     publicacion=publicacion,
                     genero=genero,
                     editorial=editorial,
-                    prestamo_id=prestamo_id,
                     idioma=idioma,
-                    descripcion=descripcion)
+                    descripcion=descripcion,
+                    portada=portada)
     

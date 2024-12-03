@@ -5,7 +5,7 @@
     <div class="col-md-6 ">
       <div class="card mb-3 h-100">
           <div class="row g-0">
-              <img src="assets/Libro-en-3d.jpg" class="imagen-personalizada" alt="..."  >
+              <img src="{{arrayLibros[i].portada}}" class="imagen-personalizada" alt="..."  >
               <div  class="card-body">
                 <h5 class="card-title">{{arrayLibros[i].nombre}}</h5>
                 <p class="card-text">{{arrayLibros[i].descripcion}}</p>
@@ -20,7 +20,7 @@
     <div class="col-md-6"*ngIf="arrayLibros[i+1]">
       <div class="card mb-3 h-100">
           <div class="row g-0">
-              <img src="assets/Libro-en-3d.jpg" class="imagen-personalizada " alt="..." >
+              <img src="{{arrayLibros[i+1].portada}}" class="imagen-personalizada " alt="..." >
               <div class="card-body">
                 <h5 class="card-title">{{arrayLibros[i+1].nombre}}</h5>
                 <p class="card-text">{{arrayLibros[i+1].descripcion}}</p>

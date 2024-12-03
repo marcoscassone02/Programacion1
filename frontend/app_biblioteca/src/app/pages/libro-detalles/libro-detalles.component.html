@@ -1,29 +1,37 @@
 <div class="container-fluid">   
     <app-nav-volver routerLink="/admin-lista-libros"></app-nav-volver>
-  <div class="container d-flex flex-column align-items-center mt-3">
-      <div class="card mt-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-sm-4 ">
-              <img src="assets/Book.png" class="imagen-personalizada" alt="..."  >
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Libro1</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <button type="button" class="boton-lapiz"> 
-                  <i class="bi bi-pencil"></i>
-                </button>  
-                <button type="button" class="boton-basura"> 
-                  <i class="bi bi-trash"></i>
-                </button>
-              </div>
-            </div>
+    <div class = 'body'>
+      <form [formGroup]='bookForm' id="book-form" >
+          <div class="input-block">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control input-field" formControlName="nombre">
           </div>
-      </div>
-      <div class="foto-book mt-5 mb-5">
-          <img src="assets/librofoto.png" class="imagen-personalizada" alt="..."  >
-      </div> 
-      <div>  
-        <button type="button" class="btn btn-success mt-5">Add book</button>
-      </div>
-  </div>    
+          <div class="input-block">
+              <label for="genero" class="form-label">Genero</label>
+              <input type="text" class="form-control input-field" formControlName="genero">
+          </div>
+          <div class="input-block">
+              <label for="descripcion" class="form-label">Descripcion</label>
+              <input type="text" class="form-control input-field" formControlName="descripcion">
+          </div>
+          
+          <div class="input-block">
+              <label for="editorial" class="form-label">Editorial</label>
+              <input type="text" class="form-control input-field" formControlName="editorial">
+          </div>
+          <div class="input-block">
+              <label for="idioma" class="form-label">Idioma</label>
+              <input type="text" class="form-control input-field" formControlName="idioma">
+          </div>
+          <div class="input-block">
+            <label for="publicacion" class="form-label">Publicacion</label>
+            <input type="text" class="form-control input-field" formControlName="publicacion">
+            <div class="input-block">
+                <label for="portada" class="form-label">Portada</label>
+                <input type="url" class="form-control input-field" formControlName="portada">
+            </div>
+         </div>
+      </form>
+  </div>
+  <app-add-libros [bookForm]="bookForm" [isEditMode]="isEditMode" [bookId]="bookId ?? 0"></app-add-libros>
+</div>    

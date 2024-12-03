@@ -20,19 +20,21 @@ export class VerCatalogoComponent {
 
   arrayLibros:any[] = [];
   page: number = 1;
-  perPage: number = 1;
+  perPage: number = 2;
   // genero: string = ''
   totalLibros: number = 0;
-  cantidadDePaginas: number = (this.totalLibros/this.perPage)
+  cantidadDePaginas: number = Math.ceil(this.totalLibros/this.perPage)
 
   constructor(private librosService: LibrosService,private cartService:CarritoService) {}
   ngOnInit() {
     this.getLibros()
     this.librosService.generoObservable.subscribe((nuevoGenero: string) => {
-      if (nuevoGenero) {
         this.getLibros();  // Llamar a getLibros cuando cambia el género
-      }
-    });
+    })
+    this.librosService.terminoBusquedaObservable.subscribe((nuevaBusqueda: string) => {
+        this.getLibros();  // Llamar a getLibros cuando cambia la búsqueda
+    })
+    ;
      
   }
   addToCart(book: any) {
@@ -40,10 +42,10 @@ export class VerCatalogoComponent {
     console.log('Libro agregado al carrito:', book);
   }
   getLibros(): void {
-    this.librosService.getLibros(this.page, this.perPage, this.librosService.getGenero()).subscribe((res: any) => {
+    this.librosService.getLibros(this.page, this.perPage, this.librosService.getGenero(), this.librosService.getBusqueda()).subscribe((res: any) => {
       this.arrayLibros = res.libros;
       this.totalLibros = res.total;
-      this.cantidadDePaginas = (this.totalLibros / this.perPage);
+      this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);
     });
   }
 
@@ -55,8 +57,8 @@ export class VerCatalogoComponent {
   }
 
   getPagesArray(): number[] {
-    return Array(this.cantidadDePaginas).map((i) => i + 1);
-  }
+  return Array.from({ length: this.cantidadDePaginas }, (_, i) => i + 1);
+}
 
   prevPage(): void {
     if (this.page > 1) {

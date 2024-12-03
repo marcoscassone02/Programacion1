@@ -11,8 +11,12 @@
             <input type="text" class="form-control input-field" formControlName="nombre">
         </div>
         <div class="input-block">
-            <label for="Username" class="form-label">LastName</label>
+            <label for="LastName" class="form-label">LastName</label>
             <input type="text" class="form-control input-field" formControlName="apellido">
+        </div>
+        <div class="input-block">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control input-field" formControlName="telefono">
         </div>
         <div class="input-block">
             <label for="password" class="form-label">Password</label>
@@ -22,6 +26,7 @@
             <label for="password" class="form-label">Confirm password</label>
             <input type="password" class="form-control input-field" >
         </div>
+        
         <app-submit-button [registerForm]='registerForm'></app-submit-button>
     </form>
 </div>

@@ -1,101 +1,29 @@
-<div class="container-fluid">
-
-<app-nav-volver routerLink="/usuarios"></app-nav-volver>
-<div class="container d-flex flex-column align-items-center mt-3">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-sm-4 ">
-            <img src="assets/usuario.jpg" class="imagen-personalizada" alt="..."  >
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Usuario1</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
+<div class="container-fluid">   
+  <app-nav-volver routerLink="/usuarios"></app-nav-volver>
+  <div class = 'body'>
+    <form [formGroup]='userForm' id="user-form" >
+        <div class="input-block">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control input-field" formControlName="nombre">
         </div>
-    </div>
-</div>     
-    <div class="text-lista-libros"><h3>Lista prestamos</h3></div>
-  <div class="container d-flex flex-column align-items-center">
-      <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-sm-4 ">
-                <img src="assets/pila.jpg" class="imagen-personalizada" alt="..."  >
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Prestamo 1</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button type="button" class="boton-basura"> 
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div class="input-block">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control input-field" formControlName="apellido">
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-sm-4">
-                <img src="assets/pila.jpg" class="imagen-personalizada " alt="..." >
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button type="button" class="boton-basura"> 
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div class="input-block">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="text" class="form-control input-field" formControlName="correo">
         </div>
-      </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card mb-3" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col-sm-4">
-                  <img src="assets/pila.jpg" class="imagen-personalizada " alt="..." >
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="boton-basura"> 
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-          </div>
+        
+        <div class="input-block">
+            <label for="telefono" class="form-label">Telefono</label>
+            <input type="text" class="form-control input-field" formControlName="telefono">
         </div>
-        <div class="col-md-6">
-          <div class="card mb-3" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col-sm-4">
-                  <img src="assets/pila.jpg" class="imagen-personalizada " alt="..." >
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="boton-basura"> 
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-          </div>
+        <div class="input-block">
+            <label for="rol" class="form-label">Rol</label>
+            <input type="text" class="form-control input-field" formControlName="rol">
         </div>
-        </div>   
-
-  </div>  
+    </form>
 </div>
-
-
+<app-addusers [userForm]="userForm" [userId]="userId ?? 0"></app-addusers>
+</div>    

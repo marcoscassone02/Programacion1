@@ -1,0 +1,5 @@
+<div class="btn-allign">  
+  <button (click)='accionAddbook()' [disabled]="!bookForm.valid" type="button" class="btn" [ngClass]="isEditMode ? 'btn-primary' : 'btn-success'">
+    {{ isEditMode ? 'Edit Book' : 'Add Book' }}
+  </button>
+</div>

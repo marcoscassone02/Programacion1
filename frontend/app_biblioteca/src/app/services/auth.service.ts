@@ -36,4 +36,12 @@ export class AuthService {
     }
     return '';
   }
+  getUserId(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded.id; // Suponiendo que el token tiene un campo "role"
+    }
+    return '';
+  }
 }

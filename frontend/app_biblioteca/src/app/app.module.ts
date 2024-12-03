@@ -28,6 +28,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerCatalogoComponent } from './components/catalogo/ver-catalogo/ver-catalogo.component';
 import { VerUsersComponent } from './components/usuarios/ver-users/ver-users.component';
 import { VerPrestamosAdminComponent } from './components/prestamos-admin/ver-prestamos-admin/ver-prestamos-admin.component';
+import { VerLibrosadminComponent } from './components/librosadmin/ver-librosadmin/ver-librosadmin.component';
+import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros.component';
+import { DeleteButtonComponent } from './components/delete-button/delete-button/delete-button.component';
+import { EditButtonComponent } from './components/edit-button/edit-button/edit-button.component';
+import { AddusersComponent } from './components/addusers/addusers/addusers.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,11 @@ import { VerPrestamosAdminComponent } from './components/prestamos-admin/ver-pre
     VerCatalogoComponent,
     VerUsersComponent,
     VerPrestamosAdminComponent,
+    VerLibrosadminComponent,
+    AddLibrosComponent,
+    DeleteButtonComponent,
+    EditButtonComponent,
+    AddusersComponent,
 
   ],
   imports: [
