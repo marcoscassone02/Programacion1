@@ -39,4 +39,7 @@ export class VerPrestamosAdminComponent {
         });
     }
   }
+  goToUserDetalles(prestamoId: number) {
+    this.router.navigate(['/prestamo-detalles'], { queryParams: { id: prestamoId} });
+  }
 }

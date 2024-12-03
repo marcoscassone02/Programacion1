@@ -4,6 +4,7 @@ from .. import db
 from main.models import PrestamoModel
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from main.auth.decorators import role_required
+from datetime import datetime
 class Prestamo(Resource):
     @role_required(roles=['admin','user'])
     def get(self,id):
@@ -14,13 +15,19 @@ class Prestamo(Resource):
     #Modificar el recurso
     @role_required(roles=['admin'])
     def put(self, id):
+    
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
-        data = request.get_json().items()
-        for key, value in data:
+        data = request.get_json()
+        if 'fecha_prestamo' in data:
+                data['fecha_prestamo'] = datetime.fromisoformat(data['fecha_prestamo'])
+        if 'fecha_devolucion' in data:
+                data['fecha_devolucion'] = datetime.fromisoformat(data['fecha_devolucion'])
+        for key, value in data.items():
             setattr(prestamo, key, value)
         db.session.add(prestamo)
         db.session.commit()
-        return prestamo.to_json() , 201
+        return prestamo.to_json(), 201
+
     
     #Eliminar recurso
     @role_required(roles=['admin'])

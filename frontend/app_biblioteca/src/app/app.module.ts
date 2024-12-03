@@ -33,6 +33,8 @@ import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros
 import { DeleteButtonComponent } from './components/delete-button/delete-button/delete-button.component';
 import { EditButtonComponent } from './components/edit-button/edit-button/edit-button.component';
 import { AddusersComponent } from './components/addusers/addusers/addusers.component';
+import { AddprestamoComponent } from './components/addprestamo/addprestamo.component';
+import { PrestamoDetallesComponent } from './pages/prestamo-detalles/prestamo-detalles.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { AddusersComponent } from './components/addusers/addusers/addusers.compo
     DeleteButtonComponent,
     EditButtonComponent,
     AddusersComponent,
+    AddprestamoComponent,
+    PrestamoDetallesComponent,
 
   ],
   imports: [
