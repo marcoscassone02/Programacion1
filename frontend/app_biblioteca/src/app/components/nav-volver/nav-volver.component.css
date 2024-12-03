@@ -22,3 +22,21 @@
     border-radius: 50px;
     
 }
+
+.btn-primary {
+    background-color: #5ABD8C;
+    border-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    border-radius: 50px;
+}
+.btn-primary:focus, .btn-primary:hover {
+    background-color: #5ABD8C !important; /* Color de fondo al hacer clic */
+    border-color: #ffffff !important;
+    transform: scale(0.98); /* Efecto de "presionado" */
+}
+.btn-primary:active {
+    background-color: #64c698 !important; /* Color de fondo al hacer clic */
+    border-color: #ffffff !important;
+    
+}

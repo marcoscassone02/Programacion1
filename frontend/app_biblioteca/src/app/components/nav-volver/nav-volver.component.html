@@ -7,8 +7,8 @@
       <span class="nav-link">{{ headerTitle }} </span>
 
       <form *ngIf="hasSearchBar()" class="d-flex" role="buscar">
-        <input class="form-control me-2" type="search" placeholder="Buscar">
-        <button class="btn btn-primary" type="submit" >Buscar</button>
+        <input class="form-control me-2" type="search" placeholder="Buscar" [(ngModel)]="terminoBusqueda" name="terminoBusqueda">
+        <button class="btn btn-primary" type="submit" (click)="enviarBusqueda()">Buscar</button>
       </form>
     
     </div>
