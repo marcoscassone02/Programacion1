@@ -28,7 +28,7 @@ class Prestamo(Resource):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         db.session.delete(prestamo)
         db.session.commit()
-        return prestamo.to_json(), 204
+        return "Prestamo eliminado"
 
 class Prestamos(Resource):
     @role_required(roles=['admin'])
