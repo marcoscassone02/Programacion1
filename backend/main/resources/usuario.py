@@ -38,6 +38,13 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
         if request.args.get('apellido_orderby') == 'desc':
             usuarios = usuarios.order_by(UsuarioModel.apellido.desc())
 
+        if request.args.get("busqueda"):
+            busqueda = request.args.get("busqueda")
+            listado_libros = listado_libros.filter(
+                (UsuarioModel.nombre.like(f"%{busqueda}%")) |
+                (UsuarioModel.apellido.any.like(f"%{busqueda}%"))
+            )
+
         usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
         
         return jsonify({'usuarios':[usuario.to_json() for usuario in usuarios],'total':usuarios.total, 'page': page, 'per_page': per_page})
