@@ -51,5 +51,8 @@ export class NavVolverComponent implements OnInit {
       if (this.headerTitle === 'prestamos') {
         this.headerTitle = 'Prestamos'
       }
+      if (this.headerTitle === 'libro-detalles?id=2&isEditMode=true') {
+        this.headerTitle = 'Editar libro'
+      }
   }
 }
