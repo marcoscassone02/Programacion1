@@ -40,10 +40,11 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
 
         if request.args.get("busqueda"):
             busqueda = request.args.get("busqueda")
-            listado_libros = listado_libros.filter(
+            usuarios = usuarios.filter(
                 (UsuarioModel.nombre.like(f"%{busqueda}%")) |
-                (UsuarioModel.apellido.any.like(f"%{busqueda}%"))
+                (UsuarioModel.apellido.like(f"%{busqueda}%"))
             )
+
 
         usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
         
