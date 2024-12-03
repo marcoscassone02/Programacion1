@@ -31,7 +31,7 @@ class Prestamo(Resource):
         return "Prestamo eliminado"
 
 class Prestamos(Resource):
-    @role_required(roles=['admin'])
+    @role_required(roles=['admin',"user"])
     #obtener todos los usuarios
     def get(self):
         # Pagina inicial
@@ -61,7 +61,7 @@ class Prestamos(Resource):
         return jsonify({'prestamos':[prestamo.to_json() for prestamo in prestamos],'total':prestamos.total, 'page': page, 'per_page': per_page})
         
     #insertar recurso
-    @role_required(roles=['admin'])
+    @role_required(roles=['admin',"user"])
     def post(self):
         prestamo = PrestamoModel.from_json(request.get_json())
         db.session.add(prestamo)
