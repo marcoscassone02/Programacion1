@@ -32,6 +32,7 @@ import { VerLibrosadminComponent } from './components/librosadmin/ver-librosadmi
 import { AddLibrosComponent } from './components/addlibros/add-libros/add-libros.component';
 import { DeleteButtonComponent } from './components/delete-button/delete-button/delete-button.component';
 import { EditButtonComponent } from './components/edit-button/edit-button/edit-button.component';
+import { AddusersComponent } from './components/addusers/addusers/addusers.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { EditButtonComponent } from './components/edit-button/edit-button/edit-b
     AddLibrosComponent,
     DeleteButtonComponent,
     EditButtonComponent,
+    AddusersComponent,
 
   ],
   imports: [

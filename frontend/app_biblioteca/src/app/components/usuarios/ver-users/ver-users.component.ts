@@ -25,6 +25,11 @@ export class VerUsersComponent {
       this.arrayUsuarios = rta.usuarios || [];
     })
   }
+
+  goToUserDetalles(userId: number) {
+    this.router.navigate(['/usuario-detalles'], { queryParams: { id: userId} });
+  }
+
   deleteUser(userId: number) {
     if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
       this.usuariosService.deleteUser(userId).subscribe({
