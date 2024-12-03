@@ -11,7 +11,7 @@ class Prestamo(db.Model):
     estado = db.Column(db.String(100),nullable=False)
     #relacion
     usuario_id = db.Column(db.Integer, db.ForeignKey('Usuarios.id'), nullable=False)
-    usuario = db.relationship('Usuario',uselist=False, back_populates='prestamo',cascade="all, delete-orphan",single_parent=True)
+    usuario = db.relationship('Usuario',uselist=False, back_populates='prestamo')
     #libros=db.relationship('Libro', back_populates='prestamo',cascade="all, delete-orphan")
     #ver q onda
     libro_id = db.Column(db.Integer, db.ForeignKey('Libros.id'),nullable=True)
@@ -19,7 +19,6 @@ class Prestamo(db.Model):
 
 #Convertir objeto en JSON
     def to_json(self):
-        #libros=[libro.to_json() for libro in self.libros]
         self.usuario=db.session.query(UsuarioModel).get_or_404(self.usuario_id)
         prestamo_json = {
             'id': self.id,
@@ -27,7 +26,6 @@ class Prestamo(db.Model):
             'fecha_devolucion': str(self.fecha_devolucion.strftime("%Y-%m-%d")),
             'estado': str(self.estado),
             'usuario_id': self.usuario_id,
-            #"libros":libros,
             "libro_id":self.libro_id,
             'libro': self.libro.to_json() if self.libro else None
         }

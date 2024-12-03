@@ -18,7 +18,6 @@
                   <p class="card-text mb-1">ID: {{libro.id}}</p>
                   <p class="card-text mb-1">descripcion: {{libro.descripcion}}</p>
                   <p class="card-text mb-1">genero: {{libro.genero}}</p>
-                  <p class="card-text mb-1">prestamo_id: {{libro.prestamo_id}}</p>
                   <app-edit-button (click)="goToLibroDetalles(libro.id)"></app-edit-button>                 
                   <app-delete-button (click)="accionDeleteBook(libro.id)"></app-delete-button>
                 </div>

@@ -16,9 +16,8 @@
                   <button type="button" class="boton-lapiz" routerLink="/reserva-detalles"> 
                     <i class="bi bi-pencil"></i>
                   </button>               
-                <button type="button" class="boton-basura"> 
-                  <i class="bi bi-trash"></i>
-                </button>
+                  <app-delete-button (click)="accionDeleteBook(prestamo.id)"></app-delete-button>
+               
               </div>
             </div>
           </div>
