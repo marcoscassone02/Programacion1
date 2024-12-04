@@ -12,7 +12,7 @@ export class LibrosadminService {
   ) { }
 
 
-  getLibrosadmin() {
+  getLibrosadmin(page: number = 1, perPage: number = 2) {
     let auth_token = localStorage.getItem('token');
 
     let headers = new HttpHeaders({
@@ -22,7 +22,8 @@ export class LibrosadminService {
 
     const requestOptions = {headers: headers}
 
-    return this.httpClient.get(this.url + '/libros', requestOptions);
+    return this.httpClient.get(`${this.url}/libros?page=${page}&per_page=${perPage}`, requestOptions);
+
   }
 
   deleteBook(bookId: number): Observable<any> {

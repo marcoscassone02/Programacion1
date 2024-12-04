@@ -1,4 +1,6 @@
 <div class="container-fluid"> 
+  <p>Página: {{page}} de {{cantidadDePaginas}}</p>
+  <p>Cantidad de Libros: {{totalLibros}}</p>
   <div class="col-4 mt-1 mb-3 d-flex justify-content-center mt-3" > 
       <a routerLink="/libro-detalles">
         <button type="button" class="btn btn-success">Add book</button>
@@ -31,3 +33,22 @@
       </div>
   </div>
 </div>
+<div class=".footer mt-3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link boton-secundario prev-btn me-2" aria-label="Previous" (click)="prevPage()">
+          <img src="assets/green-arrow-left.png" alt="Previous">
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPagesArray(); let i = index;">
+        <a class="page-link boton-primario" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item">
+        <a  class="page-link boton-secundario prev-btn ms-2" aria-label="Next" (click)="nextPage()" >
+          <img src="assets/green-arrow-right.png" alt="Next">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>  

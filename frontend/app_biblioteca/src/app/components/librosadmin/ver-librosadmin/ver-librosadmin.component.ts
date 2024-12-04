@@ -10,8 +10,11 @@ import { LibrosadminService } from '../../../services/librosadmin.service'
 export class VerLibrosadminComponent {
   @Input() isEditMode: boolean = false;
   
-  
   arrayLibrosAdmin:any[] = []
+  page: number = 1;
+  perPage: number = 2;
+  totalLibros: number = 0;
+  cantidadDePaginas: number = Math.ceil(this.totalLibros/this.perPage)
 
   constructor(
     private router: Router,
@@ -22,10 +25,14 @@ export class VerLibrosadminComponent {
   } 
 
   ngOnInit() {
-    this.librosService.getLibrosadmin().subscribe((rta:any) => {
-      console.log('libros api: ',rta);
-      this.arrayLibrosAdmin = rta.libros || [];
-    })
+    this.getLibros()
+  }
+  getLibros(): void {
+    this.librosService.getLibrosadmin(this.page, this.perPage).subscribe((res: any) => {
+      this.arrayLibrosAdmin = res.libros;
+      this.totalLibros = res.total;
+      this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);
+    });
   }
 
   goToLibroDetalles(bookId: number) {
@@ -45,5 +52,27 @@ export class VerLibrosadminComponent {
             }
         });
     }
+  }
+  nextPage(): void {
+    if (this.page * this.perPage < this.totalLibros) {
+      this.page++;
+    }
+    this.getLibros()
+  }
+
+  getPagesArray(): number[] {
+  return Array.from({ length: this.cantidadDePaginas }, (_, i) => i + 1);
+}
+
+  prevPage(): void {
+    if (this.page > 1) {
+      this.page--;
+    }
+    this.getLibros()
+  }
+  goToPage(page: number): void {
+    this.page = page;
+    this.getLibros()
+    
   }
 }

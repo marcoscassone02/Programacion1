@@ -12,7 +12,7 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
     def get(self):
         page = 1        
         
-        per_page = 5
+        per_page = 1000
         
         usuarios = db.session.query(UsuarioModel)
 
