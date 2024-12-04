@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db   
-from main.models import LibroModel,AutorModel,ValoracionModel
+from main.models import LibroModel,ValoracionModel
 from sqlalchemy import asc,desc,func
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from main.auth.decorators import role_required
@@ -58,35 +58,15 @@ class Libros(Resource):
         if request.args.get('nombre_orderby') == 'desc':
             listado_libros=listado_libros.order_by(LibroModel.nombre.desc())
             
-        if request.args.get("busqueda"):
-            busqueda = request.args.get("busqueda")
-            listado_libros = listado_libros.filter(
-                (LibroModel.nombre.like(f"%{busqueda}%")) |
-                (LibroModel.autores.any(AutorModel.nombre.like(f"%{busqueda}%")))
-            )
+
             
             
         #Obtener valor paginado
         listado_libros = listado_libros.paginate(page=page, per_page=per_page, error_out=True)
-
-        
-        #joins
-        #fijarse de hacer un filtrado con la tabla de autor
-        #fijarse de hacer un promedio para hacer la busqueda por valoracion sino no tiene sentido buscar por valoracion individual 
-        #if request.args.get("valoracion"):
-        #    listado_libros=listado_libros.join(ValoracionModel).filter(ValoracionModel.valoracion==request.args.get('valoracion')) 
         return jsonify({'libros':[libro.to_json() for libro in listado_libros],'total':listado_libros.total, 'page': page, 'per_page': per_page})
     @role_required(roles=['admin'])
     def post(self):
-        autores_ids = request.get_json().get('autores')
         libro = LibroModel.from_json(request.get_json())
-        
-        if autores_ids:
-            # Obtener las instancias de autor basadas en las ids recibidas
-            autores = AutorModel.query.filter(AutorModel.id.in_(autores_ids)).all()
-            # Agregar las instancias de autor aa la lista de autores del libro
-            libro.autores.extend(autores)
-            
         db.session.add(libro)
         db.session.commit()
         return libro.to_json()

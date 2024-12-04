@@ -9,7 +9,7 @@ class Valoraciones(Resource):
         page = 1
         per_page = 10
 
-        #return VALORACIONES, 200
+       
         listado_valoraciones = db.session.query(ValoracionModel)
         if request.args.get("valoracion"):
             listado_valoraciones=listado_valoraciones.filter(ValoracionModel.valoracion.like(request.args.get('valoracion')))

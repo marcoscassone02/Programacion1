@@ -18,7 +18,6 @@ class Usuario(db.Model):
     #relacion
     prestamo = db.relationship('Prestamo', uselist=True, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
     valoracion = db.relationship('Valoracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
-    configuracion = db.relationship('Configuracion', uselist=False, back_populates='usuario',cascade="all, delete-orphan",single_parent=True)
     #Getter de la contraseña plana no permite leerla
     @property
     def plain_password(self):

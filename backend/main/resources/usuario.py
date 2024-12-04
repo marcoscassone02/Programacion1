@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import UsuarioModel, NotificacionModel
+from main.models import UsuarioModel
 from sqlalchemy import func, desc , asc
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from main.auth.decorators import role_required

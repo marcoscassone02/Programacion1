@@ -4,9 +4,5 @@ from .prestamo import Prestamo as PrestamoResources
 from .prestamo import Prestamos as PrestamosResources
 from .usuario import Usuario as UsuarioResource
 from .usuario import Usuarios as UsuariosResource
-from .notificacion import Notificacion as NotificacionResources
 from .valoracion import Valoracion as ValoracionResources
 from .valoracion import Valoraciones as ValoracionesResources
-from .configuracion import Configuracion as ConfiguracionResources
-from .autor import Autor as AutorResources
-from .autor import Autores as AutoresResources
