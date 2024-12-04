@@ -1,81 +1,64 @@
 <div class="container  mt-3">
-    <p>Página: {{page}} de {{cantidadDePaginas}}</p>
-    <p>Cantidad de prestamos: {{totalPrestamos}}</p>
-    <div *ngFor="let prestamo of arrayPrestamos; let i = index" class="row" [hidden]="i % 2 !== 0">
-    <div class="col-md-6">
-      <div  class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-sm-4 ">
-              <img src="assets/pila.jpg" class="imagen-personalizada" alt="..."  >
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Prestamo {{arrayPrestamos[i].id}}</h5>
-                <p class="card-title">ID libro: {{arrayPrestamos[i].libro_id}}</p>
-                <p class="card-title">Nombre libro: {{arrayPrestamos[i].libro?.nombre}}</p>
-                <p class="card-title">Fecha prestamo: {{arrayPrestamos[i].fecha_prestamo}}</p>
-                <p class="card-title">Fecha devolución: {{arrayPrestamos[i].fecha_devolucion}}</p>
-                <p class="card-title">Usuario_id: {{arrayPrestamos[i].usuario_id}}</p>                
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-6" *ngIf="arrayPrestamos[i+1]">
-      <div class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-sm-4">
-              <img src="assets/pila.jpg" class="imagen-personalizada " alt="..." >
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Prestamo {{arrayPrestamos[i+1].id}}</h5>
-                <p class="card-title">ID libro: {{arrayPrestamos[i+1].libro_id}}</p>
-                <p class="card-title">Nombre libro: {{arrayPrestamos[i+1].libro?.nombre}}</p>
-                <p class="card-title">Fecha prestamo: {{arrayPrestamos[i+1].fecha_prestamo}}</p>
-                <p class="card-title">Fecha devolución: {{arrayPrestamos[i+1].fecha_devolucion}}</p>
-                <p class="card-title">Usuario_id: {{arrayPrestamos[i+1].usuario_id}}</p> 
-
-              </div>
->>>>>>> EmilianoMassolin
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-md-6" *ngIf="arrayPrestamos[i + 1]">
-      <div class="card mb-3" style="max-width: 540px;">
+  <p>Página: {{page}} de {{cantidadDePaginas}}</p>
+  <p>Cantidad de prestamos: {{totalPrestamos}}</p>
+  <div *ngFor="let prestamo of arrayPrestamos; let i = index" class="row" [hidden]="i % 2 !== 0">
+  <div class="col-md-6">
+    <div  class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
-          <div class="col-sm-4">
-            <img src="assets/pila.jpg" class="imagen-personalizada" alt="Imagen del préstamo">
+          <div class="col-sm-4 ">
+            <img src="assets/pila.jpg" class="imagen-personalizada" alt="..."  >
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Prestamo {{ arrayPrestamos[i + 1].id }}</h5>
-              <p *ngFor="let libro of arrayPrestamos[i + 1].libros" class="card-text texto-libro">Libro: {{ libro.nombre }}</p>
+              <h5 class="card-title">Prestamo {{arrayPrestamos[i].id}}</h5>
+              <p class="card-title">ID libro: {{arrayPrestamos[i].libro_id}}</p>
+              <p class="card-title">Nombre libro: {{arrayPrestamos[i].libro?.nombre}}</p>
+              <p class="card-title">Fecha prestamo: {{arrayPrestamos[i].fecha_prestamo}}</p>
+              <p class="card-title">Fecha devolución: {{arrayPrestamos[i].fecha_devolucion}}</p>
+              <p class="card-title">Usuario_id: {{arrayPrestamos[i].usuario_id}}</p>                
             </div>
           </div>
         </div>
-      </div>
     </div>
-    <div class=".footer mt-3">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          <li class="page-item">
-            <a class="page-link boton-secundario prev-btn me-2" aria-label="Previous" (click)="prevPage()">
-              <img src="assets/green-arrow-left.png" alt="Previous">
-            </a>
-          </li>
-          <li class="page-item" *ngFor="let page of getPagesArray(); let i = index;">
-            <a class="page-link boton-primario" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
-          </li>
-          <li class="page-item">
-            <a  class="page-link boton-secundario prev-btn ms-2" aria-label="Next" (click)="nextPage()" >
-              <img src="assets/green-arrow-right.png" alt="Next">
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>    
+  </div>
+  <div class="col-md-6" *ngIf="arrayPrestamos[i+1]">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-sm-4">
+            <img src="assets/pila.jpg" class="imagen-personalizada " alt="..." >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Prestamo {{arrayPrestamos[i+1].id}}</h5>
+              <p class="card-title">ID libro: {{arrayPrestamos[i+1].libro_id}}</p>
+              <p class="card-title">Nombre libro: {{arrayPrestamos[i+1].libro?.nombre}}</p>
+              <p class="card-title">Fecha prestamo: {{arrayPrestamos[i+1].fecha_prestamo}}</p>
+              <p class="card-title">Fecha devolución: {{arrayPrestamos[i+1].fecha_devolucion}}</p>
+              <p class="card-title">Usuario_id: {{arrayPrestamos[i+1].usuario_id}}</p> 
+
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class=".footer mt-3">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link boton-secundario prev-btn me-2" aria-label="Previous" (click)="prevPage()">
+            <img src="assets/green-arrow-left.png" alt="Previous">
+          </a>
+        </li>
+        <li class="page-item" *ngFor="let page of getPagesArray(); let i = index;">
+          <a class="page-link boton-primario" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+        </li>
+        <li class="page-item">
+          <a  class="page-link boton-secundario prev-btn ms-2" aria-label="Next" (click)="nextPage()" >
+            <img src="assets/green-arrow-right.png" alt="Next">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>    
 </div>  

@@ -38,7 +38,7 @@ export class UsuariosService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}` 
     })
-    let params = new HttpParams().set('busqueda', busqueda);
+    let params = new HttpParams().set('busqueda', this.filtro_busqueda);
     
     const requestOptions = {headers: headers, params: params}
 
