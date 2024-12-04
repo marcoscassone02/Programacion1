@@ -13,9 +13,7 @@
                 <p class="card-text mb-1">prestamo: {{prestamo.fecha_prestamo}}</p>
                 <p class="card-text mb-1">devolucion: {{prestamo.fecha_devolucion}}</p>
                 <p class="card-text mb-1">usuario_id: {{prestamo.usuario_id}}</p>
-                  <button type="button" class="boton-lapiz" routerLink="/reserva-detalles"> 
-                    <i class="bi bi-pencil"></i>
-                  </button>               
+                  <app-edit-button (click)="goToUserDetalles(prestamo.id)"></app-edit-button>             
                   <app-delete-button (click)="accionDeleteBook(prestamo.id)"></app-delete-button>
                
               </div>

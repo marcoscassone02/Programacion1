@@ -17,6 +17,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { authsessionGuard } from './guards/authsession.guard';
+import { PrestamoDetallesComponent } from './pages/prestamo-detalles/prestamo-detalles.component';  
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
 {path: 'usuario-detalles',component: UsuarioDetallesComponent,canActivate: [authsessionGuard]},
 {path: 'usuarios',component: UsuariosComponent,canActivate: [authsessionGuard]},
 {path: 'prestamos-bibliotecario',component: PrestamosBibliotecarioComponent,canActivate: [authsessionGuard]},
+{path: 'prestamo-detalles', component: PrestamoDetallesComponent, canActivate: [authsessionGuard]},
 { path: "admin-view", component: AdminViewComponent, canActivate: [authsessionGuard]},
 { path: "admin-lista-libros", component: AdminListaLibrosComponent,canActivate: [authsessionGuard]},
 { path: "libro-detalles", component: LibroDetallesComponent,canActivate: [authsessionGuard]},

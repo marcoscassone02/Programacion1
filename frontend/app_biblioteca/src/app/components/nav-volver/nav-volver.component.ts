@@ -80,5 +80,9 @@ export class NavVolverComponent implements OnInit {
       if (userDetallesEditRegex.test(currentRoute)) {
         this.headerTitle = 'Editar usuario';
       }
+      const prestamoDetallesEditRegex = /prestamo-detalles\?id=\d/;
+      if (prestamoDetallesEditRegex.test(currentRoute)) {
+        this.headerTitle = 'Editar prestamo';
+      }
   }
 }

@@ -1,0 +1,26 @@
+<div class="container-fluid">   
+    <app-nav-volver routerLink="/prestamos-bibliotecario"></app-nav-volver>
+    <div class = 'body'>
+      <form [formGroup]='prestamoForm' id="prestamo-form" >
+          <div class="input-block">
+              <label for="fecha_prestamo" class="form-label">fecha prestamo</label>
+              <input type="datetime" class="form-control input-field" formControlName="fecha_prestamo">
+          </div>
+            <div class="input-block">
+                <label for="fecha_devolucion" class="form-label">fecha devolucion</label>
+                <input type="datetime" class="form-control input-field" formControlName="fecha_devolucion">
+            </div>
+            <div class="input-block">
+                <label for="estado" class="form-label">estado</label>
+                <input type="text" class="form-control input-field" formControlName="estado">
+            </div>
+            <div class="input-block">
+                <label for="libro_id" class="form-label">libro id</label>
+                <input type="text" class="form-control input-field" formControlName="libro_id">
+            </div>
+
+      </form>
+  </div>
+  <app-addprestamo [prestamoForm]="prestamoForm" [prestamoId]="prestamoId ?? 0"></app-addprestamo>
+  </div>    
+  
