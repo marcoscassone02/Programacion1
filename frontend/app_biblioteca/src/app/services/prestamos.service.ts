@@ -13,7 +13,7 @@ export class PrestamosService {
   ) { }
 
 
-  getPrestamos() {
+  getPrestamos(page: number = 1, perPage: number = 10000) {
     let auth_token = localStorage.getItem('token');
 
     let headers = new HttpHeaders({
@@ -21,9 +21,9 @@ export class PrestamosService {
       'Authorization': `Bearer ${auth_token}` 
     })
 
-    const requestOptions = {headers: headers}
-
-    return this.httpClient.get(this.url + '/prestamos', requestOptions);
+ // Agregar los headers y los params a las opciones de la solicitud
+    const requestOptions = { headers: headers};
+    return this.httpClient.get(`${this.url}/prestamos?page=${page}&per_page=${perPage}`, requestOptions);
   }
   deletePrestamos(prestamoId: number): Observable<any> {
     let auth_token = localStorage.getItem('token');

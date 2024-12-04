@@ -11,7 +11,7 @@ class Prestamo(db.Model):
     estado = db.Column(db.String(100),nullable=False)
     #relacion
     usuario_id = db.Column(db.Integer, db.ForeignKey('Usuarios.id'), nullable=False)
-    usuario = db.relationship('Usuario',uselist=False, back_populates='prestamo')
+    usuario = db.relationship('Usuario',uselist=False, back_populates='prestamo',single_parent=True)
     #libros=db.relationship('Libro', back_populates='prestamo',cascade="all, delete-orphan")
     #ver q onda
     libro_id = db.Column(db.Integer, db.ForeignKey('Libros.id'),nullable=True)

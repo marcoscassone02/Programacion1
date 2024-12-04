@@ -71,3 +71,23 @@
     background-color: #f2f2f2; /* Color de fondo al hacer clic */
     border-radius: 50px;
 }
+/* Botones de paginacion */
+
+.boton-primario {
+    background-color: #5ABD8C;
+    color: #fff;
+    border: none;
+    border-radius: 9rem;
+    
+    
+  }
+  
+  .boton-secundario {
+    background-color: #fff;
+    color: #5ABD8C;
+    border: none;
+    border-radius: 9rem;
+   
+    
+  }
+  
