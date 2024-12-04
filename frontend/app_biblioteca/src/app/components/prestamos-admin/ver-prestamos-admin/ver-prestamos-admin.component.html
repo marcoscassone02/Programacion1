@@ -9,10 +9,11 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Prestamo {{prestamo.id}}</h5>
-                <p class="card-text mb-1">estado: {{prestamo.estado}}</p>
-                <p class="card-text mb-1">prestamo: {{prestamo.fecha_prestamo}}</p>
-                <p class="card-text mb-1">devolucion: {{prestamo.fecha_devolucion}}</p>
-                <p class="card-text mb-1">usuario_id: {{prestamo.usuario_id}}</p>
+                <p class="card-text mb-1">Estado: {{prestamo.estado}}</p>
+                <p class="card-text mb-1">Prestamo: {{prestamo.fecha_prestamo}}</p>
+                <p class="card-text mb-1">Devolución: {{prestamo.fecha_devolucion}}</p>
+                <p class="card-text mb-1">Libro Id: {{prestamo.libro_id}}</p>
+                <p class="card-text mb-1">Usuario Id: {{prestamo.usuario_id}}</p>
                   <app-edit-button (click)="goToUserDetalles(prestamo.id)"></app-edit-button>             
                   <app-delete-button (click)="accionDeleteBook(prestamo.id)"></app-delete-button>
                

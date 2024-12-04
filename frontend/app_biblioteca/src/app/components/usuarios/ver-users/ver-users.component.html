@@ -13,6 +13,8 @@
                   <p class="card-text mb-1">Correo: {{usuario.correo}}</p>
                   <p class="card-text mb-1">Telefono: {{usuario.telefono}}</p>
                   <p class="card-text mb-1">Rol: {{usuario.rol}}</p>
+                  <p class="card-text mb-1">Usuario Id: {{usuario.id}}</p>
+
                     <app-edit-button (click)="goToUserDetalles(usuario.id)"></app-edit-button>                  
                     <app-delete-button (click)="deleteUser(usuario.id)"></app-delete-button>
                 </div>

@@ -15,9 +15,13 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{libro.nombre}}</h5>
-                  <p class="card-text mb-1">ID: {{libro.id}}</p>
-                  <p class="card-text mb-1">descripcion: {{libro.descripcion}}</p>
-                  <p class="card-text mb-1">genero: {{libro.genero}}</p>
+                  <p class="card-text mb-1">Libro ID: {{libro.id}}</p>
+                  <p class="card-text mb-1">Genero: {{libro.genero}}</p>
+                  <p class="card-text mb-1">Descripcion: {{libro.descripcion}}</p>
+                  <p class="card-text mb-1">Autor: {{libro.autor}}</p>
+                  <p class="card-text mb-1">Publicación: {{libro.publicacion}}</p>
+                  <p class="card-text mb-1">Editorial: {{libro.editorial}}</p>
+                  <p class="card-text mb-1">Idioma: {{libro.idioma}}</p>
                   <app-edit-button (click)="goToLibroDetalles(libro.id)"></app-edit-button>                 
                   <app-delete-button (click)="accionDeleteBook(libro.id)"></app-delete-button>
                 </div>
