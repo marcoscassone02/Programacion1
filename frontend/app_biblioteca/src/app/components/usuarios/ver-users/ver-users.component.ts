@@ -24,6 +24,9 @@ export class VerUsersComponent {
       console.log('usuarios api: ',rta);
       this.arrayUsuarios = rta.usuarios || [];
     })
+    this.usuariosService.terminoBusquedaObservable.subscribe((nuevaBusqueda: string) => {
+      this.getUsuarios();  // Llamar a getLibros cuando cambia la búsqueda
+  })
   }
 
   goToUserDetalles(userId: number) {
@@ -44,6 +47,12 @@ export class VerUsersComponent {
       });
     }
   }
+  getUsuarios(): void {
+    this.usuariosService.getUsers(this.usuariosService.getBusqueda()).subscribe((res: any) => {
+      this.arrayUsuarios = res.usuarios;
+    })
+  }
+
 
 
 
