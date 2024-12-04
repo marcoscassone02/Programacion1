@@ -3,8 +3,8 @@
 		"_postman_id": "477d48d1-1f28-4d2b-a35e-630dd876779b",
 		"name": "GrupoK",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34070862",
-		"_collection_link": "https://winter-capsule-328300.postman.co/workspace/My-Workspace~ee9bb140-6267-4209-808a-7a7d58532e9b/collection/34070862-477d48d1-1f28-4d2b-a35e-630dd876779b?action=share&source=collection_link&creator=34070862"
+		"_exporter_id": "34024076",
+		"_collection_link": "https://winter-capsule-328300.postman.co/workspace/My-Workspace~ee9bb140-6267-4209-808a-7a7d58532e9b/collection/34070862-477d48d1-1f28-4d2b-a35e-630dd876779b?action=share&source=collection_link&creator=34024076"
 	},
 	"item": [
 		{
@@ -96,7 +96,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Gabi\",\n    \"apellido\": \"Gomez\",\n    \"correo\": \"correo123@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"261\",\n    \"rol\":\"admin\"\n}",
+									"raw": "{\n    \"nombre\": \"Emiliano\",\n    \"apellido\": \"Massolin\",\n    \"correo\": \"emilianomassolin@gmail.com\",\n    \"telefono\": 123,\n    \"contraseña\":\"123\",\n    \"rol\":\"admin\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -228,194 +228,6 @@
 			]
 		},
 		{
-			"name": "autores",
-			"item": [
-				{
-					"name": "autores",
-					"item": [
-						{
-							"name": "Lista de autores",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/autores",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autores"
-									],
-									"query": [
-										{
-											"key": "nombre",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "apellido",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "nombre_orderby",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "nombre_orderby",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "apellido_orderby",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "apellido_orderby",
-											"value": "",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Agregar un autor",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Bruno\",\n    \"apellido\": \"Bassani\",\n    \"biografia\": \"Psicologo\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/autores",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autores"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "autor",
-					"item": [
-						{
-							"name": "Obtener un autor",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/autor/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autor",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Editar un autor",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"biografia\": \"Escritor de exitosas novelas, algunas de ellas han sido exitos cinematograficos\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/autor/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autor",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Eliminar un autor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/autor/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"autor",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
 			"name": "libros",
 			"item": [
 				{
@@ -493,7 +305,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODQ4MzA4NSwianRpIjoiOGU5ODc4ZWUtNmIzOC00YjY5LWEzNTItNjFiMDYwZTU3ZTBlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4NDgzMDg1LCJjc3JmIjoiYzU1NTIzMDktMDc4Zi00NTY1LTkxNDgtNjYzNTQzZGRkOGRlIiwiZXhwIjoxNzI4NDg2Njg1LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.8545njqOC9pmW6Ip7Ipc9vJjKzPQrEHEtZ4FoM58WVA",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzMxOTgxNiwianRpIjoiOGYxNTBjMmEtOTVhOS00ZTYxLTkzMzYtNThjOTIzZTBkMTM0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzMzE5ODE2LCJjc3JmIjoiODZlZTk5YzctZDIwOC00MDg3LWI2NmUtNmYwMDExMjExZjk0IiwiZXhwIjoxNzMzMzIzNDE2LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.XACMEuTjr3ui93r2gL7wcyLpKhhnr7wdSFYNAhRDDzU",
 											"type": "string"
 										}
 									]
@@ -502,7 +314,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"Principe\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autores\":[1],\n    \"prestamo_id\": 1,\n    \"descripcion\": \"Descripcion de libro\"\n}",
+									"raw": "{\n    \"nombre\":\"Principito\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Literatura\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autor\":\"Emiliano wals\",\n    \"descripcion\": \"Descripcion de libro\",\n    \"portada\": \"https://www.editorialguadal.com.ar/wp-content/uploads/2023/01/9789877979015.png\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -557,11 +369,21 @@
 						{
 							"name": "Editar un libro",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMjQ5NjQ3NSwianRpIjoiOTVjMjY5YzQtOWI5MC00NGU1LWIyYjQtZDFhM2YyZjA5MDBmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMyNDk2NDc1LCJjc3JmIjoiMmY1NTFhMjgtYjhkNi00ZTM2LTk5YzUtZWNmOWJjZGQzNjQzIiwiZXhwIjoxNzMyNTAwMDc1LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.tVIAhy2TBGy9iOPcsN0XvorcqtX82Gf-9J0p6rH4Nzc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"publicacion\":\"1999\", \"editorial\":\"miedo\"\n}",
+									"raw": "{\n   \"portada\" : \"https://beta-content.tap-commerce.com.ar/cover/large/9788494220500_1.jpg?id_com=1102\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -569,7 +391,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://127.0.0.1:5000/libro/1",
+									"raw": "http://127.0.0.1:5000/libro/2",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -580,7 +402,7 @@
 									"port": "5000",
 									"path": [
 										"libro",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -627,7 +449,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzI0NDU4OCwianRpIjoiNWJmMDA0MDEtMDRmYS00NDc4LTgyMzktMjQ4MjVkYTU1OTcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzMjQ0NTg4LCJjc3JmIjoiZjdhMzkwMjEtZTlkYy00MjU1LWIwMjctNDdmZjlhNGRlYThiIiwiZXhwIjoxNzMzMjQ4MTg4LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.lYybOuoNRr-v45MYsvZP1NY87IUXTngYwdw_K5AsMyw",
 											"type": "string"
 										}
 									]
@@ -683,7 +505,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzI0NDU4OCwianRpIjoiNWJmMDA0MDEtMDRmYS00NDc4LTgyMzktMjQ4MjVkYTU1OTcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzMjQ0NTg4LCJjc3JmIjoiZjdhMzkwMjEtZTlkYy00MjU1LWIwMjctNDdmZjlhNGRlYThiIiwiZXhwIjoxNzMzMjQ4MTg4LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.lYybOuoNRr-v45MYsvZP1NY87IUXTngYwdw_K5AsMyw",
 											"type": "string"
 										}
 									]
@@ -724,10 +546,20 @@
 						{
 							"name": "Obtener un préstamo",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzI0NDAzOCwianRpIjoiMzRlMmQ1MWUtMjY0NC00N2Y2LWI0MTQtZTIxYmE0MzFhMTFlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzMjQ0MDM4LCJjc3JmIjoiMDRiOTdmNTQtMzczYS00ZTEyLTlkZWMtZmU2NjQyYzMyOTAxIiwiZXhwIjoxNzMzMjQ3NjM4LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.VPoTp5un_rTZGXyC5Ge9m0IIqv-zotA5iDj9jqIUZvY",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/prestamo/2",
+									"raw": "http://127.0.0.1:5000/prestamo/1",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -738,7 +570,7 @@
 									"port": "5000",
 									"path": [
 										"prestamo",
-										"2"
+										"1"
 									]
 								}
 							},
@@ -779,6 +611,16 @@
 						{
 							"name": "Eliminar un préstamo",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzI0NDU4OCwianRpIjoiNWJmMDA0MDEtMDRmYS00NDc4LTgyMzktMjQ4MjVkYTU1OTcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzMjQ0NTg4LCJjc3JmIjoiZjdhMzkwMjEtZTlkYy00MjU1LWIwMjctNDdmZjlhNGRlYThiIiwiZXhwIjoxNzMzMjQ4MTg4LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.lYybOuoNRr-v45MYsvZP1NY87IUXTngYwdw_K5AsMyw",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -793,112 +635,6 @@
 									"port": "5000",
 									"path": [
 										"prestamo",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "notificaciones",
-					"item": [
-						{
-							"name": "Enviar notificación",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"mensaje\": \"Evento literario este fin de semana\", \"fecha\": \"2001-04-20\",\"usuarios\":[1]\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/notificacion",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"notificacion"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "configuración",
-					"item": [
-						{
-							"name": "Ver configuración",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNzAzNjMxMywianRpIjoiZjU2OWRhMTEtZjQyMC00YTlhLTkxMjgtOGFhYjA5YThjZjM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE3MDM2MzEzLCJjc3JmIjoiM2Q1ODNlYmItMjhiNi00MzYxLWE2MmEtZDU3YmQ2NTBlYWRkIiwiZXhwIjoxNzE3MDM5OTEzLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJjb3JyZW8xMjNAZ21haWwuY29tIn0.YfuXgcOkXi42_pKcLbRoo2V6VVW7nys7DYRwD-dxeg4",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/configuracion/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"configuracion",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Cambiar configuración",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"visualizacion\": \"Claro\",\n    \"idioma\":  \"Portugués\"\n}\n\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:5000/configuracion/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"configuracion",
 										"1"
 									]
 								}
@@ -1052,7 +788,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"correo\":\"correo123@gmail.com\",\n\"contraseña\":\"123\"\n}",
+									"raw": "{\n\"correo\":\"emilianomassolin@gmail.com\",\n\"contraseña\":\"123\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1089,7 +825,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\": \"Emiliano\",\n    \"apellido\": \"Massolin\",\n    \"correo\": \"emilianomassolin@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"123\",\n    \"rol\":\"user\"\n}",
+									"raw": "{\n    \"nombre\": \"emiliano\",\n    \"apellido\": \"massolin\",\n    \"correo\": \"emilianomassolin@gmail.com\",\n    \"telefono\": 12345678910,\n    \"contraseña\":\"123\",\n    \"rol\":\"admin\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"

@@ -11,6 +11,10 @@ export class VerUsersComponent {
 
 
   arrayUsuarios:any[] = []
+  page: number = 1;
+  perPage: number = 2;
+  totalLibros: number = 0;
+  cantidadDePaginas: number = Math.ceil(this.totalLibros/this.perPage)
 
   constructor(
     private router: Router,
@@ -20,13 +24,14 @@ export class VerUsersComponent {
   } 
 
   ngOnInit() {
-    this.usuariosService.getUsers().subscribe((rta:any) => {
-      console.log('usuarios api: ',rta);
-      this.arrayUsuarios = rta.usuarios || [];
-    })
-    this.usuariosService.terminoBusquedaObservable.subscribe((nuevaBusqueda: string) => {
-      this.getUsuarios();  // Llamar a getLibros cuando cambia la búsqueda
-  })
+   this.getUsers()
+  }
+  getUsers(): void {
+    this.usuariosService.getUsers(this.page, this.perPage).subscribe((res: any) => {
+      this.arrayUsuarios = res.usuarios;
+      this.totalLibros = res.total;
+      this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);
+    });
   }
 
   goToUserDetalles(userId: number) {
@@ -47,12 +52,28 @@ export class VerUsersComponent {
       });
     }
   }
-  getUsuarios(): void {
-    this.usuariosService.getUsers(this.usuariosService.getBusqueda()).subscribe((res: any) => {
-      this.arrayUsuarios = res.usuarios;
-    })
+  nextPage(): void {
+    if (this.page * this.perPage < this.totalLibros) {
+      this.page++;
+    }
+    this.getUsers()
   }
 
+  getPagesArray(): number[] {
+  return Array.from({ length: this.cantidadDePaginas }, (_, i) => i + 1);
+}
+
+  prevPage(): void {
+    if (this.page > 1) {
+      this.page--;
+    }
+    this.getUsers()
+  }
+  goToPage(page: number): void {
+    this.page = page;
+    this.getUsers()
+    
+  }
 
 
 

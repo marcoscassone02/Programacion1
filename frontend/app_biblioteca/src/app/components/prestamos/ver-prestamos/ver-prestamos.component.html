@@ -1,17 +1,4 @@
-<div class="container d-flex flex-column align-items-center mt-3">
-<<<<<<< HEAD
-  <div *ngFor="let prestamo of arrayPrestamos; let i = index" class="row" [hidden]="i % 2 !== 0">
-    <div class="col-md-6">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-sm-4">
-            <img src="assets/pila.jpg" class="imagen-personalizada" alt="Imagen del préstamo">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Prestamo {{ prestamo.id }}</h5>
-              <p *ngFor="let libro of prestamo.libros" class="card-text texto-libro">Libro: {{ libro.nombre }}</p>
-=======
+<div class="container  mt-3">
     <p>Página: {{page}} de {{cantidadDePaginas}}</p>
     <p>Cantidad de prestamos: {{totalPrestamos}}</p>
     <div *ngFor="let prestamo of arrayPrestamos; let i = index" class="row" [hidden]="i % 2 !== 0">
@@ -72,11 +59,6 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-  </div>
-</div>
-
-=======
     <div class=".footer mt-3">
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
@@ -97,4 +79,3 @@
       </nav>
     </div>    
 </div>  
->>>>>>> EmilianoMassolin

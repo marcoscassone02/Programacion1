@@ -31,8 +31,7 @@ export class UsuariosService {
   }
 
 
-
-  getUsers(busqueda: string = this.getBusqueda()) {
+  getUsers(page: number = 1, perPage: number = 2) {
     let auth_token = localStorage.getItem('token');
 
     let headers = new HttpHeaders({
@@ -43,7 +42,7 @@ export class UsuariosService {
     
     const requestOptions = {headers: headers, params: params}
 
-    return this.httpClient.get(this.url + '/usuarios', requestOptions);
+    return this.httpClient.get(`${this.url}/usuarios?page=${page}&per_page=${perPage}`, requestOptions);
   }
 
 

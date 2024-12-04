@@ -37,16 +37,9 @@ def create_app():
     #usuarios
     api.add_resource(resources.UsuariosResource, '/usuarios')
     api.add_resource(resources.UsuarioResource, '/usuario/<id>')
-    #autores
-    api.add_resource(resources.AutoresResources, '/autores')
-    api.add_resource(resources.AutorResources, '/autor/<id>')
-    #notificacion
-    api.add_resource(resources.NotificacionResources, '/notificacion')
     #valoracion y comentario
     api.add_resource(resources.ValoracionesResources, '/valoraciones')
     api.add_resource(resources.ValoracionResources, '/valoracion/<id>')
-    #configuracion
-    api.add_resource(resources.ConfiguracionResources, '/configuracion/<id>')
     #añadir recursos a la app
     api.init_app(app)
     #Cargar clave secreta
