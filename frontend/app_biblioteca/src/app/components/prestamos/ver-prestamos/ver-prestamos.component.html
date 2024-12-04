@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column align-items-center mt-3">
+<div class="container  mt-3">
     <p>Página: {{page}} de {{cantidadDePaginas}}</p>
     <p>Cantidad de prestamos: {{totalPrestamos}}</p>
     <div *ngFor="let prestamo of arrayPrestamos; let i = index" class="row" [hidden]="i % 2 !== 0">
