@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LibrosadminService } from '../../../services/librosadmin.service'
+import { LibrosService } from '../../../services/libros.service';
 
 @Component({
   selector: 'app-ver-librosadmin',
@@ -24,11 +25,15 @@ export class VerLibrosadminComponent {
 
   } 
 
+   
   ngOnInit() {
-    this.getLibros()
+    this.getLibros();
+    this.librosService.terminoBusquedaObservable.subscribe((nuevaBusqueda: string) => {
+      this.getLibros();
+    });
   }
   getLibros(): void {
-    this.librosService.getLibrosadmin(this.page, this.perPage).subscribe((res: any) => {
+    this.librosService.getLibrosadmin(this.page, this.perPage, this.librosService.getBusqueda()).subscribe((res: any) => {
       this.arrayLibrosAdmin = res.libros;
       this.totalLibros = res.total;
       this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);

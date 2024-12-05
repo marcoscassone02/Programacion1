@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsuariosService } from '../../services/usuarios.service';
+import { LibrosadminService } from '../../services/librosadmin.service';
 
 @Component({
   selector: 'app-nav-volver',
@@ -13,33 +14,41 @@ export class NavVolverComponent implements OnInit {
 
     headerTitle: string = 'Login'; // Valor por defecto
     terminoBusqueda: string = '';
+    
   
     constructor(
       private router: Router, 
       private location: Location,
       private UsuariosService: UsuariosService,
+      private LibrosService: LibrosadminService,
     ) {}
+    
   
     ngOnInit(): void {
     this.setHeaderTitle();
   }
+  
 
-  hasSearchBar(){
-    return this.headerTitle === 'usuarios'
-  }
+
 
   goBack() {
     this.location.back(); 
   }
 
   enviarBusqueda() {
-    this.UsuariosService.setBusqueda(this.terminoBusqueda);
-  }
+    if (this.headerTitle === 'usuarios') {
+        this.UsuariosService.setBusqueda(this.terminoBusqueda);
+    }
+    if (this.headerTitle === 'Libros') {
+        this.LibrosService.setBusqueda(this.terminoBusqueda);
+    }
+}
   
   setHeaderTitle() {
     const currentRoute = this.router.url; // Obtiene la ruta actual
-      const segments = currentRoute.split('/'); // Divide la ruta en segmentos
-      this.headerTitle = segments[segments.length - 1]; // Toma el último segmento
+    const segments = currentRoute.split('/'); // Divide la ruta en segmentos
+    this.headerTitle = segments[segments.length - 1]; // Toma el último segmento
+
       if (this.headerTitle === 'sign-up') {
         this.headerTitle = 'Register'
       };
@@ -83,6 +92,11 @@ export class NavVolverComponent implements OnInit {
       const prestamoDetallesEditRegex = /prestamo-detalles\?id=\d/;
       if (prestamoDetallesEditRegex.test(currentRoute)) {
         this.headerTitle = 'Editar prestamo';
-      }
+      }   
+  }
+
+
+  hasSearchBar(){
+    return (this.headerTitle === 'usuarios' || this.headerTitle === 'Libros')
   }
 }
