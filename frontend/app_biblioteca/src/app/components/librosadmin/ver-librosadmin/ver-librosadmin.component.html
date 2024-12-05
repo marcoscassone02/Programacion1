@@ -1,10 +1,12 @@
 <div class="container-fluid"> 
+  <p>Página: {{page}} de {{cantidadDePaginas}}</p>
+  <p>Cantidad de Libros: {{totalLibros}}</p>
   <div class="col-4 mt-1 mb-3 d-flex justify-content-center mt-3" > 
       <a routerLink="/libro-detalles">
         <button type="button" class="btn btn-success">Add book</button>
       </a>
     </div>
-  <div class="container d-flex flex-column align-items-center">
+  <div class="container mt-3">
       <div class="row">
       <div *ngFor="let libro of arrayLibrosAdmin" class="col-md-6">
         <div class="card mb-3" style="max-width: 540px;">
@@ -15,9 +17,13 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{libro.nombre}}</h5>
-                  <p class="card-text mb-1">ID: {{libro.id}}</p>
-                  <p class="card-text mb-1">descripcion: {{libro.descripcion}}</p>
-                  <p class="card-text mb-1">genero: {{libro.genero}}</p>
+                  <p class="card-text mb-1">Libro ID: {{libro.id}}</p>
+                  <p class="card-text mb-1">Genero: {{libro.genero}}</p>
+                  <p class="card-text mb-1">Descripcion: {{libro.descripcion}}</p>
+                  <p class="card-text mb-1">Autor: {{libro.autor}}</p>
+                  <p class="card-text mb-1">Publicación: {{libro.publicacion}}</p>
+                  <p class="card-text mb-1">Editorial: {{libro.editorial}}</p>
+                  <p class="card-text mb-1">Idioma: {{libro.idioma}}</p>
                   <app-edit-button (click)="goToLibroDetalles(libro.id)"></app-edit-button>                 
                   <app-delete-button (click)="accionDeleteBook(libro.id)"></app-delete-button>
                 </div>
@@ -27,3 +33,22 @@
       </div>
   </div>
 </div>
+<div class=".footer mt-3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link boton-secundario prev-btn me-2" aria-label="Previous" (click)="prevPage()">
+          <img src="assets/green-arrow-left.png" alt="Previous">
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPagesArray(); let i = index;">
+        <a class="page-link boton-primario" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item">
+        <a  class="page-link boton-secundario prev-btn ms-2" aria-label="Next" (click)="nextPage()" >
+          <img src="assets/green-arrow-right.png" alt="Next">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>  

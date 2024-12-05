@@ -20,6 +20,7 @@ export class AuthService {
   }
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('usuario_id');
   }
   // Decodificar el token manualmente sin librerías adicionales
   decodeToken(token: string) {

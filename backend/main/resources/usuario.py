@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import UsuarioModel, NotificacionModel
+from main.models import UsuarioModel
 from sqlalchemy import func, desc , asc
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from main.auth.decorators import role_required
@@ -12,7 +12,7 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
     def get(self):
         page = 1        
         
-        per_page = 5
+        per_page = 1000
         
         usuarios = db.session.query(UsuarioModel)
 
@@ -37,6 +37,14 @@ class Usuarios(Resource): #A la clase usuario le indico que va a ser del tipo re
             usuarios = usuarios.order_by(UsuarioModel.apellido.asc())
         if request.args.get('apellido_orderby') == 'desc':
             usuarios = usuarios.order_by(UsuarioModel.apellido.desc())
+
+        if request.args.get("busqueda"):
+            busqueda = request.args.get("busqueda")
+            usuarios = usuarios.filter(
+                (UsuarioModel.nombre.like(f"%{busqueda}%")) |
+                (UsuarioModel.apellido.like(f"%{busqueda}%"))
+            )
+
 
         usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
         

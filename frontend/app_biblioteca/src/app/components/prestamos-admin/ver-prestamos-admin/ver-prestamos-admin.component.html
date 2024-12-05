@@ -1,4 +1,6 @@
-<div class="container d-flex flex-column align-items-center mt-3">
+<div class="container  mt-3">
+  <p>Página: {{page}} de {{cantidadDePaginas}}</p>
+  <p>Cantidad de prestamos: {{totalLibros}}</p>
     <div class="row">
     <div *ngFor="let prestamo of arrayPrestamosAdmin" class="col-md-6">
       <div class="card mb-3" style="max-width: 540px;">
@@ -9,10 +11,11 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Prestamo {{prestamo.id}}</h5>
-                <p class="card-text mb-1">estado: {{prestamo.estado}}</p>
-                <p class="card-text mb-1">prestamo: {{prestamo.fecha_prestamo}}</p>
-                <p class="card-text mb-1">devolucion: {{prestamo.fecha_devolucion}}</p>
-                <p class="card-text mb-1">usuario_id: {{prestamo.usuario_id}}</p>
+                <p class="card-text mb-1">Estado: {{prestamo.estado}}</p>
+                <p class="card-text mb-1">Prestamo: {{prestamo.fecha_prestamo}}</p>
+                <p class="card-text mb-1">Devolución: {{prestamo.fecha_devolucion}}</p>
+                <p class="card-text mb-1">Libro Id: {{prestamo.libro_id}}</p>
+                <p class="card-text mb-1">Usuario Id: {{prestamo.usuario_id}}</p>
                   <app-edit-button (click)="goToUserDetalles(prestamo.id)"></app-edit-button>             
                   <app-delete-button (click)="accionDeleteBook(prestamo.id)"></app-delete-button>
                
@@ -22,3 +25,22 @@
       </div>
     </div>
 </div> 
+<div class=".footer mt-3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link boton-secundario prev-btn me-2" aria-label="Previous" (click)="prevPage()">
+          <img src="assets/green-arrow-left.png" alt="Previous">
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPagesArray(); let i = index;">
+        <a class="page-link boton-primario" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item">
+        <a  class="page-link boton-secundario prev-btn ms-2" aria-label="Next" (click)="nextPage()" >
+          <img src="assets/green-arrow-right.png" alt="Next">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>    

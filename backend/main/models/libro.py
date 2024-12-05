@@ -11,12 +11,13 @@ class Libro(db.Model):
     idioma = db.Column(db.String(100),nullable=False)
     descripcion = db.Column(db.String(100), nullable=False)
     portada = db.Column(db.String(255), nullable=True) 
+    autor=db.Column(db.String(100),nullable=False)
 
     #relacion 
     valoraciones=db.relationship('Valoracion', back_populates='libro',cascade="all, delete-orphan")
     #prestamo_id = db.Column(db.Integer, db.ForeignKey('Prestamos.id'),nullable=True)
     #prestamo= db.relationship('Prestamo',uselist=False, back_populates='libros',single_parent=True)
-    # ver q onda
+   
     prestamos=db.relationship('Prestamo', back_populates='libro',cascade="all, delete-orphan")
 
     #Convertir objeto en JSON
@@ -31,7 +32,9 @@ class Libro(db.Model):
             'idioma' : str(self.idioma),
             'valoraciones':valoraciones,
             'descripcion': self.descripcion,
-            'portada' : self.portada
+            'portada' : self.portada,
+            "autor":self.autor
+
             }
         return libro_json
     
@@ -45,6 +48,7 @@ class Libro(db.Model):
         idioma = libro_json.get('idioma')
         descripcion = libro_json.get('descripcion')
         portada = libro_json.get('portada')
+        autor = libro_json.get("autor")
         return Libro(id=id,
                     nombre=nombre,
                     publicacion=publicacion,
@@ -52,5 +56,6 @@ class Libro(db.Model):
                     editorial=editorial,
                     idioma=idioma,
                     descripcion=descripcion,
-                    portada=portada)
+                    portada=portada,
+                    autor=autor)
     

@@ -48,11 +48,13 @@ accionLogin(dataLogin:any){
     next: (rta:any) => {
       console.log('Exito: ', rta);
       localStorage.setItem('token', rta.access_token);
+      localStorage.setItem('usuario_id', rta.id);
       this.router.navigateByUrl('catalogo');
     }, error: (err:any)=>{
       alert('Credenciales incorrectas, Porfavor intente nuevamente.'),
       console.log('Error: ', err);
       localStorage.removeItem('token');
+      localStorage.removeItem('usuario_id');
     }, complete: ()=>{
       console.log('Completado');
     }

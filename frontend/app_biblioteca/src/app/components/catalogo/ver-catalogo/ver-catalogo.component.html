@@ -8,8 +8,12 @@
               <img src="{{arrayLibros[i].portada}}" class="imagen-personalizada" alt="..."  >
               <div  class="card-body">
                 <h5 class="card-title">{{arrayLibros[i].nombre}}</h5>
-                <p class="card-text">{{arrayLibros[i].descripcion}}</p>
                 <h6>Genero:{{arrayLibros[i].genero}}</h6>
+                <p class="card-text">{{arrayLibros[i].descripcion}}</p>
+                <p class="card-text">Autor:{{arrayLibros[i].autor}}</p>
+                <p class="card-text">Publicacion:{{arrayLibros[i].publicacion}}</p>
+                <p class="card-text">Editorial:{{arrayLibros[i].editorial}}</p>
+                <p class="card-text">Idioma:{{arrayLibros[i].idioma}}</p>
                 <p class="card-text">Valoracion: 
                   <span *ngIf="arrayLibros[i].promedioValoracion !== 'Sin valoraciones'">
                     {{arrayLibros[i].promedioValoracion}} / 5
@@ -38,8 +42,12 @@
               <img src="{{arrayLibros[i+1].portada}}" class="imagen-personalizada " alt="..." >
               <div class="card-body">
                 <h5 class="card-title">{{arrayLibros[i+1].nombre}}</h5>
-                <p class="card-text">{{arrayLibros[i+1].descripcion}}</p>
                 <h6>Genero:{{arrayLibros[i+1].genero}}</h6>
+                <p class="card-text">{{arrayLibros[i+1].descripcion}}</p>
+                <p class="card-text">Autor:{{arrayLibros[i+1].autor}}</p>
+                <p class="card-text">Publicación:{{arrayLibros[i+1].publicacion}}</p>
+                <p class="card-text">Editorial:{{arrayLibros[i+1].editorial}}</p>
+                <p class="card-text">Idioma:{{arrayLibros[i+1].idioma}}</p>
                 <p class="card-text">Valoracion: 
                   <span *ngIf="arrayLibros[i].promedioValoracion != 'Sin valoraciones'">
                     {{arrayLibros[i+1].promedioValoracion}} / 5

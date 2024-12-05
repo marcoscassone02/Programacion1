@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { UsuariosService } from '../../services/usuarios.service';
+
 @Component({
   selector: 'app-nav-volver',
   templateUrl: './nav-volver.component.html',
@@ -9,10 +12,28 @@ export class NavVolverComponent implements OnInit {
   
 
     headerTitle: string = 'Login'; // Valor por defecto
+    terminoBusqueda: string = '';
   
-    constructor(private router: Router) {}
-  ngOnInit(): void {
+    constructor(
+      private router: Router, 
+      private location: Location,
+      private UsuariosService: UsuariosService,
+    ) {}
+  
+    ngOnInit(): void {
     this.setHeaderTitle();
+  }
+
+  hasSearchBar(){
+    return this.headerTitle === 'usuarios'
+  }
+
+  goBack() {
+    this.location.back(); 
+  }
+
+  enviarBusqueda() {
+    this.UsuariosService.setBusqueda(this.terminoBusqueda);
   }
   
   setHeaderTitle() {

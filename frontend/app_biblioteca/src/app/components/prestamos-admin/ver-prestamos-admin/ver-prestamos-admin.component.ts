@@ -11,6 +11,11 @@ export class VerPrestamosAdminComponent {
   
 
   arrayPrestamosAdmin:any[] = []
+  page: number = 1;
+  perPage: number = 2;
+  totalLibros: number = 0;
+  cantidadDePaginas: number = Math.ceil(this.totalLibros/this.perPage)
+
 
   constructor(
     private router: Router,
@@ -20,10 +25,14 @@ export class VerPrestamosAdminComponent {
   } 
 
   ngOnInit() {
-    this.prestamosService.getPrestamos().subscribe((rta:any) => {
-      console.log('prestamos api: ',rta);
-      this.arrayPrestamosAdmin = rta.prestamos || [];
-    })
+    this.getprestamos()
+  }
+  getprestamos(): void {
+    this.prestamosService.getPrestamos(this.page, this.perPage).subscribe((res: any) => {
+      this.arrayPrestamosAdmin = res.prestamos;
+      this.totalLibros = res.total;
+      this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);
+    });
   }
   accionDeleteBook(prestamoId: number) {
     if (confirm("¿Estás seguro de que deseas eliminar este prestamo?")) {
@@ -41,5 +50,27 @@ export class VerPrestamosAdminComponent {
   }
   goToUserDetalles(prestamoId: number) {
     this.router.navigate(['/prestamo-detalles'], { queryParams: { id: prestamoId} });
+  }
+  nextPage(): void {
+    if (this.page * this.perPage < this.totalLibros) {
+      this.page++;
+    }
+    this.getprestamos()
+  }
+
+  getPagesArray(): number[] {
+  return Array.from({ length: this.cantidadDePaginas }, (_, i) => i + 1);
+}
+
+  prevPage(): void {
+    if (this.page > 1) {
+      this.page--;
+    }
+    this.getprestamos()
+  }
+  goToPage(page: number): void {
+    this.page = page;
+    this.getprestamos()
+    
   }
 }

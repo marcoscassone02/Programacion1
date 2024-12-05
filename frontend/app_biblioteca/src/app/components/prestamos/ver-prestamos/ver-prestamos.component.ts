@@ -67,3 +67,5 @@ export class VerPrestamosComponent implements OnInit {
     return Array.from({ length: this.cantidadDePaginas }, (_, i) => i + 1);
   }
 }
+
+
