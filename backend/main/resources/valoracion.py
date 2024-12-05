@@ -17,7 +17,7 @@ class Valoraciones(Resource):
         listado_valoraciones = listado_valoraciones.paginate(page=page, per_page=per_page, error_out=True)
         return jsonify({'listado_valoraciones':[valoracion.to_json() for valoracion in listado_valoraciones],'total':listado_valoraciones.total, 'page': page, 'per_page': per_page})
 
-    @role_required(roles=['user'])
+    @role_required(roles=['user','admin'])
     def post(self):
         valoracion = request.get_json()
         nuevo_valoracion = ValoracionModel.from_json(valoracion)
