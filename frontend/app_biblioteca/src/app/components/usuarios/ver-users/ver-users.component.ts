@@ -25,9 +25,12 @@ export class VerUsersComponent {
 
   ngOnInit() {
    this.getUsers()
+   this.usuariosService.terminoBusquedaObservable.subscribe((nuevaBusqueda: string) => {
+    this.getUsers();  // Llamar a getLibros cuando cambia la búsqueda
+})
   }
   getUsers(): void {
-    this.usuariosService.getUsers(this.page, this.perPage).subscribe((res: any) => {
+    this.usuariosService.getUsers(this.page, this.perPage,this.usuariosService.getBusqueda()).subscribe((res: any) => {
       this.arrayUsuarios = res.usuarios;
       this.totalLibros = res.total;
       this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);

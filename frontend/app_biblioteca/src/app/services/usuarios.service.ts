@@ -31,14 +31,14 @@ export class UsuariosService {
   }
 
 
-  getUsers(page: number = 1, perPage: number = 2) {
+  getUsers(page: number = 1, perPage: number = 2, busqueda: string = this.getBusqueda()){
     let auth_token = localStorage.getItem('token');
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}` 
     })
-    let params = new HttpParams().set('busqueda', this.filtro_busqueda);
+    let params = new HttpParams().set('busqueda', busqueda);
     
     const requestOptions = {headers: headers, params: params}
 

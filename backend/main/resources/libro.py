@@ -57,6 +57,11 @@ class Libros(Resource):
             listado_libros =listado_libros.order_by(LibroModel.nombre.asc())
         if request.args.get('nombre_orderby') == 'desc':
             listado_libros=listado_libros.order_by(LibroModel.nombre.desc())
+        if request.args.get("busqueda"):
+            busqueda = request.args.get("busqueda")
+            listado_libros = listado_libros.filter(
+                (LibroModel.nombre.like(f"%{busqueda}%"))
+            )
             
 
             
