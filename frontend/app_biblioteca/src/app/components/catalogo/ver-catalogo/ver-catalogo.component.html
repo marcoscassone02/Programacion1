@@ -10,6 +10,21 @@
                 <h5 class="card-title">{{arrayLibros[i].nombre}}</h5>
                 <p class="card-text">{{arrayLibros[i].descripcion}}</p>
                 <h6>Genero:{{arrayLibros[i].genero}}</h6>
+                <p class="card-text">Valoracion: 
+                  <span *ngIf="arrayLibros[i].promedioValoracion !== 'Sin valoraciones'">
+                    {{arrayLibros[i].promedioValoracion}} / 5
+                  </span>
+                  <span *ngIf="arrayLibros[i].promedioValoracion === 'Sin valoraciones'">
+                    {{arrayLibros[i].promedioValoracion}}
+                  </span>
+                </p>
+                <div>
+                  <label for="valoracionInput{{i}}">Valorar (1-5):</label>
+                  <input type="number" id="valoracionInput{{i}}" [(ngModel)]="arrayLibros[i].valoracionUsuario" min="1" max="5" placeholder="Escribe un número entre 1 y 5">
+                </div>
+                <div class="d-flex mb-3 mt-3">
+                  <button class="btn btn-primary" (click)="submitValoracion(arrayLibros[i], i)">Valorar</button>
+                </div>
               </div>
           </div>
           <div class="d-flex justify-content-center mb-3 mt-auto">
@@ -25,6 +40,21 @@
                 <h5 class="card-title">{{arrayLibros[i+1].nombre}}</h5>
                 <p class="card-text">{{arrayLibros[i+1].descripcion}}</p>
                 <h6>Genero:{{arrayLibros[i+1].genero}}</h6>
+                <p class="card-text">Valoracion: 
+                  <span *ngIf="arrayLibros[i].promedioValoracion != 'Sin valoraciones'">
+                    {{arrayLibros[i+1].promedioValoracion}} / 5
+                  </span>
+                  <span *ngIf="arrayLibros[i].promedioValoracion == 'Sin valoraciones'">
+                    {{arrayLibros[i+1].promedioValoracion}}
+                  </span>
+                </p>
+                <div>
+                  <label for="valoracionInput{{i}}">Valorar (1-5):</label>
+                  <input type="number" id="valoracionInput{{i}}" [(ngModel)]="arrayLibros[i+1].valoracionUsuario" min="1" max="5" placeholder="Escribe un número entre 1 y 5">
+                </div>
+                <div class="d-flex  mb-3 mt-3">
+                  <button class="btn btn-primary" (click)="submitValoracion(arrayLibros[i+1], i+1)">Valorar</button>
+                </div>
               </div>
           </div>
           <div class="d-flex justify-content-center mb-3 mt-auto">

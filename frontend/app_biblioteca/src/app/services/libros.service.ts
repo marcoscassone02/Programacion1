@@ -76,7 +76,20 @@ export class LibrosService {
     return this.http.post(this.url + '/libros', dataRegister, requestOptions).pipe(take(1));
     }
 
+  registervaloracion(dataRegister:any): Observable<any> {
+    let auth_token = localStorage.getItem('token');
 
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}` 
+    })
+
+    const requestOptions = {headers: headers}
+
+    return this.http.post(this.url + '/valoraciones', dataRegister, requestOptions).pipe(take(1));
+    }
+
+  
   
 
     
