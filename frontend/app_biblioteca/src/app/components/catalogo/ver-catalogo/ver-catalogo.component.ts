@@ -21,7 +21,7 @@ export class VerCatalogoComponent {
 
   arrayLibros:any[] = [];
   page: number = 1;
-  perPage: number = 2;
+  perPage: number = 4;
   // genero: string = ''
   totalLibros: number = 0;
   cantidadDePaginas: number = Math.ceil(this.totalLibros/this.perPage)

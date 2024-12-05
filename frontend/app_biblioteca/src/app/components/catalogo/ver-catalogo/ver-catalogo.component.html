@@ -1,7 +1,7 @@
 <div class="container   mt-3">
   <p>Página: {{page}} de {{cantidadDePaginas}}</p>
   <p>Cantidad de libros: {{totalLibros}}</p>
-    <div *ngFor="let libro of arrayLibros; let i = index" class="row" [hidden]="i % 2 !== 0">
+    <div *ngFor="let libro of arrayLibros; let i = index" class="row libro2" [hidden]="i % 2 !== 0" >
     <div class="col-md-6 ">
       <div class="card mb-3 h-100">
           <div class="row g-0">
@@ -41,9 +41,9 @@
           </div> 
       </div>
     </div>
-    <div class="col-md-6"*ngIf="arrayLibros[i+1]">
-      <div class="card mb-3 h-100">
-          <div class="row g-0">
+    <div class="col-md-6 "*ngIf="arrayLibros[i+1]">
+      <div class="card mb-3 h-100" >
+          <div class="row g-0 libro2">
               <img src="{{arrayLibros[i+1].portada}}" class="imagen-personalizada " alt="..." >
               <div class="card-body">
                 <h5 class="card-title">{{arrayLibros[i+1].nombre}}</h5>
