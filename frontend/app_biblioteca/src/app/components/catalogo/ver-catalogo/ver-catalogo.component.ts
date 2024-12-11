@@ -58,16 +58,32 @@ export class VerCatalogoComponent {
       this.totalLibros = res.total;
       this.cantidadDePaginas = Math.ceil(this.totalLibros / this.perPage);
   
+      const userId = this.authservice.getUserId();
+      
       this.arrayLibros.forEach(libro => {
         if (libro.valoraciones && libro.valoraciones.length > 0) {
           const totalValoraciones = libro.valoraciones.reduce((sum: number, valoracion: any) => sum + valoracion.valoracion, 0);
           libro.promedioValoracion = (totalValoraciones / libro.valoraciones.length).toFixed(2); // Redondear a 2 decimales
+          
+          // Buscar si el usuario ya valoró este libro
+          const valoracionUsuario = libro.valoraciones.find((v: any) => v.usuario_id === userId);
+          if (valoracionUsuario) {
+            libro.usuarioValorado = true;
+            libro.valoracionId = valoracionUsuario.id; // Guardar el ID de la valoración
+          } else {
+            libro.usuarioValorado = false;
+            libro.valoracionId = null; // No hay valoración para este usuario
+          }
         } else {
-          libro.promedioValoracion = 'Sin valoraciones'; // Si no hay valoraciones
+          libro.promedioValoracion = 'Sin valoraciones';
+          libro.usuarioValorado = false; // Sin valoraciones previas
+          libro.valoracionId = null; // No hay valoración para este usuario
         }
       });
     });
   }
+  
+  
   
 
   nextPage(): void {
@@ -122,6 +138,7 @@ export class VerCatalogoComponent {
         },
         (error) => {
           console.error('Error al enviar la valoración:', error);
+          alert(`Error al enviar la valoración: Ya has valorado este libro`);
         }
       );
     } else {
@@ -138,6 +155,8 @@ export class VerCatalogoComponent {
       libro.promedioValoracion = 'Sin valoraciones';
     }
   }
+
+  
   
 
 }

@@ -1,5 +1,6 @@
 from .. import db
 from datetime import datetime
+from sqlalchemy.schema import UniqueConstraint
 
 class Valoracion(db.Model):
     __tablename__ = "Valoraciones"
@@ -9,6 +10,7 @@ class Valoracion(db.Model):
     usuario = db.relationship('Usuario', uselist=False, back_populates='valoracion', cascade="all, delete-orphan", single_parent=True)
     libro_id = db.Column(db.Integer, db.ForeignKey('Libros.id'), nullable=False)
     libro = db.relationship('Libro', uselist=False, back_populates='valoraciones', single_parent=True)
+    __table_args__ = (UniqueConstraint('usuario_id', 'libro_id', name='_usuario_libro_uc'),)
 
     # Convertir objeto en JSON
     def to_json(self):
