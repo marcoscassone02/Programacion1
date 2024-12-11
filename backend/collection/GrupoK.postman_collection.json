@@ -305,7 +305,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzMxOTgxNiwianRpIjoiOGYxNTBjMmEtOTVhOS00ZTYxLTkzMzYtNThjOTIzZTBkMTM0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzMzE5ODE2LCJjc3JmIjoiODZlZTk5YzctZDIwOC00MDg3LWI2NmUtNmYwMDExMjExZjk0IiwiZXhwIjoxNzMzMzIzNDE2LCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.XACMEuTjr3ui93r2gL7wcyLpKhhnr7wdSFYNAhRDDzU",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczMzg3MTU5MiwianRpIjoiZjI1OGY4MTktNmMxZi00YmYwLTgyNjMtMjk1MjQ5M2I2M2MyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzMzODcxNTkyLCJjc3JmIjoiODQ2MGJkMzItYzc5Yy00ZGFjLWI1YWItOTA0YWI0NWRhOTg5IiwiZXhwIjoxNzMzODc1MTkyLCJyb2wiOiJhZG1pbiIsImlkIjoxLCJjb3JyZW8iOiJlbWlsaWFub21hc3NvbGluQGdtYWlsLmNvbSJ9.lYO04TP-wSSmW6-QLTulyo5ftXf_3p32YoWPOoFaOz4",
 											"type": "string"
 										}
 									]
@@ -314,7 +314,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"Principito\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Literatura\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autor\":\"Emiliano wals\",\n    \"descripcion\": \"Descripcion de libro\",\n    \"portada\": \"https://www.editorialguadal.com.ar/wp-content/uploads/2023/01/9789877979015.png\"\n}",
+									"raw": "{\n    \"nombre\":\"Principito\",\n    \"publicacion\":\"1977\",\n    \"genero\": \"Terror\",\n    \"editorial\":\"Debolsillo\",\n    \"idioma\":\"Español\",\n    \"autor\":\"Emiliano wals\",\n    \"descripcion\": \"Descripcion de libro\",\n    \"portada\": \"https://www.editorialguadal.com.ar/wp-content/uploads/2023/01/9789877979015.png\",\n    \"stock\":2\n}",
 									"options": {
 										"raw": {
 											"language": "json"
