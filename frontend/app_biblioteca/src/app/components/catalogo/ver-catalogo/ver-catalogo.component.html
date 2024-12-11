@@ -83,7 +83,7 @@
               </div>
           </div>
           <div class="d-flex justify-content-center mb-3 mt-auto">
-            <a *ngIf="arrayLibros[i+1].stock > 0 && !isInCart(arrayLibros[i+1])" class="btn btn-primary" (click)="addToCart(arrayLibros[i])">Agregar al carrito </a>
+            <a *ngIf="arrayLibros[i+1].stock > 0 && !isInCart(arrayLibros[i+1])" class="btn btn-primary" (click)="addToCart(arrayLibros[i+1])">Agregar al carrito </a>
             <a *ngIf="arrayLibros[i+1].stock === 0" class="btn btn-primary">Sin Stock </a>
             <a *ngIf="isInCart(arrayLibros[i+1])" class="btn btn-primary">Agregado al carrito </a>
 
