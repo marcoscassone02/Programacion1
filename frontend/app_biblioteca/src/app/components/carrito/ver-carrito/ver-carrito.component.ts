@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CarritoService } from '../../../services/carrito.service'; 
 import { AuthService } from '../../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-ver-carrito',
   templateUrl: './ver-carrito.component.html',
@@ -41,40 +42,57 @@ agregarPrestamo() {
   const librosIds = this.arrayLibros.map(libro => libro.id); // Obtén los IDs de los libros seleccionados
 
   librosIds.forEach(id => {
-    // Obtén la fecha actual para el préstamo
-    const fechaPrestamo = this.formatoFecha(new Date());
+    const libro = this.arrayLibros.find(libro => libro.id === id); // Encuentra el libro correspondiente
 
-    // Calcula la fecha de devolución (por ejemplo, 7 días después del préstamo)
-    const fechaDevolucion = new Date();
-    fechaDevolucion.setDate(fechaDevolucion.getDate() + 7); // Ejemplo: devolución en 7 días
-    const fechaDevolucionFormateada = this.formatoFecha(fechaDevolucion);
+    if (libro && libro.stock > 0) {
+      // Actualiza el stock localmente
+      const nuevoStock = libro.stock - 1;
 
-    // Prepara los datos para crear el préstamo
-    const dataPrestamo = {
-      fecha_prestamo: fechaPrestamo,
-      fecha_devolucion: fechaDevolucionFormateada,
-      estado: 'Pendiente', // Estado inicial del préstamo
-      usuario_id: this.userid, // Sustituye con el ID del usuario real
-      libro_id: id 
-    };
+      // Llama al servicio para actualizar el stock
+      this.cartService.updateStock(libro.id, nuevoStock).pipe(
+        // Encadena la actualización de stock con la creación del préstamo
+        switchMap(() => {
+          // Actualiza el stock local si el backend responde exitosamente
+          libro.stock = nuevoStock;
 
-    // Llama al servicio para crear el préstamo usando createPrestamo
-    this.cartService.createPrestamo(dataPrestamo).subscribe({
-      next: response => {
-        console.log('Préstamo agregado correctamente', response);
-        // Lógica adicional después de agregar el préstamo, si es necesario
-        this.arrayLibros = []; 
-        this.cartService.cleanCart();
-      // Limpiar el carrito después de agregar el préstamo
-      console.log('Carrito limpiado:', this.arrayLibros);
-      },
-      error: error => {
-        console.error('Error al agregar préstamo', error);
-        // Manejo de errores
-      }
-    });
+          // Calcula las fechas de préstamo y devolución
+          const fechaPrestamo = this.formatoFecha(new Date());
+          const fechaDevolucion = new Date();
+          fechaDevolucion.setDate(fechaDevolucion.getDate() + 7); // Ejemplo: devolución en 7 días
+          const fechaDevolucionFormateada = this.formatoFecha(fechaDevolucion);
+
+          // Prepara los datos para crear el préstamo
+          const dataPrestamo = {
+            fecha_prestamo: fechaPrestamo,
+            fecha_devolucion: fechaDevolucionFormateada,
+            estado: 'Pendiente', // Estado inicial del préstamo
+            usuario_id: this.userid, // Sustituye con el ID del usuario real
+            libro_id: id,
+          };
+
+          // Llama al servicio para crear el préstamo
+          return this.cartService.createPrestamo(dataPrestamo);
+        })
+      ).subscribe({
+        next: response => {
+          console.log('Préstamo agregado correctamente', response);
+        },
+        error: error => {
+          console.error('Error durante el proceso de préstamo:', error);
+        },
+        complete: () => {
+          // Limpia el carrito después de procesar todos los préstamos
+          this.cartService.cleanCart();
+          this.arrayLibros = [];
+          console.log('Carrito limpiado:', this.arrayLibros);
+        },
+      });
+    } else {
+      console.warn(`El libro con ID ${id} no tiene stock disponible.`);
+    }
   });
 }
+
 
 // Función para formatear la fecha a YYYY-MM-DD
 formatoFecha(fecha: Date): string {

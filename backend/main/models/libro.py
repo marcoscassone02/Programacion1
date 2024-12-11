@@ -12,6 +12,7 @@ class Libro(db.Model):
     descripcion = db.Column(db.String(100), nullable=False)
     portada = db.Column(db.String(255), nullable=True) 
     autor=db.Column(db.String(100),nullable=False)
+    stock = db.Column(db.Integer,nullable=False)
 
     #relacion 
     valoraciones=db.relationship('Valoracion', back_populates='libro',cascade="all, delete-orphan")
@@ -33,7 +34,9 @@ class Libro(db.Model):
             'valoraciones':valoraciones,
             'descripcion': self.descripcion,
             'portada' : self.portada,
-            "autor":self.autor
+            "autor":self.autor,
+            "stock":self.stock
+
 
             }
         return libro_json
@@ -49,6 +52,7 @@ class Libro(db.Model):
         descripcion = libro_json.get('descripcion')
         portada = libro_json.get('portada')
         autor = libro_json.get("autor")
+        stock = libro_json.get("stock")
         return Libro(id=id,
                     nombre=nombre,
                     publicacion=publicacion,
@@ -57,5 +61,6 @@ class Libro(db.Model):
                     idioma=idioma,
                     descripcion=descripcion,
                     portada=portada,
-                    autor=autor)
+                    autor=autor,
+                    stock=stock)
     
