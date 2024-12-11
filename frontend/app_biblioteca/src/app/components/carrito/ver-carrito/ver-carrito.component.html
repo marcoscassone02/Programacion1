@@ -16,6 +16,8 @@
                 <p class="card-text">Publicacion:{{arrayLibros[i].publicacion}}</p>
                 <p class="card-text">Editorial:{{arrayLibros[i].editorial}}</p>
                 <p class="card-text">Idioma:{{arrayLibros[i].idioma}}</p>
+                <p class="card-text">Stock:{{arrayLibros[i].stock}}</p>
+
                 <button type="button" class="boton-basura"(click)="DelCart(arrayLibros[i])"> 
                   <i class="bi bi-trash"></i>
                 </button>
@@ -39,6 +41,8 @@
                 <p class="card-text">Publicacion:{{arrayLibros[i+1].publicacion}}</p>
                 <p class="card-text">Editorial:{{arrayLibros[i+1].editorial}}</p>
                 <p class="card-text">Idioma:{{arrayLibros[i+1].idioma}}</p>
+                <p class="card-text">Stock:{{arrayLibros[i+1].stock}}</p>
+
                 <button type="button" class="boton-basura" (click)="DelCart(arrayLibros[i+1])"> 
                   <i class="bi bi-trash"></i>
                 </button>

@@ -26,7 +26,8 @@ export class LibroDetallesComponent implements OnInit {
       idioma: ['', Validators.nullValidator],
       publicacion: ['', Validators.nullValidator],
       portada: ['', Validators.required],
-      autor:["",Validators.required]
+      autor:["",Validators.required],
+      stock: ["", Validators.required]
     });
   }
 
@@ -54,7 +55,8 @@ export class LibroDetallesComponent implements OnInit {
           idioma: book.idioma,
           publicacion: book.publicacion,
           portada: book.portada,
-          autor:book.autor
+          autor:book.autor,
+          stock: book.stock
         });
       });
     }

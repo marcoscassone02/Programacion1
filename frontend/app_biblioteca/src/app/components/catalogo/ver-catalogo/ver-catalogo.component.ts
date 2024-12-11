@@ -21,7 +21,6 @@ export class VerCatalogoComponent {
   arrayLibros:any[] = [];
   page: number = 1;
   perPage: number = 2;
-  // genero: string = ''
   totalLibros: number = 0;
   cantidadDePaginas: number = Math.ceil(this.totalLibros/this.perPage)
 
@@ -38,8 +37,16 @@ export class VerCatalogoComponent {
      
   }
   addToCart(book: any) {
-    this.cartService.addToCart(book);
-    console.log('Libro agregado al carrito:', book);
+    const exists = this.cartService.getCart().some((item: any) => item.id === book.id);
+    if (!exists) {
+      this.cartService.addToCart(book);
+      console.log('Libro agregado al carrito:', book);
+    } else {
+      console.warn('El libro ya está en el carrito:', book);
+    }
+  }
+  isInCart(book: any): boolean {
+    return this.cartService.getCart().some((item: any) => item.id === book.id);
   }
   getLibros(): void {
     this.librosService.getLibros(this.page, this.perPage, this.librosService.getGenero(), this.librosService.getBusqueda()).subscribe((res: any) => {
@@ -71,5 +78,6 @@ export class VerCatalogoComponent {
     this.getLibros()
     
   }
+
 
 }
